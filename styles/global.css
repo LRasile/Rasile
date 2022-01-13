@@ -26,7 +26,7 @@
   padding-left:18px;
   padding-top:10px;
   box-shadow:1px 1px 1px #111; 
-  transition: all ease 1s;
+  transition: all ease 0.4s;
 }
 .BuyMeACoffee:hover{
   background:#fff;
