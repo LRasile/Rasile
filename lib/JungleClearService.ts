@@ -1,10 +1,5 @@
 import axios from "axios";
-import type { NextApiRequest, NextApiResponse } from "next";
-import { JungleClear } from "../../lib/JungleClear";
-
-interface JungleClearReponse {
-  data: JungleClear[];
-}
+import { JungleClear } from "./JungleClear";
 
 export function parseDataToJungleClears(data: string[][]): JungleClear[] {
   const jungleClears: JungleClear[] = [];
@@ -39,18 +34,13 @@ export function parseRowToJungleClear(row: string[]): JungleClear {
   return null;
 }
 
-export default async (req, res) => {
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
-  const response = await axios
+export function GetJungleClears(apiKey): Promise<JungleClear[]> {
+  return axios
     .request({
       method: "GET",
       url: `https://sheets.googleapis.com/v4/spreadsheets/1Gjk5UrtAbcqdYnRlx9KMDuHGxhKsEv50vhn02cN0y-c/values/'Season 12'!A8:H150?key=${apiKey}`,
     })
     .then((response) => {
-      const parsedData = parseDataToJungleClears(response.data);
-      res.status(200).json({ result: parsedData });
-    })
-    .catch((error) => {
-      res.status(500).json({ error });
+      return parseDataToJungleClears(response.data.values);
     });
-};
+}

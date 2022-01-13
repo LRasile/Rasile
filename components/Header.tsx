@@ -11,6 +11,7 @@ import { Flex } from "@chakra-ui/react";
 const Header = (props) => {
   const { colorMode, toggleColorMode } = useColorMode();
 
+  const headingColor = colorMode === "light" ? "#037" : "#adf";
   return (
     <>
       <Head>
@@ -20,7 +21,7 @@ const Header = (props) => {
       </Head>
       <Flex width="100%">
         <Box padding={4}>
-          <Heading>Jungle Clears</Heading>
+          <Heading style={{ color: headingColor }}>Jungle Clears</Heading>
         </Box>
         <Spacer />
         <Box padding={4}>

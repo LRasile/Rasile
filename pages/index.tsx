@@ -8,46 +8,25 @@ import { CheckIcon, MoonIcon, SearchIcon, SunIcon } from "@chakra-ui/icons";
 import { IconButton } from "@chakra-ui/button";
 import { JungleClear } from "../lib/JungleClear";
 import axios from "axios";
-import { parseDataToJungleClears } from "./api/jungleClears";
-import JungleClearUI from "../components/JungleClear";
+import ChampRow from "../components/ChampRow";
 import {
   Input,
   InputGroup,
   InputLeftElement,
   InputRightElement,
 } from "@chakra-ui/react";
+import { GetJungleClears } from "../lib/JungleClearService";
 
 export interface HomeProps {
   jungleClears: JungleClear[];
+  host: string;
 }
 
-export default function Home(props: HomeProps) {
-  const [data, setData] = useState<JungleClear[] | undefined>(undefined);
-  const [oringalData, setOriginalData] = useState<JungleClear[] | undefined>(
-    undefined
-  );
-  const [errorMessage, setErrorMessage] = useState(undefined);
+export default function Home({ jungleClears, host }: HomeProps) {
+  const [data, setData] = useState<JungleClear[]>(jungleClears);
+  const oringalData: JungleClear[] = jungleClears;
+
   const [search, setSearch] = useState("");
-
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
-
-  async function getData(): Promise<void> {
-    await axios
-      .request({
-        method: "GET",
-        url: `https://sheets.googleapis.com/v4/spreadsheets/1Gjk5UrtAbcqdYnRlx9KMDuHGxhKsEv50vhn02cN0y-c/values/'Season 12'!A8:H150?key=${apiKey}`,
-      })
-      .then((response) => {
-        const parsedData = parseDataToJungleClears(response.data.values);
-        setData(parsedData);
-        setOriginalData(parsedData);
-      })
-      .catch((error) => setErrorMessage(error));
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   useEffect(() => {
     if (oringalData) {
@@ -69,8 +48,8 @@ export default function Home(props: HomeProps) {
       <div className="row">
         <div className="col-12 px-5 m-2">
           <InputGroup>
-            <InputRightElement
-              fontSize="1.75em"
+            <InputLeftElement
+              fontSize="1.5em"
               margin="1"
               children={<SearchIcon color="gray.400" />}
             />
@@ -84,35 +63,17 @@ export default function Home(props: HomeProps) {
         </div>
       </div>
       {data &&
-        data.map((jungleClear) => <JungleClearUI jungleClear={jungleClear} />)}
+        data.map((jungleClear) => <ChampRow jungleClear={jungleClear} />)}
     </div>
   );
 }
 
-// export async function getStaticProps() {
-//   // Call an external API endpoint to get posts
-//   //   const res = await fetch("http://localhost:3000/api/jungleClears");
-//   //   const jungleClears = await res.json();
+export async function getStaticProps() {
+  const jungleClears = await GetJungleClears(process.env.GOOGLE_API_KEY);
 
-//   let jungleClears = null;
-//   await axios
-//     .request({
-//       method: "GET",
-//       url: `https://sheets.googleapis.com/v4/spreadsheets/1Gjk5UrtAbcqdYnRlx9KMDuHGxhKsEv50vhn02cN0y-c/values/'Season 12'!A8:H150?key=`,
-//     })
-//     .then((response) => {
-//       const parsedData = parseDataToJungleClears(response.data);
-//       jungleClears = parsedData;
-//     })
-//     .catch((error) => {
-//       //   res.status(500).json({ error });
-//     });
-
-//   // By returning { props: { posts } }, the Blog component
-//   // will receive `posts` as a prop at build time
-//   return {
-//     props: {
-//       jungleClears: jungleClears,
-//     },
-//   };
-// }
+  return {
+    props: {
+      jungleClears: jungleClears,
+    },
+  };
+}

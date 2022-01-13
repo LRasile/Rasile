@@ -3,6 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../theme";
 import Layout from "../components/Layout";
 import "../styles/bootstrap.css";
+import "../styles/global.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
