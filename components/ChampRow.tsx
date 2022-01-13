@@ -128,7 +128,7 @@ export default function ChampRow({ jungleClear }: ChampRowProps) {
       <div className="col-lg-2 p-0 text-center">
         <SmiteIcon numberOfSmites={parseInt(jungleClear.smitesUsed)} />
       </div>
-      <div className="col-12" style={{ height: isOpen ? 580 : 0 }}>
+      <div className="col-12" style={{ height: isOpen ? 'auto' : 0 }}>
         {isOpen && <VideoEmbed src={jungleClear.link} />}
       </div>
 
