@@ -13,3 +13,22 @@
   width: 100%;
   position: absolute;
 }
+
+.BuyMeACoffee{
+  background:#eee;
+  position:fixed;
+  right:15px;
+  bottom:15px;
+  border-radius:50%  ;
+  height:70px;
+  width:70px;
+  z-index:999;
+  padding-left:18px;
+  padding-top:10px;
+  box-shadow:1px 1px 1px #111; 
+  transition: all ease 1s;
+}
+.BuyMeACoffee:hover{
+  background:#fff;
+   box-shadow:10px 10px 3px #111; 
+}

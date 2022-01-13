@@ -1,12 +1,13 @@
+import React from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { useColorMode } from "@chakra-ui/color-mode";
-import React from "react";
 import { Box, Center, Heading, Spacer } from "@chakra-ui/layout";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { IconButton } from "@chakra-ui/button";
 import { Flex } from "@chakra-ui/react";
+import BuyMeACoffee from "./BuyMeACoffee";
 
 const Header = (props) => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -25,9 +26,10 @@ const Header = (props) => {
         </Box>
         <Spacer />
         <Box padding={4}>
-          <IconButton aria-label="Toggle Mode" onClick={toggleColorMode}>
+          <IconButton aria-label="Toggle Mode" onClick={toggleColorMode} title="Toggle Mode">
             {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-          </IconButton>
+          </IconButton>{' '}
+          <BuyMeACoffee/>
         </Box>
       </Flex>
     </>

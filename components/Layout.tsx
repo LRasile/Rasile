@@ -8,6 +8,7 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { IconButton } from "@chakra-ui/button";
 import Header from "./Header";
 import Footer from "./Footer";
+import BuyMeACoffee from "./BuyMeACoffee";
 
 export const siteTitle = "JungleClears";
 
@@ -15,7 +16,7 @@ export default function Layout({ children }): JSX.Element {
   return (
     <div className="container">
       <Header />
-      <main className={styles.main}>{children}</main>
+      <main className={styles.main}>{children}</main>      
       <Footer />
     </div>
   );
