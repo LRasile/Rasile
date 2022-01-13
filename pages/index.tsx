@@ -29,7 +29,7 @@ export default function Home(props: HomeProps) {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [search, setSearch] = useState("");
 
-  const apiKey = "AIzaSyC39s4iiwp3G4oJ723u8rfpnoxkE6yDonw"; //process.env.NEXT_PUBLIC_GOOGLE_API_KEY
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
 
   async function getData(): Promise<void> {
     await axios
@@ -98,7 +98,7 @@ export default function Home(props: HomeProps) {
 //   await axios
 //     .request({
 //       method: "GET",
-//       url: `https://sheets.googleapis.com/v4/spreadsheets/1Gjk5UrtAbcqdYnRlx9KMDuHGxhKsEv50vhn02cN0y-c/values/'Season 12'!A8:H150?key=AIzaSyC39s4iiwp3G4oJ723u8rfpnoxkE6yDonw`,
+//       url: `https://sheets.googleapis.com/v4/spreadsheets/1Gjk5UrtAbcqdYnRlx9KMDuHGxhKsEv50vhn02cN0y-c/values/'Season 12'!A8:H150?key=`,
 //     })
 //     .then((response) => {
 //       const parsedData = parseDataToJungleClears(response.data);

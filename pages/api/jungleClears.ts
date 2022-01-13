@@ -40,7 +40,7 @@ export function parseRowToJungleClear(row: string[]): JungleClear {
 }
 
 export default async (req, res) => {
-  const apiKey = "AIzaSyC39s4iiwp3G4oJ723u8rfpnoxkE6yDonw"; //process.env.NEXT_PUBLIC_GOOGLE_API_KEY
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
   const response = await axios
     .request({
       method: "GET",
