@@ -16,67 +16,41 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import { GetJungleClears } from "../lib/JungleClearService";
+import { useRouter } from "next/router";
 
-export interface HomeProps {
-  jungleClears: JungleClear[];
-  host: string;
-}
-
-export default function Home({ jungleClears, host }: HomeProps) {
-  const [data, setData] = useState<JungleClear[]>(jungleClears);
-  const oringalData: JungleClear[] = jungleClears;
-
-  const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    if (oringalData) {
-      setData(
-        oringalData.filter(
-          (item) =>
-            item.champion.toLowerCase().search(search.toLowerCase()) != -1
-        )
-      );
-    }
-  }, [search]);
-
-  function handleChange(event) {
-    setSearch(event.target.value);
-  }
+export default function Home() {
+  const router = useRouter();
 
   return (
-    <div className="col-12">
-      <div className="row">
-        <div className="col-12 px-5 m-2">
-          <InputGroup>
-            <InputLeftElement
-              fontSize="1.5em"
-              margin="1"
-              children={<SearchIcon color="gray.400" />}
-            />
-            <Input
-              placeholder="Champion Name"
-              size="lg"
-              value={search}
-              onChange={handleChange}
-            />
-          </InputGroup>
-        </div>
+    <div className="flex-container">
+      <div
+        className="flex-item"
+        style={{ textAlign: "center", cursor: "pointer" }}
+        onClick={() => router.push("/JungleClears")}
+      >
+        <img
+          style={{ margin: "auto", padding: 10 }}
+          height={150}
+          width={150}
+          src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-jungle-disabled.png"
+        />
+        <div className="tileText">Jungle Clears</div>
       </div>
-      {data &&
-        data.map((jungleClear) => <ChampRow jungleClear={jungleClear} />)}
+      <div
+        className="flex-item"
+        style={{ textAlign: "center", cursor: "pointer" }}
+        onClick={() => router.push("/PokemonEffectiveness")}
+      >
+        <div className="Pokeball" style={{ margin: "auto" }}>
+          <div className="PokeballLine"></div>
+          <div className="PokeballDot"></div>
+        </div>
+        <div className="tileText"> Pokemon Effectiveness</div>
+      </div>
     </div>
   );
 }
 
-export async function getStaticProps() {
-  const jungleClears = await GetJungleClears(process.env.GOOGLE_API_KEY);
-
-  return {
-    props: {
-      jungleClears: jungleClears,
-    },
-  };
+{
+  /* <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="Rasile" data-color="#5F7FFF" data-emoji="🍺" data-font="Lato" data-text="Buy me a beer" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script> */
 }
-
-
-{/* <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="Rasile" data-color="#5F7FFF" data-emoji="🍺" data-font="Lato" data-text="Buy me a beer" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script> */}

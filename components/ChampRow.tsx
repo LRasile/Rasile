@@ -43,6 +43,10 @@ const jungleCamps = {
 };
 
 export default function ChampRow({ jungleClear }: ChampRowProps) {
+  if (!jungleClear) {
+    return <div>Error!</div>;
+  }
+
   const key = `${jungleClear.champion}${jungleClear.path}${jungleClear.time}`;
   const [isOpen, setIsOpen] = useState<Boolean>(false);
 
@@ -128,7 +132,7 @@ export default function ChampRow({ jungleClear }: ChampRowProps) {
       <div className="col-lg-2 p-0 text-center">
         <SmiteIcon numberOfSmites={parseInt(jungleClear.smitesUsed)} />
       </div>
-      <div className="col-12" style={{ height: isOpen ? 'auto' : 0 }}>
+      <div className="col-12" style={{ height: isOpen ? "auto" : 0 }}>
         {isOpen && <VideoEmbed src={jungleClear.link} />}
       </div>
 

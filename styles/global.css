@@ -14,21 +14,164 @@
   position: absolute;
 }
 
-.BuyMeACoffee{
-  background:#eee;
-  position:fixed;
-  right:15px;
-  bottom:15px;
-  border-radius:50%  ;
-  height:70px;
-  width:70px;
-  z-index:999;
-  padding-left:18px;
-  padding-top:10px;
-  box-shadow:1px 1px 1px #111; 
+.BuyMeACoffee {
+  background: #eee;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  z-index: 999;
+  padding-left: 18px;
+  padding-top: 10px;
+  box-shadow: 1px 1px 1px #111;
   transition: all ease 0.4s;
 }
-.BuyMeACoffee:hover{
-  background:#fff;
-   box-shadow:10px 10px 3px #111; 
+.BuyMeACoffee:hover {
+  background: #fff;
+  box-shadow: 10px 10px 3px #111;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+.flex-item {
+  margin: 10px;
+  padding: 10px;
+  background: rgba(150, 150, 150, 0.1);
+  border: 1px solid rgba(150, 150, 150, 0.8);
+  flex-grow: 1;
+  flex-basis: 0;
+  flex-shrink: 0;
+  min-width: 200px;
+  border-radius: 10px;
+}
+
+.flex-item-type {
+  margin: 10px;
+  padding: 10px;
+  background: rgba(150, 150, 150, 0.1);
+  flex-grow: 1;
+  flex-basis: 0;
+  flex-shrink: 0;
+  border-radius: 10px;
+  text-align: center;
+}
+.Pokeball {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  border: 20px solid #555;
+  position: relative;
+}
+
+.tileText {
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
+}
+
+.PokeballLine {
+  position: absolute;
+  top: calc(50% - 10px);
+  height: 20px;
+  width: 100%;
+  background-color: #555;
+}
+.PokeballDot {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #555;
+}
+
+.pokemonType {
+  margin: 2px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  width: 60px;
+  height: 20px;
+  display: inline-block;
+}
+.pokemonTypeNormal {
+  background: #a8a878;
+  border: 1px solid #6d6d4e;
+}
+.pokemonTypeFire {
+  background: #f08030;
+  border: 1px solid #9c531f;
+}
+.pokemonTypeFighting {
+  background: #c03028;
+  border: 1px solid #7d1f1a;
+}
+.pokemonTypeWater {
+  background: #6890f0;
+  border: 1px solid #445e9c;
+}
+.pokemonTypeFlying {
+  background: #a890f0;
+  border: 1px solid #6d5e9c;
+}
+.pokemonTypeGrass {
+  background: #78c850;
+  border: 1px solid #4e8234;
+}
+.pokemonTypePoison {
+  background: #a040a0;
+  border: 1px solid #682a68;
+}
+.pokemonTypeElectric {
+  background: #f8d030;
+  border: 1px solid #a1871f;
+}
+.pokemonTypeGround {
+  background: #e0c068;
+  border: 1px solid #927d44;
+}
+.pokemonTypePsychic {
+  background: #f85888;
+  border: 1px solid #a13959;
+}
+.pokemonTypeRock {
+  background: #b8a038;
+  border: 1px solid #786824;
+}
+.pokemonTypeIce {
+  background: #98d8d8;
+  border: 1px solid #638d8d;
+}
+.pokemonTypeBug {
+  background: #a8b820;
+  border: 1px solid #6d7815;
+}
+.pokemonTypeDragon {
+  background: #7038f8;
+  border: 1px solid #4924a1;
+}
+.pokemonTypeGhost {
+  background: #705898;
+  border: 1px solid #493963;
+}
+.pokemonTypeDark {
+  background: #705848;
+  border: 1px solid #49392f;
+}
+.pokemonTypeSteel {
+  background: #b8b8d0;
+  border: 1px solid #787887;
+}
+.pokemonTypeFairy {
+  background: #ee99ac;
+  border: 1px solid #9b6470;
 }
