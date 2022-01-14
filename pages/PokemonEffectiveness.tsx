@@ -18,9 +18,6 @@ import PokemonEntry from "../components/PokemonEntry";
 export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
   const [data, setData] = useState<Pokemon[]>(pokedex);
   const originalData: Pokemon[] = pokedex;
-
-  console.log(typeEfficacy);
-
   const [search, setSearch] = useState("");
 
   useEffect(() => {
