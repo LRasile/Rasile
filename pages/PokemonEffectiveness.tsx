@@ -1,42 +1,39 @@
-import { SearchIcon } from "@chakra-ui/icons";
-import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  useQuery,
-  gql,
-} from "@apollo/client";
+import { SearchIcon } from '@chakra-ui/icons'
+import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
+import React, { useEffect, useState } from 'react'
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
 import {
   parsePokemonGraphQL,
   parseTypeEfficacy,
   Pokemon,
-} from "../lib/PokemonService";
-import PokemonEntry from "../components/PokemonEntry";
+} from '../lib/PokemonService'
+import PokemonEntry from '../components/PokemonEntry'
 
 export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
-  const [data, setData] = useState<Pokemon[]>(pokedex);
-  const originalData: Pokemon[] = pokedex;
-  const [search, setSearch] = useState("");
+  const [data, setData] = useState<Pokemon[]>(pokedex)
+  const originalData: Pokemon[] = pokedex
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     if (originalData) {
       setData(
         originalData.filter(
-          (pokemon) => pokemon.name.search(search.toLowerCase()) != -1
+          (pokemon) =>
+            pokemon.name.search(search.toLowerCase()) != -1 ||
+            `#${pokemon.id}` == search
         )
-      );
+      )
     }
-  }, [search]);
+  }, [search])
 
   function handleChange(event) {
-    setSearch(event.target.value);
+    console.log(event.target.value)
+    setSearch(event.target.value)
   }
 
   return (
     <>
-      <div className="col-12 px-5 m-2">
+      <div className="col-12 p-md-2">
         <InputGroup>
           <InputLeftElement
             fontSize="1.5em"
@@ -44,28 +41,29 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
             children={<SearchIcon color="gray.400" />}
           />
           <Input
-            placeholder="Pokemon"
+            placeholder="Name or number, Rhydon or #112"
             size="lg"
             value={search}
             onChange={handleChange}
           />
         </InputGroup>
       </div>
-      <div className="">
+      <div className="col-12 m-0 p-0">
         {data &&
+          data.length < 10 &&
           data.map((pokemon) => (
             <PokemonEntry pokemon={pokemon} typeEfficacy={typeEfficacy} />
           ))}
       </div>
     </>
-  );
+  )
 }
 
 export async function getStaticProps() {
   const client = new ApolloClient({
-    uri: "https://beta.pokeapi.co/graphql/v1beta",
+    uri: 'https://beta.pokeapi.co/graphql/v1beta',
     cache: new InMemoryCache(),
-  });
+  })
 
   const result = await client.query({
     query: gql`
@@ -95,14 +93,14 @@ export async function getStaticProps() {
         }
       }
     `,
-  });
+  })
 
   return {
     props: {
       pokedex: parsePokemonGraphQL(result.data.pokemon_v2_pokemon),
       typeEfficacy: parseTypeEfficacy(result.data.pokemon_v2_typeefficacy),
     },
-  };
+  }
 }
 
 // https://beta.pokeapi.co/graphql/console/

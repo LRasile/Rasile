@@ -19,6 +19,38 @@
 }
 /*#endregion */
 
+/*#region Index*/
+
+.tileText {
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
+}
+.Pokeball {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  border: 14px solid #555;
+  position: relative;
+}
+.PokeballLine {
+  position: absolute;
+  top: calc(50% - 7px);
+  height: 14px;
+  width: 100%;
+  background-color: #555;
+}
+.PokeballDot {
+  position: absolute;
+  top: calc(50% - 20px);
+  left: calc(50% - 20px);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #555;
+}
+/*#endregion */
+
 /*#region Pokemon*/
 .flex-container {
   display: flex;
@@ -30,7 +62,7 @@
   margin: 10px;
   padding: 10px;
   background: rgba(150, 150, 150, 0.1);
-  border: 1px solid rgba(150, 150, 150, 0.8);
+  border: 0px solid rgba(150, 150, 150, 0.8);
   flex-grow: 1;
   flex-basis: 0;
   flex-shrink: 0;
@@ -39,46 +71,16 @@
 }
 
 .flex-item-type {
-  margin: 10px;
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
   background: rgba(150, 150, 150, 0.1);
   flex-grow: 1;
   flex-basis: 0;
   flex-shrink: 0;
   border-radius: 10px;
   text-align: center;
+  min-width: 85px;
 }
-.Pokeball {
-  border-radius: 50%;
-  height: 150px;
-  width: 150px;
-  border: 20px solid #555;
-  position: relative;
-}
-
-.tileText {
-  margin: 10px;
-  padding: 10px;
-  width: 200px;
-}
-
-.PokeballLine {
-  position: absolute;
-  top: calc(50% - 10px);
-  height: 20px;
-  width: 100%;
-  background-color: #555;
-}
-.PokeballDot {
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  background-color: #555;
-}
-
 .pokemonType {
   margin: 2px;
   border-radius: 20px;
@@ -173,7 +175,7 @@
   margin-left: 5px;
 }
 .champIcon {
-  margin:auto;
+  margin: auto;
   border-radius: 6px;
   object-fit: none;
   height: 100px;
@@ -203,19 +205,19 @@
   border: 0px solid rgba(100, 180, 240, 0.9);
 }
 
-.champRowStatic{
-  display:flex;   
-  flex-wrap: wrap;    
+.champRowStatic {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 
-.champRowStatic > div{
+.champRowStatic > div {
   padding: 10px;
   flex-grow: 1;
   flex-basis: 0;
   flex-shrink: 0;
-  text-align: center;  
+  text-align: center;
 }
 
 .video-responsive {
