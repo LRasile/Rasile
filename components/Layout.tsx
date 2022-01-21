@@ -14,7 +14,7 @@ export const siteTitle = "JungleClears";
 
 export default function Layout({ children }): JSX.Element {
   return (
-    <div className="container">
+    <div className="container p-0">
       <Header />
       <main className={styles.main}>{children}</main>      
       <Footer />

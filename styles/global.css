@@ -1,19 +1,4 @@
-.video-responsive {
-  overflow: hidden;
-  padding-bottom: 56.25%;
-  position: relative;
-  height: 0;
-  margin: 20px;
-}
-
-.video-responsive iframe {
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-}
-
+/*#region Buy Me a Coffee*/
 .BuyMeACoffee {
   background: #eee;
   position: fixed;
@@ -32,7 +17,9 @@
   background: #fff;
   box-shadow: 10px 10px 3px #111;
 }
+/*#endregion */
 
+/*#region Pokemon*/
 .flex-container {
   display: flex;
   flex-wrap: wrap;
@@ -175,3 +162,74 @@
   background: #ee99ac;
   border: 1px solid #9b6470;
 }
+/*#endregion */
+
+/*#region Jungle Clears*/
+.smallIcon {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  display: inline;
+  margin-left: 5px;
+}
+.champIcon {
+  margin:auto;
+  border-radius: 6px;
+  object-fit: none;
+  height: 100px;
+  width: 100px;
+  min-height: 100px;
+  min-width: 100px;
+  border: 0px solid rgba(150, 150, 150, 0.9);
+  transition: all 0.4s ease;
+}
+.champRow {
+  display: relative;
+  cursor: pointer;
+  background: rgba(150, 150, 150, 0.1);
+  border: 0px solid rgba(150, 150, 150, 0.9);
+  margin-top: 10px;
+  padding: 0px;
+  border-radius: 6px;
+  min-height: 80px;
+  transition: all 0.4s ease;
+  line-height: 46px;
+}
+.champRow:hover {
+  background: rgba(100, 180, 240, 0.2);
+  border: 0px solid rgba(100, 180, 240, 0.9);
+}
+.champRow:hover .champIcon {
+  border: 0px solid rgba(100, 180, 240, 0.9);
+}
+
+.champRowStatic{
+  display:flex;   
+  flex-wrap: wrap;    
+  align-items: center;
+  justify-content: center;
+}
+
+.champRowStatic > div{
+  padding: 10px;
+  flex-grow: 1;
+  flex-basis: 0;
+  flex-shrink: 0;
+  text-align: center;  
+}
+
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+  margin: 20px;
+}
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+/*#endregion */

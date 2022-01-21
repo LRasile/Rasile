@@ -44,9 +44,8 @@ export default function JungleClears({ jungleClears }: JungleClearProps) {
   }
 
   return (
-    <div className="col-12">
-      <div className="row">
-        <div className="col-12 px-5 m-2">
+    <>
+        <div className="col-12 p-md-2">
           <InputGroup>
             <InputLeftElement
               fontSize="1.5em"
@@ -60,11 +59,13 @@ export default function JungleClears({ jungleClears }: JungleClearProps) {
               onChange={handleChange}
             />
           </InputGroup>
-        </div>
+      
       </div>
+      <div className="col-12 m-0 p-0">
       {data &&
         data.map((jungleClear) => <ChampRow jungleClear={jungleClear} />)}
-    </div>
+        </div>
+    </>
   );
 }
 

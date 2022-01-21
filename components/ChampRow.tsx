@@ -1,7 +1,6 @@
 import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
 import React, { ReactElement, useState } from "react";
 import { JungleClear } from "../lib/JungleClear";
-import styles from "../styles/JungleClear.module.css";
 import VideoEmbed from "./VideoEmbed";
 
 export interface ChampRowProps {
@@ -17,6 +16,9 @@ function GetImageUrl(championName): string {
 
   if (championName == "Wukong") {
     championName = "MonkeyKing";
+  }
+  if (championName == "Cho'Gath") {
+    championName = "Chogath";
   }
 
   const imageName = championName
@@ -61,7 +63,7 @@ export default function ChampRow({ jungleClear }: ChampRowProps) {
           return (
             <img
               key={key + path + "image" + camp}
-              className={styles.smallIcon}
+              className="smallIcon"
               src={jungleCamps[campName]}
               alt={campName}
               title={camp}
@@ -79,7 +81,7 @@ export default function ChampRow({ jungleClear }: ChampRowProps) {
           key={key + "smite1"}
           alt="Smites Used"
           title="Smites Used"
-          className={styles.smallIcon}
+          className="smallIcon"
           src="https://static.wikia.nocookie.net/leagueoflegends/images/0/05/Smite.png"
         />
         {numberOfSmites != 1 && (
@@ -87,7 +89,7 @@ export default function ChampRow({ jungleClear }: ChampRowProps) {
             key={key + "smite2"}
             alt="Smites Used"
             title="Smites Used"
-            className={styles.smallIcon}
+            className="smallIcon"
             src="https://static.wikia.nocookie.net/leagueoflegends/images/0/05/Smite.png"
           />
         )}
@@ -95,18 +97,12 @@ export default function ChampRow({ jungleClear }: ChampRowProps) {
     );
   }
 
+  function ChampionIcon({name}):JSX.Element{
+    return (<img className="champIcon" src={GetImageUrl(name)} alt={name} title={name} />)
+  }
+
   function Champion({ name }): JSX.Element {
-    return (
-      <>
-        <img
-          className={styles.champIcon}
-          src={GetImageUrl(name)}
-          alt={name}
-          title={name}
-        />
-        <span style={{ fontSize: "1.5rem", fontWeight: "bold" }}>{name}</span>
-      </>
-    );
+    return (<span style={{ fontSize: "1.5rem", fontWeight: "bold" }}>{name}</span>);
   }
 
   function ClearTime({ time }): JSX.Element {
@@ -115,24 +111,20 @@ export default function ChampRow({ jungleClear }: ChampRowProps) {
 
   return (
     <div
-      className={`row ${styles.champRow}`}
+      className="champRow"
       key={key}
       onClick={() => setIsOpen(!isOpen)}
     >
       {/* <div className="col">{props.jungleClear.patch}</div> */}
-      <div className="col-lg-3 text-center">
-        <Champion name={jungleClear.champion} />
+      
+      <div className="champRowStatic">
+          <div style={{minWidth:100}}><ChampionIcon name={jungleClear.champion}/></div>
+          <div style={{minWidth:200}}><Champion name={jungleClear.champion} /></div>
+          <div style={{minWidth:66}}><ClearTime time={jungleClear.time} /></div>
+          <div style={{minWidth:355}}><JunglePath path={jungleClear.path} /></div>
+          <div style={{minWidth:135}}><SmiteIcon numberOfSmites={parseInt(jungleClear.smitesUsed)} /></div>
       </div>
-      <div className="col-lg-5 p-0 text-center">
-        <JunglePath path={jungleClear.path} />
-      </div>
-      <div className="col-lg-2 p-0 text-center">
-        <ClearTime time={jungleClear.time} />
-      </div>
-      <div className="col-lg-2 p-0 text-center">
-        <SmiteIcon numberOfSmites={parseInt(jungleClear.smitesUsed)} />
-      </div>
-      <div className="col-12" style={{ height: isOpen ? "auto" : 0 }}>
+      <div style={{ height: isOpen ? "auto" : 0 }}>
         {isOpen && <VideoEmbed src={jungleClear.link} />}
       </div>
 
