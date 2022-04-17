@@ -68,9 +68,8 @@ export async function getStaticProps() {
   const jungleClears = await GetJungleClears(process.env.GOOGLE_API_KEY)
 
   return {
-    props: {
-      jungleClears: jungleClears,
-    },
+    props: { jungleClears },
+    revalidate: 86400,
   }
 }
 

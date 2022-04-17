@@ -122,7 +122,7 @@ export default function ChampRow({ jungleClear }: ChampRowProps) {
     <div className="champRow" key={key} onClick={() => setIsOpen(!isOpen)}>
       {/* <div className="col">{props.jungleClear.patch}</div> */}
 
-      <div className="champRowStatic">
+      <div className="champRowStatic" key={key + 'champRowStatic'}>
         <div style={{ minWidth: 100 }}>
           <ChampionIcon name={jungleClear.champion} />
         </div>
