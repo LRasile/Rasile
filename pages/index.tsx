@@ -9,28 +9,9 @@ export default function Home() {
       <div
         className="flex-item"
         style={{ textAlign: 'center', cursor: 'pointer' }}
-        onClick={() => router.push('/JungleClears')}
+        onClick={() => router.push('Blog')}
       >
-        <img
-          style={{ margin: 'auto', padding: 10 }}
-          height={150}
-          width={150}
-          src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-jungle-disabled.png"
-        />
-        <div className="tileText">Jungle Clears</div>
-      </div>
-      <div
-        className="flex-item"
-        style={{ textAlign: 'center', cursor: 'pointer' }}
-        onClick={() => router.push('/PokemonEffectiveness')}
-      >
-        <div style={{ height: 150, paddingTop: 20 }}>
-          <div className="Pokeball" style={{ margin: 'auto' }}>
-            <div className="PokeballLine"></div>
-            <div className="PokeballDot"></div>
-          </div>
-        </div>
-        <div className="tileText"> Pokemon Effectiveness</div>
+        <div className="tileText">Blog</div>
       </div>
     </div>
   )

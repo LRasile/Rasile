@@ -6,8 +6,8 @@ import {
   parsePokemonGraphQL,
   parseTypeEfficacy,
   Pokemon,
-} from '../lib/PokemonService'
-import PokemonEntry from '../components/PokemonEntry'
+} from '../../lib/PokemonService'
+import PokemonEntry from '../../components/PokemonEntry'
 
 export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
   const [data, setData] = useState<Pokemon[]>(pokedex)

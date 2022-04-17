@@ -1,16 +1,9 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import { useColorMode } from '@chakra-ui/color-mode'
 import React, { useEffect, useState } from 'react'
-import { Box, Center, Container, Flex, Heading } from '@chakra-ui/layout'
-import { CheckIcon, MoonIcon, SearchIcon, SunIcon } from '@chakra-ui/icons'
-import { IconButton } from '@chakra-ui/button'
-import { JungleClear } from '../lib/JungleClear'
-import axios from 'axios'
-import ChampRow from '../components/ChampRow'
+import { SearchIcon } from '@chakra-ui/icons'
+import { JungleClear } from '../../lib/JungleClear'
+import ChampRow from '../../components/ChampRow'
 import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
-import { GetJungleClears } from '../lib/JungleClearService'
+import { GetJungleClears } from '../../lib/JungleClearService'
 
 export interface JungleClearProps {
   jungleClears: JungleClear[]
