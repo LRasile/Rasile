@@ -32,6 +32,20 @@ export default function Apps() {
         </div>
         <div className="tileText"> Pokemon Effectiveness</div>
       </div>
+
+      <div
+        className="flex-item"
+        style={{ textAlign: 'center', cursor: 'pointer' }}
+        onClick={() => router.push('Apps/LoopHeroSolver')}
+      >
+        <img
+          style={{ margin: 'auto', padding: 10 }}
+          height={150}
+          width={150}
+          src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-jungle-disabled.png"
+        />
+        <div className="tileText">Loop Hero Solver</div>
+      </div>
     </div>
   )
 }

@@ -12,7 +12,14 @@ export default function Home() {
         onClick={() => router.push('Blog')}
       >
         <div className="tileText">Blog</div>
-      </div>
+      </div>      
+      {/* <div
+        className="flex-item"
+        style={{ textAlign: 'center', cursor: 'pointer' }}
+        onClick={() => router.push('Apps')}
+      >
+        <div className="tileText">Apps</div>
+      </div> */}
     </div>
   )
 }
