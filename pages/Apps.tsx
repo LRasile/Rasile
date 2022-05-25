@@ -1,27 +1,29 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import { useRouter } from 'next/router'
 
 export default function Apps() {
   const router = useRouter()
 
+  const styleTile: CSSProperties = { textAlign: 'center', cursor: 'pointer' }
+
   return (
     <div className="flex-container">
       <div
         className="flex-item"
-        style={{ textAlign: 'center', cursor: 'pointer' }}
+        style={styleTile}
         onClick={() => router.push('Apps/JungleClears')}
       >
         <img
           style={{ margin: 'auto', padding: 10 }}
           height={150}
           width={150}
-          src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-jungle-disabled.png"
+          src="../images/JungleIcon.png"
         />
         <div className="tileText">Jungle Clears</div>
       </div>
       <div
         className="flex-item"
-        style={{ textAlign: 'center', cursor: 'pointer' }}
+        style={styleTile}
         onClick={() => router.push('Apps/PokemonEffectiveness')}
       >
         <div style={{ height: 150, paddingTop: 20 }}>
@@ -35,16 +37,16 @@ export default function Apps() {
 
       <div
         className="flex-item"
-        style={{ textAlign: 'center', cursor: 'pointer' }}
+        style={styleTile}
         onClick={() => router.push('Apps/LoopHeroSolver')}
       >
         <img
           style={{ margin: 'auto', padding: 10 }}
           height={150}
           width={150}
-          src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-jungle-disabled.png"
+          src="../images/LoopHeroLogo.png"
         />
-        <div className="tileText">Loop Hero Solver</div>
+        <div className="tileText">Loop Hero</div>
       </div>
     </div>
   )

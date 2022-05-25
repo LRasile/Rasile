@@ -27,7 +27,6 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
   }, [search])
 
   function handleChange(event) {
-    console.log(event.target.value)
     setSearch(event.target.value)
   }
 
@@ -52,7 +51,11 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
         {data &&
           data.length < 10 &&
           data.map((pokemon) => (
-            <PokemonEntry pokemon={pokemon} typeEfficacy={typeEfficacy} />
+            <PokemonEntry
+              pokemon={pokemon}
+              typeEfficacy={typeEfficacy}
+              key={pokemon.id}
+            />
           ))}
       </div>
     </>
