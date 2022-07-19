@@ -17,18 +17,22 @@ function GetImageUrl(championName): string {
   if (championName == 'Wukong') {
     championName = 'MonkeyKing'
   }
-  if (championName == "Cho'Gath") {
-    championName = 'Chogath'
-  }
 
-  const imageName = championName
+  let imageName = championName
     .replace(/ *\([^)]*\) */g, '')
     .replace(/\s/g, '')
     .replace(/\./g, '')
-    .replace(/\'Zix/g, 'zix')
     .replace(/\'/g, '')
 
-  return `http://ddragon.leagueoflegends.com/cdn/12.1.1/img/champion/${imageName}.png`
+  if (championName.indexOf("'") > 0) {
+    imageName = capitalize(imageName)
+  }
+
+  return `http://ddragon.leagueoflegends.com/cdn/12.13.1/img/champion/${imageName}.png`
+}
+
+function capitalize(input: string): string {
+  return input[0].toUpperCase() + input.slice(1).toLowerCase()
 }
 
 const jungleCamps = {
