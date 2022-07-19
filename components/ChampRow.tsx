@@ -25,13 +25,13 @@ function GetImageUrl(championName): string {
     .replace(/\'/g, '')
 
   if (championName.indexOf("'") > 0) {
-    imageName = capitalize(imageName)
+    imageName = Capitalize(imageName)
   }
 
   return `http://ddragon.leagueoflegends.com/cdn/12.13.1/img/champion/${imageName}.png`
 }
 
-function capitalize(input: string): string {
+function Capitalize(input: string): string {
   return input[0].toUpperCase() + input.slice(1).toLowerCase()
 }
 
