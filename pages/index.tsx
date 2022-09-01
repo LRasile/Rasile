@@ -1,26 +1,79 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import { useRouter } from 'next/router'
+import { Box, Flex, Heading, Link, Spacer, Stack, Text } from '@chakra-ui/react'
 
 export default function Home() {
   const router = useRouter()
 
   return (
-    <div className="flex-container">
-      <div
-        className="flex-item"
-        style={{ textAlign: 'center', cursor: 'pointer' }}
-        onClick={() => router.push('Blog')}
-      >
-        <div className="tileText">Blog</div>
-      </div>      
-      {/* <div
-        className="flex-item"
-        style={{ textAlign: 'center', cursor: 'pointer' }}
-        onClick={() => router.push('Apps')}
-      >
-        <div className="tileText">Apps</div>
-      </div> */}
-    </div>
+    <Box>
+      <Flex minWidth="max-content" gap="2">
+        <Box>
+          <Stack spacing={4}>
+            <Heading as="h1" size="2xl">
+              Leonardo Rasile
+            </Heading>
+            <Text fontSize="xl">Owner of Rasile Consulting Ltd.</Text>
+            <Text fontSize="md" noOfLines={[1, 2, 3]}>
+              Experienced Senior/Lead Full Stack Developer specialising in .NET
+              Core, Azure and React.
+            </Text>
+          </Stack>
+        </Box>
+        <Spacer />
+        <Box>
+          <img
+            src="/images/Me.png"
+            alt="Leonardo Rasile"
+            style={{
+              borderRadius: '50%',
+              height: 450 * 0.4,
+              width: 475 * 0.4,
+              margin: '1rem',
+              boxShadow: '1px 1px 1px #333',
+            }}
+          />
+        </Box>
+      </Flex>
+      <Heading as="h2" size="xl" margin={2}>
+        Blog Posts
+      </Heading>
+      <div className="flex-container">
+        <div
+          className="flex-item BlogTile"
+          onClick={() => router.push('Blog/AppConfigStore')}
+        >
+          <Heading as="h3" size="md">
+            App Config Store
+          </Heading>
+          <p>
+            Why and how to set up an application configuration store in Azure
+          </p>
+        </div>
+        <div
+          className="flex-item BlogTile"
+          onClick={() => router.push('Blog/AppConfigStore')}
+        >
+          <Heading as="h3" size="md">
+            App Config Store
+          </Heading>
+          <p>
+            Why and how to set up an application configuration store in Azure
+          </p>
+        </div>
+        <div
+          className="flex-item BlogTile"
+          onClick={() => router.push('Blog/AppConfigStore')}
+        >
+          <Heading as="h3" size="md">
+            App Config Store
+          </Heading>
+          <p>
+            Why and how to set up an application configuration store in Azure
+          </p>
+        </div>
+      </div>
+    </Box>
   )
 }
 

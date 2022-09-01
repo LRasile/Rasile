@@ -4,6 +4,19 @@
   margin-left: 5px;
 }
 
+/*#region Home*/
+.BlogTile {
+  cursor: pointer;
+  padding: 1rem 2rem !important;
+  opacity: 0.6;
+  transition: all ease 0.4s;
+}
+.BlogTile:hover {
+  opacity: 1;
+}
+
+/*#endregion */
+
 /*#region Buy Me a Coffee*/
 .BuyMeACoffee {
   background: #eee;
