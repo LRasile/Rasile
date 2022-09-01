@@ -8,5 +8,5 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import { IconButton } from '@chakra-ui/button'
 
 export default function Footer() {
-  return <footer className={styles.footer}>Built in ♥️</footer>
+  return <footer className={styles.footer}>Built in NextJs</footer>
 }

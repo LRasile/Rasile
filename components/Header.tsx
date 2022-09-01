@@ -30,9 +30,19 @@ const Header = (props) => {
           >
             <img
               className="Logo"
+              src="/logos/logo.svg"
+              alt="Home"
+              style={{
+                filter: colorMode === 'light' ? 'invert(0%)' : 'invert(100%)',
+              }}
+            />
+
+            {/* 
+            <img
+              className="Logo"
               src="/logos/android-chrome-192x192.png"
               title="Home"
-            />
+            /> */}
           </Heading>
         </Box>
         <Spacer />
