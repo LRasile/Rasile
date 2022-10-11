@@ -10,12 +10,11 @@ export interface ChampRowProps {
 function GetImageUrl(championName): string {
   if (!championName) return ''
 
-  if (championName == 'Zeri') {
-    return 'https://static.wikia.nocookie.net/leagueoflegends/images/7/7d/Zeri_OriginalSquare.png'
-  }
-
   if (championName == 'Wukong') {
     championName = 'MonkeyKing'
+  }
+  if (championName == "Rek'Sai") {
+    championName = 'RekSai'
   }
 
   let imageName = championName
