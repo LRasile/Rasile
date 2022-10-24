@@ -6,22 +6,9 @@ export default function Home() {
   const router = useRouter()
 
   return (
-    <Box>
-      <Flex minWidth="max-content" gap="2">
-        <Box>
-          <Stack spacing={4}>
-            <Heading as="h1" size="2xl">
-              Leonardo Rasile
-            </Heading>
-            <Text fontSize="xl">Owner of Rasile Consulting Ltd.</Text>
-            <Text fontSize="md" noOfLines={[1, 2, 3]}>
-              Experienced Senior/Lead Full Stack Developer specialising in .NET
-              Core, Azure and React.
-            </Text>
-          </Stack>
-        </Box>
-        <Spacer />
-        <Box>
+    <div>
+      <div className="row">
+        <div className="col-lg-3 text-center">
           <img
             src="/images/Me.png"
             alt="Leonardo Rasile"
@@ -29,12 +16,22 @@ export default function Home() {
               borderRadius: '50%',
               height: 450 * 0.4,
               width: 475 * 0.4,
-              margin: '1rem',
+              margin: '1rem auto',
               boxShadow: '1px 1px 1px #333',
             }}
           />
-        </Box>
-      </Flex>
+        </div>
+        <div className="col-lg-9 p-5">
+          <Heading as="h1" size="2xl">
+            Leonardo Rasile
+          </Heading>
+          <Text fontSize="xl">Owner of Rasile Consulting Ltd.</Text>
+          <Text fontSize="md" noOfLines={[1, 2, 3]}>
+            Experienced Senior/Lead Full Stack Developer specialising in .NET
+            Core, Azure and React.
+          </Text>
+        </div>
+      </div>
       <Heading as="h2" size="xl" margin={2}>
         Blog Posts
       </Heading>
@@ -73,7 +70,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-    </Box>
+    </div>
   )
 }
 
