@@ -49,7 +49,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
       </div>
       <div className="col-12 m-0 p-0">
         {data &&
-          data.length < 10 &&
+          data.length < 50 &&
           data.map((pokemon) => (
             <PokemonEntry
               pokemon={pokemon}
