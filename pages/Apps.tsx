@@ -48,6 +48,19 @@ export default function Apps() {
         />
         <div className="tileText">Loop Hero</div>
       </div>
+      <div
+        className="flex-item"
+        style={styleTile}
+        onClick={() => router.push('Apps/CardsForBeats')}
+      >
+        <img
+          style={{ margin: 'auto', paddingTop: 40 }}
+          height={150}
+          width={150}
+          src="../images/cardsForBeats/LSBL.png"
+        />
+        <div className="tileText">Cards For Beats</div>
+      </div>
     </div>
   )
 }
