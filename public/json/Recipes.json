@@ -1,0 +1,106 @@
+{
+    "recipes": [
+        {
+            "name": "Fajitas",
+            "category": "Wrap",
+            "ingredients": [],
+            "description": ""
+        },
+        {
+            "name": "Butter Chicken",
+            "category": "Curry",
+            "ingredients": [],
+            "description": ""
+        },
+        {
+            "name": "Lamb Rogan Josh",
+            "category": "Curry",
+            "ingredients": [],
+            "description": ""
+        },
+        {
+            "name": "Tag Trim",
+            "category": "Pasta",
+            "ingredients": [],
+            "description": ""
+        },
+        {
+            "name": "Spag Prawns",
+            "category": "Pasta",
+            "ingredients": [],
+            "description": ""
+        },
+        {
+            "name": "Amatriciana",
+            "category": "Pasta",
+            "ingredients": [],
+            "description": ""
+        },
+        {
+            "name": "Napoli",
+            "category": "Pasta",
+            "ingredients": [],
+            "description": ""
+        },
+        {
+            "name": "Carbonara",
+            "category": "Pasta",
+            "ingredients": [],
+            "description": ""
+        },
+        {
+            "name": "Meatball",
+            "category": "Pasta",
+            "ingredients": [],
+            "description": ""
+        },
+        {
+            "name": "Mushroom Risotto",
+            "category": "Risotto",
+            "ingredients": [],
+            "description": ""
+        },
+        {
+            "name": "Asparagus Risotto",
+            "category": "Risotto",
+            "ingredients": [],
+            "description": ""
+        },
+        {
+            "name": "Beetroot Risotto",
+            "category": "Risotto",
+            "ingredients": [],
+            "description": ""
+        },
+        {
+            "name": "Milanese",
+            "category": "Risotto",
+            "ingredients": [],
+            "description": ""
+        },
+        {
+            "name": "Chow Mein",
+            "category": "Noodle",
+            "ingredients": [],
+            "description": ""
+        },
+        {
+            "name": "Steak",
+            "category": "Meat",
+            "ingredients": [],
+            "description": ""
+        },
+        {
+            "name": "Chicken",
+            "category": "Meat",
+            "ingredients": [],
+            "description": ""
+        },
+        {
+            "name": "Saltimbocca",
+            "category": "Meat",
+            "ingredients": [],
+            "description": ""
+        }
+    ]
+}

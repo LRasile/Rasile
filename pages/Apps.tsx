@@ -61,6 +61,16 @@ export default function Apps() {
         />
         <div className="tileText">Cards For Beats</div>
       </div>
+      <div
+        className="flex-item"
+        style={styleTile}
+        onClick={() => router.push('Apps/Menu')}
+      >
+        <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>
+          🍝
+        </span>
+        <div className="tileText">Menu</div>
+      </div>
     </div>
   )
 }
