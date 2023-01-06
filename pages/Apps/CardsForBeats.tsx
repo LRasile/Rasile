@@ -15,7 +15,7 @@ const noteNames = ['R', 'L', 'H', 'B']
 export default function CardsForBeats() {
   const [bars, setBars] = useState<BeatBarProps[] | undefined>(undefined)
   const [type, setType] = useState<number>(4)
-  const [numberOfBars, setNumberOfBars] = useState<number>(16)
+  const [numberOfBars, setNumberOfBars] = useState<number>(4)
 
   function Generate() {
     let phraseString = ''
