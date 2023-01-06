@@ -65,7 +65,7 @@ export async function getStaticProps() {
       category: 'Wrap',
       ingredients: [],
       difficulty: 3,
-      description: '',
+      description: "Chicken wrap, don't forget the guacamole and sour cream",
       steps: [],
     },
     {
@@ -74,7 +74,7 @@ export async function getStaticProps() {
       difficulty: 4,
       ingredients: [],
       steps: [],
-      description: '',
+      description: 'Chicken curry with a tomato and butter sauce, medium spice',
     },
     {
       name: 'Lamb Rogan Josh',
@@ -82,7 +82,7 @@ export async function getStaticProps() {
       difficulty: 5,
       steps: [],
       ingredients: [],
-      description: '',
+      description: 'Lamb currry with a spicy tomato sauce',
     },
     {
       name: 'Tagliatelle Trimalcione',
@@ -90,10 +90,11 @@ export async function getStaticProps() {
       difficulty: 4,
       ingredients: [],
       steps: [],
-      description: '',
+      description:
+        'Tagliatelle with fennel sausage meat in a cream and tomato sauce',
     },
     {
-      name: 'Spaghetti Alla Gamberi',
+      name: 'Spaghetti Gamberi',
       category: 'Pasta',
       difficulty: 3,
       description: 'Spaghetti with king prawns in a cream and tomato sauce',
@@ -101,36 +102,36 @@ export async function getStaticProps() {
       steps: [],
     },
     {
-      name: 'Spaghetti All’Amatriciana',
+      name: 'Pasta All’Amatriciana',
       category: 'Pasta',
       difficulty: 2,
       ingredients: [],
       steps: [],
-      description: '',
+      description: 'Pasta with pancetta, chilli and tomatoes',
     },
     {
-      name: 'Napoli',
+      name: 'Penne All’ Arrabbiata',
       category: 'Pasta',
       ingredients: [],
       difficulty: 2,
-      description: '',
+      description: 'Pasta with chillies & tomatoes',
       steps: [],
     },
     {
-      name: 'Carbonara',
+      name: 'Spaghetti Carbonara',
       category: 'Pasta',
       difficulty: 4,
       steps: [],
       ingredients: [],
-      description: '',
+      description: 'Spaghetti with pancetta, cream & egg',
     },
     {
-      name: 'Meatball',
+      name: 'Spaghetti Meatballs',
       category: 'Pasta',
       difficulty: 3,
       ingredients: [],
       steps: [],
-      description: '',
+      description: 'Spaghetti with meatballs in a tomato sauce',
     },
     {
       name: 'Mushroom Risotto',
@@ -138,7 +139,7 @@ export async function getStaticProps() {
       difficulty: 2,
       ingredients: [],
       steps: [],
-      description: '',
+      description: 'Risotto made with a variety of different mushrooms',
     },
     {
       name: 'Asparagus Risotto',
@@ -146,7 +147,8 @@ export async function getStaticProps() {
       ingredients: [],
       difficulty: 2,
       steps: [],
-      description: '',
+      description:
+        'Risotto with asparagus and paramasn, this can also be made with tenderstem broccoli',
     },
     {
       name: 'Beetroot Risotto',
@@ -154,7 +156,7 @@ export async function getStaticProps() {
       ingredients: [],
       difficulty: 2,
       steps: [],
-      description: '',
+      description: 'Risotto with fresh beetroot and parmasan',
     },
     {
       name: 'Milanese',
@@ -162,7 +164,7 @@ export async function getStaticProps() {
       ingredients: [],
       difficulty: 1,
       steps: [],
-      description: '',
+      description: 'A traditional risotto made with chicken stock and saffron',
     },
     {
       name: 'Chow Mein',
@@ -170,7 +172,7 @@ export async function getStaticProps() {
       ingredients: [],
       difficulty: 3,
       steps: [],
-      description: '',
+      description: 'Noodles, meat and veg',
     },
     {
       name: 'Steak',
@@ -178,7 +180,7 @@ export async function getStaticProps() {
       ingredients: [],
       difficulty: 1,
       steps: [],
-      description: '',
+      description: 'Pan-fried Sirlion steak',
     },
     {
       name: 'Chicken',
@@ -186,7 +188,7 @@ export async function getStaticProps() {
       ingredients: [],
       difficulty: 2,
       steps: [],
-      description: '',
+      description: 'Oven roasted chicken',
     },
     {
       name: 'Saltimbocca',
@@ -194,7 +196,8 @@ export async function getStaticProps() {
       ingredients: [],
       difficulty: 5,
       steps: [],
-      description: '',
+      description:
+        'Chicken and parma ham with sage cooked in butter and white wine',
     },
   ]
 

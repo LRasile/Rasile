@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Recipe } from '../lib/Recipe'
 
 export interface RecipeCardProps {
@@ -7,6 +7,7 @@ export interface RecipeCardProps {
 
 export default function RecipeCard(props: RecipeCardProps) {
   const recipe = props.recipe
+  const [isOpen, setIsOpen] = useState<Boolean>(false)
 
   function Difficulty({ difficulty }): JSX.Element {
     return (
@@ -32,9 +33,18 @@ export default function RecipeCard(props: RecipeCardProps) {
     )
   }
 
+  function RecipeContent({ recipe }): JSX.Element {
+    return (
+      <div className="col-12" style={{ fontSize: '1' }}>
+        Content
+      </div>
+    )
+  }
+
   return (
     <>
       <div
+        onClick={() => setIsOpen(!isOpen)}
         className="col-12 row"
         style={{
           margin: 5,
@@ -46,7 +56,7 @@ export default function RecipeCard(props: RecipeCardProps) {
         }}
       >
         <div
-          className="col-6"
+          className="col-sm-6"
           style={{
             textTransform: 'capitalize',
             fontSize: '1.5rem',
@@ -55,13 +65,16 @@ export default function RecipeCard(props: RecipeCardProps) {
         >
           {recipe.name}
         </div>
-        <div className="col-3">
+        <div className="col-sm-3">
           <Difficulty difficulty={recipe.difficulty} />
         </div>
-        <div className="col-3">
+        <div className="col-sm-3">
           <Category category={recipe.category} />
         </div>
         <div className="col-12">{recipe.description}</div>
+        <div className="row col-12" style={{ height: isOpen ? 'auto' : 0 }}>
+          {isOpen && <RecipeContent recipe={recipe}></RecipeContent>}
+        </div>
       </div>
     </>
   )
