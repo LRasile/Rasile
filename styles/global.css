@@ -1,3 +1,7 @@
+.container {
+  min-height: 100vh;
+}
+
 .Logo {
   height: 50px;
   width: 50px;
@@ -287,9 +291,9 @@
 }
 
 .beatBarTopLine {
-  width: 100%;
-  margin-left: -0.85em;
-  height: 0.15em;
+  width: 101.2%;
+  margin-left: -0.94em;
+  height: 0.2em;
   background: black;
 }
 

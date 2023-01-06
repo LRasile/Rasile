@@ -6,14 +6,15 @@ import { useColorMode } from '@chakra-ui/color-mode'
 import { Box, Center, Heading, Spacer } from '@chakra-ui/layout'
 import { MoonIcon, StarIcon, SunIcon } from '@chakra-ui/icons'
 import { IconButton } from '@chakra-ui/button'
-import { Flex } from '@chakra-ui/react'
+import { Flex, useColorModeValue } from '@chakra-ui/react'
 import BuyMeACoffee from './BuyMeACoffee'
 import { useRouter } from 'next/router'
 
 const Header = (props) => {
   const router = useRouter()
   const { colorMode, toggleColorMode } = useColorMode()
-  const headingColor = colorMode === 'light' ? '#037' : '#adf'
+  const headingColor = useColorModeValue('#037', '#adf')
+  const filterColor = useColorModeValue('invert(0%)', 'invert(100%)')
 
   return (
     <>
