@@ -22,15 +22,37 @@ export default function CardsForBeats() {
     let noteValidator = ''
     let newBars: BeatBarProps[] = []
 
+    let accentedSnarePositions = [type * 2, type * 6, type * 10, type * 14]
+
     for (let i = 0; i < numberOfBars; i++) {
       let newNotes: BeatNoteProps[] = []
       for (let j = 0; j < type; j++) {
-        let noteName = noteNames[GetRandomNumber(noteNames.length)]
+        let noteName = ''
+        var noteIndex = i * type + j
+
+        // we are an accented snare we should always be L
+        if (accentedSnarePositions.indexOf(noteIndex) > -1) {
+          noteName = 'L'
+        } else {
+          noteName = noteNames[GetRandomNumber(noteNames.length)]
+        }
+
+        // if we are 1 away from an accented snare we must not product a LLL patern
+        if (accentedSnarePositions.indexOf(noteIndex + 1) > -1) {
+          if (noteName == 'L' && noteValidator.indexOf(noteName) > -1) {
+            let remainingNotes = noteNames.filter((x) => x != 'L')
+            noteName = remainingNotes[GetRandomNumber(remainingNotes.length)]
+          }
+        }
 
         // validator whether or not is a valid note sequence, no 3 of the same in a row
         if (noteValidator.length >= 2) {
-          let remainingNotes = noteNames.filter((x) => x != noteValidator[0])
-          noteName = remainingNotes[GetRandomNumber(remainingNotes.length)]
+          if (accentedSnarePositions.indexOf(noteIndex) > -1) {
+            noteName = 'L'
+          } else {
+            let remainingNotes = noteNames.filter((x) => x != noteValidator[0])
+            noteName = remainingNotes[GetRandomNumber(remainingNotes.length)]
+          }
           noteValidator = noteName
         } else if (noteValidator.indexOf(noteName) > -1) {
           noteValidator = noteValidator + noteName
@@ -39,7 +61,6 @@ export default function CardsForBeats() {
         }
 
         phraseString += noteName
-        var noteIndex = i * type + j
         newNotes.push({ name: noteName, type: type, position: noteIndex })
       }
 
@@ -64,7 +85,7 @@ export default function CardsForBeats() {
     <>
       <div className="row col-12">
         <div className="col-md-12 row" style={{ border: '0px solid blue' }}>
-          <div className="col-md-3 m-1">
+          <div className="col-md-3 my-1">
             <FormControl>
               <FormLabel>Number of bars</FormLabel>
               <Select onChange={numberOfBarsOnChange} defaultValue={4}>
@@ -75,7 +96,7 @@ export default function CardsForBeats() {
               </Select>
             </FormControl>
           </div>
-          <div className="col-md-3 m-1">
+          <div className="col-md-3 my-1">
             <FormControl>
               <FormLabel>Type</FormLabel>
               <Select onChange={typeOnChange} defaultValue={4}>
@@ -84,7 +105,7 @@ export default function CardsForBeats() {
               </Select>
             </FormControl>
           </div>
-          <div className="col-md-3 m-1">
+          <div className="col-md-3 my-1">
             <Button
               style={{ width: '100%', marginTop: '2em' }}
               onClick={() => Generate()}

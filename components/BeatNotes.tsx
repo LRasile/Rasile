@@ -3,8 +3,6 @@ import {
   ChevronRightIcon,
   CloseIcon,
   MinusIcon,
-  PhoneIcon,
-  StarIcon,
   TriangleUpIcon,
 } from '@chakra-ui/icons'
 import { useColorMode } from '@chakra-ui/react'
@@ -30,20 +28,19 @@ export default function BeatNote({ name, position, type }: BeatNoteProps) {
     <div style={{ minWidth: '2em', position: 'relative' }}>
       {name == 'R' && <RightHandNote />}
       {name == 'L' && <LeftHandNote />}
-      {(name == 'LF' || name == 'H') && <LeftFootNote />}
-      {(name == 'RF' || name == 'B') && <RightFootNote />}
+      {name == 'B' && <RightFootNote />}
+      {name == 'H' && <LeftFootNote />}
       {isAccentedSnare && (
-        <div className="accentedSnare">
-          <ChevronRightIcon />
-        </div>
+        <>
+          <div className="accentedSnare">
+            <ChevronRightIcon />
+          </div>
+        </>
       )}
     </div>
   )
 }
 
-// import React from 'react'
-
-// x
 export function RightHandNote() {
   const { colorMode } = useColorMode()
   const noteColour = colorMode === 'light' ? '#111' : '#eee'
@@ -78,7 +75,7 @@ export function LeftHandNote() {
   )
 }
 
-export function LeftFootNote() {
+export function RightFootNote() {
   const { colorMode } = useColorMode()
   const noteColour = colorMode === 'light' ? '#111' : '#eee'
   return (
@@ -90,12 +87,12 @@ export function LeftFootNote() {
       <div className="noteHead">
         <TriangleUpIcon />
       </div>
-      <div className="noteLetter">H</div>
+      <div className="noteLetter">B</div>
     </div>
   )
 }
 
-export function RightFootNote() {
+export function LeftFootNote() {
   const { colorMode } = useColorMode()
   const noteColour = colorMode === 'light' ? '#111' : '#eee'
   return (
@@ -105,9 +102,9 @@ export function RightFootNote() {
         style={{ height: '4em', background: noteColour }}
       ></div>
       <div className="noteHead">
-        <StarIcon />
+        <CloseIcon />
       </div>
-      <div className="noteLetter">B</div>
+      <div className="noteLetter">H</div>
     </div>
   )
 }
