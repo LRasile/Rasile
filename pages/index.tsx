@@ -27,8 +27,8 @@ export default function Home() {
           </Heading>
           <Text fontSize="xl">Owner of Rasile Consulting Ltd.</Text>
           <Text fontSize="md" noOfLines={[1, 2, 3]}>
-            Experienced Senior/Lead Full Stack Developer specialising in .NET
-            Core, Azure and React.
+            Experienced Lead Full Stack Developer specialising in .NET Core,
+            Azure and React.
           </Text>
         </div>
       </div>

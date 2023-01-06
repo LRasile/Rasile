@@ -26,10 +26,10 @@ export default function BeatNote({ name, position, type }: BeatNoteProps) {
 
   return (
     <div style={{ minWidth: '2em', position: 'relative' }}>
-      {name == 'R' && <RightHandNote />}
-      {name == 'L' && <LeftHandNote />}
-      {name == 'B' && <RightFootNote />}
-      {name == 'H' && <LeftFootNote />}
+      {name == 'H' && <HighHatNote />}
+      {name == 'S' && <SnareNote />}
+      {name == 'B' && <BassNote />}
+      {name == 'P' && <PedalNote />}
       {isAccentedSnare && (
         <>
           <div className="accentedSnare">
@@ -41,7 +41,7 @@ export default function BeatNote({ name, position, type }: BeatNoteProps) {
   )
 }
 
-export function RightHandNote() {
+export function HighHatNote() {
   const { colorMode } = useColorMode()
   const noteColour = colorMode === 'light' ? '#111' : '#eee'
   return (
@@ -53,12 +53,12 @@ export function RightHandNote() {
       <div className="noteHead">
         <CloseIcon />
       </div>
-      <div className="noteLetter">R</div>
+      <div className="noteLetter">H</div>
     </div>
   )
 }
 
-export function LeftHandNote() {
+export function SnareNote() {
   const { colorMode } = useColorMode()
   const noteColour = colorMode === 'light' ? '#111' : '#eee'
   return (
@@ -70,12 +70,12 @@ export function LeftHandNote() {
       <div className="noteHead">
         <MinusIcon />
       </div>
-      <div className="noteLetter">L</div>
+      <div className="noteLetter">S</div>
     </div>
   )
 }
 
-export function RightFootNote() {
+export function BassNote() {
   const { colorMode } = useColorMode()
   const noteColour = colorMode === 'light' ? '#111' : '#eee'
   return (
@@ -92,7 +92,7 @@ export function RightFootNote() {
   )
 }
 
-export function LeftFootNote() {
+export function PedalNote() {
   const { colorMode } = useColorMode()
   const noteColour = colorMode === 'light' ? '#111' : '#eee'
   return (
@@ -104,7 +104,7 @@ export function LeftFootNote() {
       <div className="noteHead">
         <CloseIcon />
       </div>
-      <div className="noteLetter">H</div>
+      <div className="noteLetter">P</div>
     </div>
   )
 }

@@ -10,7 +10,7 @@ import React, { useState } from 'react'
 import BeatBar, { BeatBarProps } from '../../components/BeatBar'
 import BeatNote, { BeatNoteProps } from '../../components/BeatNotes'
 
-const noteNames = ['R', 'L', 'H', 'B']
+const noteNames = ['H', 'H', 'S', 'S', 'P', 'B', 'B']
 
 export default function CardsForBeats() {
   const [bars, setBars] = useState<BeatBarProps[] | undefined>(undefined)
@@ -32,15 +32,15 @@ export default function CardsForBeats() {
 
         // we are an accented snare we should always be L
         if (accentedSnarePositions.indexOf(noteIndex) > -1) {
-          noteName = 'L'
+          noteName = 'S'
         } else {
           noteName = noteNames[GetRandomNumber(noteNames.length)]
         }
 
         // if we are 1 away from an accented snare we must not product a LLL patern
         if (accentedSnarePositions.indexOf(noteIndex + 1) > -1) {
-          if (noteName == 'L' && noteValidator.indexOf(noteName) > -1) {
-            let remainingNotes = noteNames.filter((x) => x != 'L')
+          if (noteName == 'S' && noteValidator.indexOf(noteName) > -1) {
+            let remainingNotes = noteNames.filter((x) => x != 'S')
             noteName = remainingNotes[GetRandomNumber(remainingNotes.length)]
           }
         }
@@ -48,7 +48,7 @@ export default function CardsForBeats() {
         // validator whether or not is a valid note sequence, no 3 of the same in a row
         if (noteValidator.length >= 2) {
           if (accentedSnarePositions.indexOf(noteIndex) > -1) {
-            noteName = 'L'
+            noteName = 'S'
           } else {
             let remainingNotes = noteNames.filter((x) => x != noteValidator[0])
             noteName = remainingNotes[GetRandomNumber(remainingNotes.length)]
@@ -77,6 +77,7 @@ export default function CardsForBeats() {
   function numberOfBarsOnChange(event) {
     setNumberOfBars(event.target.value)
   }
+
   function typeOnChange(event) {
     setType(event.target.value)
   }
