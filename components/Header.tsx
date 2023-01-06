@@ -13,8 +13,8 @@ import { useRouter } from 'next/router'
 const Header = (props) => {
   const router = useRouter()
   const { colorMode, toggleColorMode } = useColorMode()
-
   const headingColor = colorMode === 'light' ? '#037' : '#adf'
+
   return (
     <>
       <Head>
