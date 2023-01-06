@@ -67,11 +67,7 @@ export default function CardsForBeats() {
           <div className="col-md-3 m-1">
             <FormControl>
               <FormLabel>Number of bars</FormLabel>
-              <Select
-                onChange={numberOfBarsOnChange}
-                placeholder="Select number of bars"
-                defaultValue={4}
-              >
+              <Select onChange={numberOfBarsOnChange} defaultValue={4}>
                 <option>4</option>
                 <option>8</option>
                 <option>12</option>
@@ -82,11 +78,7 @@ export default function CardsForBeats() {
           <div className="col-md-3 m-1">
             <FormControl>
               <FormLabel>Type</FormLabel>
-              <Select
-                onChange={typeOnChange}
-                placeholder="Select type"
-                defaultValue={4}
-              >
+              <Select onChange={typeOnChange} defaultValue={4}>
                 <option value={3}>Triplets</option>
                 <option value={4}>Quavers</option>
               </Select>
