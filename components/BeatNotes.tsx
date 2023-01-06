@@ -4,6 +4,8 @@ import {
   CloseIcon,
   MinusIcon,
   PhoneIcon,
+  StarIcon,
+  TriangleUpIcon,
 } from '@chakra-ui/icons'
 import { useColorMode } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
@@ -86,7 +88,7 @@ export function LeftFootNote() {
         style={{ height: '3em', background: noteColour }}
       ></div>
       <div className="noteHead">
-        <MinusIcon />
+        <TriangleUpIcon />
       </div>
       <div className="noteLetter">H</div>
     </div>
@@ -103,7 +105,7 @@ export function RightFootNote() {
         style={{ height: '4em', background: noteColour }}
       ></div>
       <div className="noteHead">
-        <MinusIcon />
+        <StarIcon />
       </div>
       <div className="noteLetter">B</div>
     </div>
