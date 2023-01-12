@@ -282,7 +282,7 @@
   font-size: 0.8em;
 }
 
-.beatBar {
+.beatGroup {
   margin-left: 2em;
   margin-right: 0.5em;
   margin-top: 4em;
@@ -290,7 +290,7 @@
   border: 0px solid red;
 }
 
-.beatBarTopLine {
+.beatGroupTopLine {
   width: calc(100% + 0.05em);
   margin-left: -0.9em;
   height: 0.2em;

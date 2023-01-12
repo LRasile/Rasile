@@ -1,5 +1,4 @@
 import {
-  AddIcon,
   ChevronRightIcon,
   CloseIcon,
   MinusIcon,
@@ -7,14 +6,10 @@ import {
 } from '@chakra-ui/icons'
 import { useColorMode } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
+import { BeatNoteEntity, defaultSettings } from '../lib/CardsForBeatsService'
+import useCookie from 'react-use-cookie'
 
-export interface BeatNoteProps {
-  name: string
-  position: number
-  type: number
-}
-
-export default function BeatNote({ name, position, type }: BeatNoteProps) {
+export default function BeatNote({ name, position, type }: BeatNoteEntity) {
   const [isAccentedSnare, setIsAccentedSnare] = useState(false)
 
   useEffect(() => {
@@ -42,6 +37,14 @@ export default function BeatNote({ name, position, type }: BeatNoteProps) {
 }
 
 export function HighHatNote() {
+  const [userSettings] = useCookie('settings', JSON.stringify(defaultSettings))
+  const [noteLabel, setNoteLabel] = useState('H')
+
+  useEffect(() => {
+    if (userSettings) {
+      setNoteLabel(JSON.parse(userSettings).highHatLabel)
+    }
+  }, [userSettings])
   const { colorMode } = useColorMode()
   const noteColour = colorMode === 'light' ? '#111' : '#eee'
   return (
@@ -53,12 +56,21 @@ export function HighHatNote() {
       <div className="noteHead">
         <CloseIcon />
       </div>
-      <div className="noteLetter">H</div>
+      <div className="noteLetter">{noteLabel}</div>
     </div>
   )
 }
 
 export function SnareNote() {
+  const [userSettings] = useCookie('settings', JSON.stringify(defaultSettings))
+  const [noteLabel, setNoteLabel] = useState('S')
+
+  useEffect(() => {
+    if (userSettings) {
+      setNoteLabel(JSON.parse(userSettings).snareLabel)
+    }
+  }, [userSettings])
+
   const { colorMode } = useColorMode()
   const noteColour = colorMode === 'light' ? '#111' : '#eee'
   return (
@@ -70,12 +82,21 @@ export function SnareNote() {
       <div className="noteHead">
         <MinusIcon />
       </div>
-      <div className="noteLetter">S</div>
+      <div className="noteLetter">{noteLabel}</div>
     </div>
   )
 }
 
 export function BassNote() {
+  const [userSettings] = useCookie('settings', JSON.stringify(defaultSettings))
+  const [noteLabel, setNoteLabel] = useState('B')
+
+  useEffect(() => {
+    if (userSettings) {
+      setNoteLabel(JSON.parse(userSettings).bassLabel)
+    }
+  }, [userSettings])
+
   const { colorMode } = useColorMode()
   const noteColour = colorMode === 'light' ? '#111' : '#eee'
   return (
@@ -87,14 +108,24 @@ export function BassNote() {
       <div className="noteHead">
         <TriangleUpIcon />
       </div>
-      <div className="noteLetter">B</div>
+      <div className="noteLetter">{noteLabel}</div>
     </div>
   )
 }
 
 export function PedalNote() {
+  const [userSettings] = useCookie('settings', JSON.stringify(defaultSettings))
+  const [noteLabel, setNoteLabel] = useState('P')
+
+  useEffect(() => {
+    if (userSettings) {
+      setNoteLabel(JSON.parse(userSettings).pedalLabel)
+    }
+  }, [userSettings])
+
   const { colorMode } = useColorMode()
   const noteColour = colorMode === 'light' ? '#111' : '#eee'
+
   return (
     <div className="noteContainer">
       <div
@@ -104,7 +135,7 @@ export function PedalNote() {
       <div className="noteHead">
         <CloseIcon />
       </div>
-      <div className="noteLetter">P</div>
+      <div className="noteLetter">{noteLabel}</div>
     </div>
   )
 }
