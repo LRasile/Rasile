@@ -224,13 +224,13 @@ export default function CardsForBeats() {
               >
                 <SettingsIcon />
               </IconButton>{' '}
-              <IconButton
+              {/* <IconButton
                 aria-label="Reload"
                 onClick={() => ReloadPhrase()}
                 title="Reload"
               >
                 <Icon as={BsArrowClockwise} boxSize={5} />
-              </IconButton>
+              </IconButton> */}
             </div>
           </div>
           <div className="col-md-3 my-1"></div>
