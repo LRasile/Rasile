@@ -13,6 +13,12 @@ export default function BeatBar({ notes }: BeatBarProps) {
   return (
     <div className="beatBar">
       <div className="beatBarTopLine" style={{ background: noteColour }}></div>
+      {notes && notes.length >= 4 && (
+        <div
+          className="beatBarTopLine"
+          style={{ background: noteColour, marginTop: '-.8em' }}
+        ></div>
+      )}
       <div className="row">
         {notes.map((note) => (
           <BeatNote

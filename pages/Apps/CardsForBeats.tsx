@@ -7,24 +7,26 @@ import {
   Select,
 } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import BeatBar, { BeatBarProps } from '../../components/BeatBar'
+import BeatBar, {
+  BeatBarProps as BeatGroupProps,
+} from '../../components/BeatBar'
 import BeatNote, { BeatNoteProps } from '../../components/BeatNotes'
 
 const noteNames = ['H', 'H', 'S', 'S', 'P', 'B', 'B']
 
 export default function CardsForBeats() {
-  const [bars, setBars] = useState<BeatBarProps[] | undefined>(undefined)
+  const [groups, setGroups] = useState<BeatGroupProps[] | undefined>(undefined)
   const [type, setType] = useState<number>(4)
-  const [numberOfBars, setNumberOfBars] = useState<number>(4)
+  const [numberOfGroups, setNumberOfGroups] = useState<number>(4)
 
   function Generate() {
     let phraseString = ''
     let noteValidator = ''
-    let newBars: BeatBarProps[] = []
+    let newGroups: BeatGroupProps[] = []
 
     let accentedSnarePositions = [type * 2, type * 6, type * 10, type * 14]
 
-    for (let i = 0; i < numberOfBars; i++) {
+    for (let i = 0; i < numberOfGroups; i++) {
       let newNotes: BeatNoteProps[] = []
       for (let j = 0; j < type; j++) {
         let noteName = ''
@@ -64,18 +66,18 @@ export default function CardsForBeats() {
         newNotes.push({ name: noteName, type: type, position: noteIndex })
       }
 
-      newBars.push({ notes: newNotes })
+      newGroups.push({ notes: newNotes })
     }
 
-    setBars(newBars)
+    setGroups(newGroups)
   }
 
   function GetRandomNumber(length) {
     return Math.floor(Math.random() * length)
   }
 
-  function numberOfBarsOnChange(event) {
-    setNumberOfBars(event.target.value)
+  function numberOfGroupsOnChange(event) {
+    setNumberOfGroups(event.target.value)
   }
 
   function typeOnChange(event) {
@@ -89,11 +91,15 @@ export default function CardsForBeats() {
           <div className="col-md-3 my-1">
             <FormControl>
               <FormLabel>Number of bars</FormLabel>
-              <Select onChange={numberOfBarsOnChange} defaultValue={4}>
-                <option>4</option>
-                <option>8</option>
-                <option>12</option>
-                <option>16</option>
+              <Select onChange={numberOfGroupsOnChange} defaultValue={4}>
+                <option value={4}>1</option>
+                <option value={8}>2</option>
+                <option value={12}>3</option>
+                <option value={16}>4</option>
+                <option value={20}>5</option>
+                <option value={24}>6</option>
+                <option value={28}>7</option>
+                <option value={32}>8</option>
               </Select>
             </FormControl>
           </div>
@@ -102,7 +108,9 @@ export default function CardsForBeats() {
               <FormLabel>Type</FormLabel>
               <Select onChange={typeOnChange} defaultValue={4}>
                 <option value={3}>Triplets</option>
-                <option value={4}>Quavers</option>
+                <option value={4}>Semiquavers</option>
+                <option value={5}>Quintuplet</option>
+                <option value={6}>Sextuplet</option>
               </Select>
             </FormControl>
           </div>
@@ -115,9 +123,9 @@ export default function CardsForBeats() {
             </Button>
           </div>
         </div>
-        {bars && bars.length > 0 && (
+        {groups && groups.length > 0 && (
           <div className="col-md-12 row" style={{ border: '0px solid red' }}>
-            {bars.map((bar) => (
+            {groups.map((bar) => (
               <BeatBar notes={bar.notes} />
             ))}
           </div>

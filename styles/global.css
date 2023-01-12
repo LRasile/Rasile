@@ -291,8 +291,8 @@
 }
 
 .beatBarTopLine {
-  width: 101.2%;
-  margin-left: -0.94em;
+  width: calc(100% + 0.05em);
+  margin-left: -0.9em;
   height: 0.2em;
   background: black;
 }
