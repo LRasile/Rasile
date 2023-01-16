@@ -1,5 +1,7 @@
+# Example
+# .\git.ps1 -m "Format changes"
 param (    
-    # name of the output image
+    # commit message
     [string]$m = 'Updates'
 )
 $date = Get-Date -format "s"
