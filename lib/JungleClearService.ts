@@ -1,21 +1,21 @@
-import axios from "axios";
-import { JungleClear } from "./JungleClear";
+import axios from 'axios'
+import { JungleClear } from './JungleClear'
 
 export function parseDataToJungleClears(data: string[][]): JungleClear[] {
-  const jungleClears: JungleClear[] = [];
+  const jungleClears: JungleClear[] = []
 
-  let endOfData = false;
+  let endOfData = false
   for (let i = 0; i < data.length || !endOfData; i++) {
-    let row = data[i];
-    let jungleClear = parseRowToJungleClear(row);
+    let row = data[i]
+    let jungleClear = parseRowToJungleClear(row)
     if (jungleClear) {
-      jungleClears.push(jungleClear);
+      jungleClears.push(jungleClear)
     } else {
-      endOfData = true;
+      endOfData = true
     }
   }
 
-  return jungleClears;
+  return jungleClears
 }
 
 export function parseRowToJungleClear(row: string[]): JungleClear {
@@ -29,18 +29,18 @@ export function parseRowToJungleClear(row: string[]): JungleClear {
       time: row[5],
       link: row[6],
       player: row[7],
-    };
+    }
   }
-  return null;
+  return null
 }
 
 export function GetJungleClears(apiKey): Promise<JungleClear[]> {
   return axios
     .request({
-      method: "GET",
-      url: `https://sheets.googleapis.com/v4/spreadsheets/1Gjk5UrtAbcqdYnRlx9KMDuHGxhKsEv50vhn02cN0y-c/values/'Season 12'!A8:H150?key=${apiKey}`,
+      method: 'GET',
+      url: `https://sheets.googleapis.com/v4/spreadsheets/1Gjk5UrtAbcqdYnRlx9KMDuHGxhKsEv50vhn02cN0y-c/values/'Season 13'!A8:H150?key=${apiKey}`,
     })
     .then((response) => {
-      return parseDataToJungleClears(response.data.values);
-    });
+      return parseDataToJungleClears(response.data.values)
+    })
 }
