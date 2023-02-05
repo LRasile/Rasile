@@ -21,22 +21,30 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
   }, [search])
 
   function customFilter(pokemon) {
-    // name search
-    if (pokemon.name.search(search.toLowerCase()) != -1) {
-      return true
-    }
+    var searchStrings = search.split(' ')
 
-    // exact id
-    if (`${pokemon.id}` == search) {
-      return true
-    }
+    for (let index = 0; index < searchStrings.length; index++) {
+      const searchString = searchStrings[index]
 
-    // greater than a number
-    if (
-      search.indexOf('>') == 0 &&
-      pokemon.id >= parseInt(search.substring(1, search.length))
-    ) {
-      return true
+      if (searchString == '') {
+        return false
+      }
+
+      // name search
+      if (pokemon.name.search(searchString.toLowerCase()) != -1) {
+        return true
+      }
+      // exact id
+      if (`${pokemon.id}` == searchString) {
+        return true
+      }
+      // greater than a number
+      if (
+        searchString.indexOf('>') == 0 &&
+        pokemon.id >= parseInt(searchString.substring(1, searchString.length))
+      ) {
+        return true
+      }
     }
 
     return false
