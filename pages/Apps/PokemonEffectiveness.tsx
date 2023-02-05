@@ -12,19 +12,35 @@ import PokemonEntry from '../../components/PokemonEntry'
 export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
   const [data, setData] = useState<Pokemon[]>(pokedex)
   const originalData: Pokemon[] = pokedex
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('>906')
 
   useEffect(() => {
     if (originalData) {
-      setData(
-        originalData.filter(
-          (pokemon) =>
-            pokemon.name.search(search.toLowerCase()) != -1 ||
-            `${pokemon.id}` == search
-        )
-      )
+      setData(originalData.filter(customFilter))
     }
   }, [search])
+
+  function customFilter(pokemon) {
+    // name search
+    if (pokemon.name.search(search.toLowerCase()) != -1) {
+      return true
+    }
+
+    // exact id
+    if (`${pokemon.id}` == search) {
+      return true
+    }
+
+    // greater than a number
+    if (
+      search.indexOf('>') == 0 &&
+      pokemon.id >= parseInt(search.substring(1, search.length))
+    ) {
+      return true
+    }
+
+    return false
+  }
 
   function handleChange(event) {
     setSearch(event.target.value)
@@ -40,7 +56,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
             children={<SearchIcon color="gray.400" />}
           />
           <Input
-            placeholder="Name or number, Rhydon or 112"
+            placeholder="Name or number, Rhydon or 112 or >906"
             size="lg"
             value={search}
             onChange={handleChange}
@@ -49,14 +65,15 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
       </div>
       <div className="col-12 m-0 p-0">
         {data &&
-          // data.length < 200 &&
-          data.map((pokemon) => (
-            <PokemonEntry
-              pokemon={pokemon}
-              typeEfficacy={typeEfficacy}
-              key={pokemon.id}
-            />
-          ))}
+          data
+            .slice(0, 150)
+            .map((pokemon) => (
+              <PokemonEntry
+                pokemon={pokemon}
+                typeEfficacy={typeEfficacy}
+                key={pokemon.id}
+              />
+            ))}
       </div>
     </>
   )

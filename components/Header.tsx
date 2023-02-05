@@ -9,6 +9,7 @@ import { IconButton } from '@chakra-ui/button'
 import { Flex, useColorModeValue } from '@chakra-ui/react'
 import BuyMeACoffee from './BuyMeACoffee'
 import { useRouter } from 'next/router'
+import ScrollToTopButton from './ScrollToTopButton'
 
 const Header = (props) => {
   const router = useRouter()
@@ -63,6 +64,7 @@ const Header = (props) => {
             {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
           </IconButton>
           <BuyMeACoffee />
+          <ScrollToTopButton />
         </Box>
       </Flex>
     </>

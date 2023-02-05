@@ -42,6 +42,25 @@
 }
 /*#endregion */
 
+/*#region Scroll to top*/
+.ScrollToTop {
+  /* background: rgba(150, 150, 150, 0.1); */
+  position: fixed;
+  right: 15px;
+  bottom: 100px;
+  border-radius: 50%;
+  z-index: 999;
+  padding-left: 18px;
+  padding-top: 10px;
+  /* box-shadow: 1px 1px 1px #111; */
+  transition: all ease 0.4s;
+}
+.ScrollToTop:hover {
+  /* background: rgba(150, 150, 150, 0.2); */
+  /* box-shadow: 10px 10px 3px #111; */
+}
+/*#endregion */
+
 /*#region Index*/
 
 .tileText {
