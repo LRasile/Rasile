@@ -20,7 +20,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
         originalData.filter(
           (pokemon) =>
             pokemon.name.search(search.toLowerCase()) != -1 ||
-            `#${pokemon.id}` == search
+            `${pokemon.id}` == search
         )
       )
     }
@@ -40,7 +40,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
             children={<SearchIcon color="gray.400" />}
           />
           <Input
-            placeholder="Name or number, Rhydon or #112"
+            placeholder="Name or number, Rhydon or 112"
             size="lg"
             value={search}
             onChange={handleChange}
@@ -49,7 +49,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
       </div>
       <div className="col-12 m-0 p-0">
         {data &&
-          data.length < 50 &&
+          // data.length < 200 &&
           data.map((pokemon) => (
             <PokemonEntry
               pokemon={pokemon}
@@ -68,10 +68,11 @@ export async function getStaticProps() {
     cache: new InMemoryCache(),
   })
 
+  // https://beta.pokeapi.co/graphql/console/
   const result = await client.query({
     query: gql`
       query samplePokeAPIquery {
-        pokemon_v2_pokemon {
+        pokemon_v2_pokemon(where: { id: { _lt: 9999 } }) {
           id
           name
           pokemon_v2_pokemontypes {

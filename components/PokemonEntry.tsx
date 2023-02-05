@@ -59,6 +59,8 @@ export default function PokemonEntry({
     pokemonEfficacyArray.push(typeEff)
   })
 
+  //  /media/sprites/pokemon/10211.png
+
   return (
     <div className="flex-item" key={pokemon.name + pokemon.id}>
       <div
