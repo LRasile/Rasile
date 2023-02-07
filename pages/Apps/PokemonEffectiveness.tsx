@@ -86,7 +86,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
   return (
     <>
       <div className="col-12 p-md-2">
-        <Text fontSize="4xl">Tera types</Text>
+        <Text fontSize="4xl">Pokémon Search</Text>
         <div style={{ margin: '1rem 0rem' }}>
           {baseTypeArray.map((t) => (
             <button
