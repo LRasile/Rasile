@@ -8,6 +8,10 @@
   margin-left: 5px;
 }
 
+button:focus {
+  outline: 0px solid;
+}
+
 /*#region Home*/
 .BlogTile {
   cursor: pointer;
@@ -118,15 +122,18 @@
   min-width: 85px;
 }
 .pokemonType {
-  margin: 2px;
-  border-radius: 20px;
+  margin: 0.1rem;
+  border-radius: 2rem;
   color: #fff;
-  font-size: 13px;
-  line-height: 16px;
+  font-size: 1rem;
+  line-height: 1.2rem;
   text-align: center;
-  width: 60px;
-  height: 20px;
+  width: 5rem;
+  height: 1.5rem;
   display: inline-block;
+}
+.pokemonType:focus {
+  outline: 1px solid;
 }
 .pokemonTypeNormal {
   background: #a8a878;

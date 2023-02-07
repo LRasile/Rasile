@@ -1,5 +1,13 @@
-import { SearchIcon } from '@chakra-ui/icons'
-import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
+import { CloseIcon, SearchIcon } from '@chakra-ui/icons'
+import {
+  Button,
+  IconButton,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
+  Text,
+} from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
 import {
@@ -8,6 +16,27 @@ import {
   Pokemon,
 } from '../../lib/PokemonService'
 import PokemonEntry from '../../components/PokemonEntry'
+
+const baseTypeArray = [
+  { Name: 'Normal', Search: 'Eevee' },
+  { Name: 'Fire', Search: 'Charmander' },
+  { Name: 'Fighting', Search: 'Machamp' },
+  { Name: 'Water', Search: 'Squirtle' },
+  { Name: 'Flying', Search: 'Rookidee' },
+  { Name: 'Grass', Search: 'Tangela' },
+  { Name: 'Poison', Search: 'Arbok' },
+  { Name: 'Electric', Search: 'Pikachu' },
+  { Name: 'Ground', Search: 'Donphan' },
+  { Name: 'Psychic', Search: 'Alakazam' },
+  { Name: 'Rock', Search: 'Regirock' },
+  { Name: 'Ice', Search: 'snorunt' },
+  { Name: 'Bug', Search: 'Caterpie' },
+  { Name: 'Dragon', Search: 'Dragonair' },
+  { Name: 'Ghost', Search: 'Banette' },
+  { Name: 'Dark', Search: 'Zorua' },
+  { Name: 'Steel', Search: 'Registeel' },
+  { Name: 'Fairy', Search: 'Clefairy' },
+]
 
 export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
   const [data, setData] = useState<Pokemon[]>(pokedex)
@@ -57,6 +86,24 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
   return (
     <>
       <div className="col-12 p-md-2">
+        <Text fontSize="4xl">Tera types</Text>
+        <div style={{ margin: '1rem 0rem' }}>
+          {baseTypeArray.map((t) => (
+            <button
+              style={{
+                fontSize: '1.5rem',
+                width: '7rem',
+                height: '2.5rem',
+                margin: '0.25rem 0.25rem',
+              }}
+              className={`pokemonType pokemonType${t.Name}`}
+              key={t.Name}
+              onClick={() => setSearch(t.Search)}
+            >
+              {t.Name}
+            </button>
+          ))}
+        </div>
         <InputGroup>
           <InputLeftElement
             fontSize="1.5em"
@@ -69,6 +116,19 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
             value={search}
             onChange={handleChange}
           />
+          <InputRightElement
+            fontSize="1.5em"
+            children={
+              <button>
+                <CloseIcon
+                  color="gray.400"
+                  onClick={() => {
+                    setSearch('')
+                  }}
+                />
+              </button>
+            }
+          ></InputRightElement>
         </InputGroup>
       </div>
       <div className="col-12 m-0 p-0">
