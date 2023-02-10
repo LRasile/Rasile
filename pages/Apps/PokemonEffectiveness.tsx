@@ -16,6 +16,7 @@ import {
   Pokemon,
 } from '../../lib/PokemonService'
 import PokemonEntry from '../../components/PokemonEntry'
+import PokemonType from '../../components/PokemonTypes'
 
 const baseTypeArray = [
   { Name: 'Normal', Search: 'Eevee' },
@@ -87,21 +88,23 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
     <>
       <div className="col-12 p-md-2">
         <Text fontSize="4xl">Pokémon Search</Text>
-        <div style={{ margin: '1rem 0rem' }}>
+        <div style={{ margin: '1rem 0rem 0rem', textAlign: 'center' }}>
           {baseTypeArray.map((t) => (
-            <button
+            <div
               style={{
-                fontSize: '1.5rem',
-                width: '7rem',
-                height: '2.5rem',
-                margin: '0.25rem 0.25rem',
+                padding: 0,
+                marginBottom: '.4rem',
+                display: 'inline-block',
               }}
-              className={`pokemonType pokemonType${t.Name}`}
-              key={t.Name}
-              onClick={() => setSearch(t.Search)}
             >
-              {t.Name}
-            </button>
+              <button
+                key={t.Name}
+                onClick={() => setSearch(t.Search)}
+                className={`pokemonType${t.Name} pokemonTypeIcon`}
+              >
+                <PokemonType typeName={t.Name.toLocaleLowerCase()} />
+              </button>
+            </div>
           ))}
         </div>
         <InputGroup>
