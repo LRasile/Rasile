@@ -135,8 +135,9 @@ button:focus {
 .pokemonType:focus {
   outline: 1px solid;
 }
+
 .pokemonTypeIcon {
-  margin: 0.1rem;
+  margin: 0.2rem;
   border-radius: 2rem;
   color: #fff;
   text-align: center;
@@ -145,10 +146,20 @@ button:focus {
   padding: 0.4rem;
   transition: all ease 0.1s;
 }
+
 .pokemonTypeIcon:focus {
   filter: saturate(200%);
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
+
+@media screen and (max-width: 586px) {
+  .pokemonTypeIcon {
+    margin: 0.1rem;
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+}
+
 .pokemonTypeNormal {
   background: #a8a878;
   border: 1px solid #6d6d4e;
