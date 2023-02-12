@@ -14,30 +14,10 @@ import {
   parsePokemonGraphQL,
   parseTypeEfficacy,
   Pokemon,
+  baseTypeArray,
 } from '../../lib/PokemonService'
 import PokemonEntry from '../../components/PokemonEntry'
 import PokemonType from '../../components/PokemonTypes'
-
-const baseTypeArray = [
-  { Name: 'Normal', Search: 'Eevee' },
-  { Name: 'Fire', Search: 'Charmander' },
-  { Name: 'Fighting', Search: 'Machamp' },
-  { Name: 'Water', Search: 'Squirtle' },
-  { Name: 'Flying', Search: 'Rookidee' },
-  { Name: 'Grass', Search: 'Tangela' },
-  { Name: 'Poison', Search: 'Arbok' },
-  { Name: 'Electric', Search: 'Pikachu' },
-  { Name: 'Ground', Search: 'Donphan' },
-  { Name: 'Psychic', Search: 'Alakazam' },
-  { Name: 'Rock', Search: 'Regirock' },
-  { Name: 'Ice', Search: 'snorunt' },
-  { Name: 'Bug', Search: 'Caterpie' },
-  { Name: 'Dragon', Search: 'Dragonair' },
-  { Name: 'Ghost', Search: 'Banette' },
-  { Name: 'Dark', Search: 'Zorua' },
-  { Name: 'Steel', Search: 'Registeel' },
-  { Name: 'Fairy', Search: 'Clefairy' },
-]
 
 export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
   const [data, setData] = useState<Pokemon[]>(pokedex)
@@ -101,6 +81,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
                 key={t.Name}
                 onClick={() => setSearch(t.Search)}
                 className={`pokemonType${t.Name} pokemonTypeIcon`}
+                title={t.Name}
               >
                 <PokemonType typeName={t.Name.toLocaleLowerCase()} />
               </button>

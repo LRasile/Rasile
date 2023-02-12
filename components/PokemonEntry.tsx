@@ -1,31 +1,15 @@
+import { Link } from '@chakra-ui/react'
 import React from 'react'
-import { Pokemon, PokemonTypeEfficacy } from '../lib/PokemonService'
+import {
+  baseTypeArray,
+  Pokemon,
+  PokemonTypeEfficacy,
+} from '../lib/PokemonService'
 
 export interface PokemonEntryProps {
   pokemon: Pokemon
   typeEfficacy: PokemonTypeEfficacy[]
 }
-
-const baseTypeArray = [
-  'normal',
-  'fire',
-  'fighting',
-  'water',
-  'flying',
-  'grass',
-  'poison',
-  'electric',
-  'ground',
-  'psychic',
-  'rock',
-  'ice',
-  'bug',
-  'dragon',
-  'ghost',
-  'dark',
-  'steel',
-  'fairy',
-]
 
 export default function PokemonEntry({
   pokemon,
@@ -34,7 +18,7 @@ export default function PokemonEntry({
   let pokemonEfficacyArray = []
 
   baseTypeArray.map((type) => {
-    const attackingType = type
+    const attackingType = type.Name.toLowerCase()
 
     let firstTypingDamageFactor = typeEfficacy.filter(
       (t) =>
@@ -70,7 +54,14 @@ export default function PokemonEntry({
           fontWeight: 'bold',
         }}
       >
-        #{pokemon.id} {pokemon.name}
+        <Link
+          href={`https://www.serebii.net/pokedex-sv/${pokemon.name.replace(
+            '-',
+            ''
+          )}/`}
+        >
+          #{pokemon.id} {pokemon.name}
+        </Link>
       </div>
       <div>
         Type:

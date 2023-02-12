@@ -1,62 +1,83 @@
+export const baseTypeArray = [
+  { Name: 'Normal', Search: 'Eevee' },
+  { Name: 'Fire', Search: 'Charmander' },
+  { Name: 'Fighting', Search: 'Machamp' },
+  { Name: 'Water', Search: 'Squirtle' },
+  { Name: 'Flying', Search: 'Rookidee' },
+  { Name: 'Grass', Search: 'Tangela' },
+  { Name: 'Poison', Search: 'Arbok' },
+  { Name: 'Electric', Search: 'Pikachu' },
+  { Name: 'Ground', Search: 'Donphan' },
+  { Name: 'Psychic', Search: 'Alakazam' },
+  { Name: 'Rock', Search: 'Regirock' },
+  { Name: 'Ice', Search: 'Snorunt' },
+  { Name: 'Bug', Search: 'Caterpie' },
+  { Name: 'Dragon', Search: 'Dragonair' },
+  { Name: 'Ghost', Search: 'Banette' },
+  { Name: 'Dark', Search: 'Zorua' },
+  { Name: 'Steel', Search: 'Registeel' },
+  { Name: 'Fairy', Search: 'Clefairy' },
+]
+
 export interface Pokemon {
-  id: number;
-  name: string;
-  types: string[];
+  id: number
+  name: string
+  types: string[]
 }
 
 export interface PokemonTypeEfficacy {
-  damageFactor: number;
-  attackingType: string;
-  defendingType: string;
+  damageFactor: number
+  attackingType: string
+  defendingType: string
 }
 
 export function parseTypeEfficacy(
   pokemon_v2_typeefficacy
 ): PokemonTypeEfficacy[] {
-  let typeEfficacyArray = [];
+  let typeEfficacyArray = []
 
   pokemon_v2_typeefficacy.map((item) => {
-    typeEfficacyArray.push(parseType(item));
-  });
+    typeEfficacyArray.push(parseType(item))
+  })
 
-  return typeEfficacyArray;
+  return typeEfficacyArray
 }
 
 function parseType(itemJson): PokemonTypeEfficacy {
   const damageFactor =
-    itemJson.damage_factor == 0 ? 0 : itemJson.damage_factor / 100;
+    itemJson.damage_factor == 0 ? 0 : itemJson.damage_factor / 100
 
   const typeEfficacy: PokemonTypeEfficacy = {
     damageFactor: damageFactor,
     attackingType: itemJson.pokemon_v2_type.name,
     defendingType: itemJson.pokemonV2TypeByTargetTypeId.name,
-  };
+  }
 
-  return typeEfficacy;
+  return typeEfficacy
 }
 
 export function parsePokemonGraphQL(pokemon_v2_pokemon): Pokemon[] {
-  let pokemonArray = [];
+  let pokemonArray = []
 
   pokemon_v2_pokemon.map((item) => {
-    pokemonArray.push(parsePokemon(item));
-  });
+    pokemonArray.push(parsePokemon(item))
+  })
 
-  return pokemonArray;
+  return pokemonArray
 }
 
 function parsePokemon(itemJson): Pokemon {
-  let typeArray: string[] = [];
+  let typeArray: string[] = []
 
   itemJson.pokemon_v2_pokemontypes.map((type) => {
-    typeArray.push(type.pokemon_v2_type.pokemon_v2_typenames[0].name);
-  });
+    typeArray.push(type.pokemon_v2_type.pokemon_v2_typenames[0].name)
+  })
 
   const pokemon: Pokemon = {
     id: itemJson.id,
     name: itemJson.name,
     types: typeArray,
-  };
+  }
 
-  return pokemon;
+  return pokemon
 }
