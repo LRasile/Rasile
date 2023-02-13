@@ -61,10 +61,7 @@ export default function PokemonEntry({
           )}/`}
         >
           #{pokemon.id} {pokemon.name}
-        </Link>
-      </div>
-      <div>
-        Type:
+        </Link>{' '}
         <div className={`pokemonType pokemonType${pokemon.types[0]}`}>
           {pokemon.types[0]}
         </div>

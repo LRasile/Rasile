@@ -22,7 +22,7 @@ import PokemonType from '../../components/PokemonTypes'
 export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
   const [data, setData] = useState<Pokemon[]>(pokedex)
   const originalData: Pokemon[] = pokedex
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('>906')
 
   useEffect(() => {
     if (originalData) {
