@@ -25,6 +25,19 @@ export interface Pokemon {
   types: string[]
 }
 
+export function GetUrlName(pokemon: Pokemon) {
+  var nameParts = pokemon.name.split('-')
+  if (nameParts.length === 1) {
+    return capitalizedString(nameParts[0])
+  }
+  const secondPart = nameParts[1]
+  return `${capitalizedString(nameParts[0])}_${capitalizedString(nameParts[1])}`
+}
+
+export function capitalizedString(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 export interface PokemonTypeEfficacy {
   damageFactor: number
   attackingType: string

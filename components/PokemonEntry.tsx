@@ -2,6 +2,7 @@ import { Link } from '@chakra-ui/react'
 import React from 'react'
 import {
   baseTypeArray,
+  GetUrlName as GetUrlName,
   Pokemon,
   PokemonTypeEfficacy,
 } from '../lib/PokemonService'
@@ -43,7 +44,7 @@ export default function PokemonEntry({
     pokemonEfficacyArray.push(typeEff)
   })
 
-  //  /media/sprites/pokemon/10211.png
+  //var pokemonUrlName = pokemon.name.replace('-', '_')
 
   return (
     <div className="flex-item" key={pokemon.name + pokemon.id}>
@@ -55,10 +56,9 @@ export default function PokemonEntry({
         }}
       >
         <Link
-          href={`https://www.serebii.net/pokedex-sv/${pokemon.name.replace(
-            '-',
-            ''
-          )}/`}
+          href={`https://bulbapedia.bulbagarden.net/wiki/${GetUrlName(
+            pokemon
+          )}_(Pokémon)`}
         >
           #{pokemon.id} {pokemon.name}
         </Link>{' '}
