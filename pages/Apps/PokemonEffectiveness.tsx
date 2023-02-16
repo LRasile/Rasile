@@ -141,7 +141,7 @@ export async function getStaticProps() {
   const result = await client.query({
     query: gql`
       query samplePokeAPIquery {
-        pokemon_v2_pokemon(where: { id: { _lt: 9999 } }) {
+        pokemon_v2_pokemon {
           id
           name
           pokemon_v2_pokemontypes {
