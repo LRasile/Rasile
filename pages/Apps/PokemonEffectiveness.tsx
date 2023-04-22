@@ -17,7 +17,7 @@ import {
   baseTypeArray,
 } from '../../lib/PokemonService'
 import PokemonEntry from '../../components/PokemonTypes/PokemonEntry'
-import PokemonType from '../../components/PokemonTypes'
+import PokemonType from '../../components/PokemonTypes/PokemonTypes'
 
 export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
   const [data, setData] = useState<Pokemon[]>(pokedex)
