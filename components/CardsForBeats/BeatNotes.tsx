@@ -6,7 +6,7 @@ import {
 } from '@chakra-ui/icons'
 import { useColorMode } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import { BeatNoteEntity, defaultSettings } from '../lib/CardsForBeatsService'
+import { BeatNoteEntity, defaultSettings } from '../../lib/CardsForBeatsService'
 import useCookie from 'react-use-cookie'
 
 export default function BeatNote({ name, position, type }: BeatNoteEntity) {
@@ -20,7 +20,10 @@ export default function BeatNote({ name, position, type }: BeatNoteEntity) {
   }, [])
 
   return (
-    <div style={{ minWidth: '2em', position: 'relative' }}>
+    <div
+      style={{ minWidth: '2em', position: 'relative' }}
+      className={'noteIndex' + (position + 1)}
+    >
       {name == 'H' && <HighHatNote />}
       {name == 'S' && <SnareNote />}
       {name == 'B' && <BassNote />}
@@ -32,6 +35,10 @@ export default function BeatNote({ name, position, type }: BeatNoteEntity) {
           </div>
         </>
       )}
+      <div
+        className="noteHightlight"
+        style={{ marginLeft: '-.5rem', width: '1.5rem' }}
+      ></div>
     </div>
   )
 }

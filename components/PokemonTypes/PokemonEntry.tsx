@@ -5,7 +5,7 @@ import {
   GetUrlName as GetUrlName,
   Pokemon,
   PokemonTypeEfficacy,
-} from '../lib/PokemonService'
+} from '../../lib/PokemonService'
 
 export interface PokemonEntryProps {
   pokemon: Pokemon

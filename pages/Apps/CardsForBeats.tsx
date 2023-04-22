@@ -1,21 +1,12 @@
-import { ChevronRightIcon, SettingsIcon, SpinnerIcon } from '@chakra-ui/icons'
+import { SettingsIcon } from '@chakra-ui/icons'
+import { FaPlay, FaStop } from 'react-icons/fa'
 import {
   Button,
   FormControl,
-  FormHelperText,
   FormLabel,
   Icon,
   IconButton,
   Select,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  PopoverFooter,
-  PopoverArrow,
-  PopoverCloseButton,
-  PopoverAnchor,
   useDisclosure,
   Modal,
   ModalBody,
@@ -24,22 +15,20 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  toast,
   Input,
   Text,
 } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import BeatGroup from '../../components/BeatGroup'
+import BeatGroup from '../../components/CardsForBeats/BeatGroup'
 import {
   BeatGroupEntity,
   BeatGroupKey,
   BuildGroupsFromPhrase,
   defaultSettings,
   Generate,
-  noteNames,
   UserSettings,
 } from '../../lib/CardsForBeatsService'
-import { BsArrowClockwise, BsShareFill } from 'react-icons/bs'
+import { BsShareFill } from 'react-icons/bs'
 import { useToast } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import useCookie from 'react-use-cookie'
@@ -47,7 +36,7 @@ import useCookie from 'react-use-cookie'
 export default function CardsForBeats() {
   const router = useRouter()
   const [groups, setGroups] = useState<BeatGroupEntity[] | undefined>(undefined)
-  const [type, setType] = useState<number>(4)
+  const [numberOfBeats, setNumberOfBeats] = useState<number>(4)
   const [numberOfGroups, setNumberOfGroups] = useState<number>(4)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const toast = useToast()
@@ -73,7 +62,7 @@ export default function CardsForBeats() {
       const typeQuery = parseInt(pharseQuerySplit[1])
 
       setNumberOfGroups(numberOfGroupsQuery)
-      setType(typeQuery)
+      setNumberOfBeats(typeQuery)
 
       const newGroups = BuildGroupsFromPhrase(
         pharseQuerySplit[2],
@@ -85,16 +74,20 @@ export default function CardsForBeats() {
   }, [router.query.phrase])
 
   function GenerateNewPhrase() {
-    var newGroups = Generate(numberOfGroups, type)
+    var newGroups = Generate(numberOfGroups, numberOfBeats)
     setGroups(newGroups)
   }
+
+  useEffect(() => {
+    GenerateNewPhrase()
+  }, [numberOfBeats, numberOfGroups])
 
   function numberOfGroupsOnChange(event) {
     setNumberOfGroups(event.target.value)
   }
 
   function typeOnChange(event) {
-    setType(event.target.value)
+    setNumberOfBeats(event.target.value)
   }
 
   function highHatLabelChange(event) {
@@ -124,7 +117,7 @@ export default function CardsForBeats() {
     origin = typeof window !== 'undefined' && window.location.origin
 
     const url = router.asPath.split('?')[0]
-    let phraseQueryString = `${numberOfGroups}-${type}-`
+    let phraseQueryString = `${numberOfGroups}-${numberOfBeats}-`
 
     if (groups && groups.length > 0) {
       phraseQueryString += GetPhaseString()
@@ -155,15 +148,106 @@ export default function CardsForBeats() {
     const newGroups = BuildGroupsFromPhrase(
       GetPhaseString(),
       numberOfGroups,
-      type
+      numberOfBeats
     )
     setGroups(newGroups)
+  }
+
+  // Metronome ------------------------------------------------------------------------
+
+  const [tempo, setTempo] = useState<number>(120) // initial tempo is 120 bpm
+  const [isPlaying, setIsPlaying] = useState<boolean>(false)
+  const [intervalId, setIntervalId] = useState(null)
+  const [audioContext, setAudioContext] = useState<AudioContext>(null)
+  const [beatIndex, setBeatIndex] = useState<number>(0)
+  const [totalNumberOfNotes, setTotalNumberOfNotes] = useState<number>(
+    numberOfBeats * numberOfGroups
+  )
+
+  useEffect(() => {
+    setTotalNumberOfNotes(numberOfBeats * numberOfGroups)
+    resetMetronome()
+  }, [numberOfBeats, numberOfGroups])
+
+  useEffect(() => {
+    // initialize the audio context
+    const context = new AudioContext()
+    setAudioContext(context)
+  }, [])
+
+  const playTick = (pitch) => {
+    const osc = audioContext.createOscillator()
+    const gain = audioContext.createGain() // create gain node
+    osc.frequency.value = pitch // set frequency to 1000 Hz for a sharper sound
+    osc.type = 'square' // set oscillator type to square wave for a sharper sound
+    osc.connect(gain) // connect the oscillator to the gain node
+    gain.connect(audioContext.destination) // connect the gain node to the audio context
+    gain.gain.value = 0.1 // set the gain value to 0.1 to reduce volume
+    osc.start(audioContext.currentTime)
+    osc.stop(audioContext.currentTime + 0.05) // stop after 0.05 seconds for a shorter sound
+  }
+
+  let accentedPitch = 1100
+  let normalPitch = 900
+
+  useEffect(() => {
+    let intervalId
+
+    if (isPlaying) {
+      // Play the first tick immediately
+      playTick(normalPitch)
+      setBeatIndex(-2)
+
+      // Set the interval for the remaining ticks
+      const interval = (60 / tempo) * 1000 // interval in ms
+      intervalId = setInterval(() => {
+        setBeatIndex((beatCount) => {
+          let pitch =
+            beatCount % numberOfBeats === 0 ? accentedPitch : normalPitch
+          if (beatCount === totalNumberOfNotes) {
+            resetMetronome()
+            return 1
+          } else {
+            playTick(pitch)
+            return beatCount + 1
+          }
+        })
+      }, interval)
+    } else {
+      resetMetronome()
+    }
+
+    // Clear interval when the component unmounts or is re-rendered
+    return () => clearInterval(intervalId)
+  }, [isPlaying, tempo, totalNumberOfNotes])
+
+  function resetMetronome() {
+    clearInterval(intervalId)
+    setIntervalId(null)
+    setBeatIndex(0)
+    setIsPlaying(false)
+  }
+
+  const handleTempoChange = (event) => {
+    const newTempo = parseInt(event.target.value)
+    if (!isNaN(newTempo) && newTempo > 0 && newTempo <= 300) {
+      setTempo(newTempo)
+      resetMetronome()
+    }
+  }
+
+  const handlePlayClick = () => {
+    setIsPlaying(true)
+  }
+
+  const handleStopClick = () => {
+    setIsPlaying(false)
   }
 
   return (
     <>
       <div className="row col-12">
-        <div className="col-md-12 row" style={{ border: '0px solid blue' }}>
+        <div className="col-md-12 row">
           <div className="col-md-3 my-1">
             <FormControl>
               <FormLabel>Number of bars</FormLabel>
@@ -182,7 +266,7 @@ export default function CardsForBeats() {
           <div className="col-md-3 my-1">
             <FormControl>
               <FormLabel>Type</FormLabel>
-              <Select onChange={typeOnChange} value={type}>
+              <Select onChange={typeOnChange} value={numberOfBeats}>
                 <option value={3}>Triplets</option>
                 <option value={4}>Semiquavers</option>
                 <option value={5}>Quintuplet</option>
@@ -190,18 +274,31 @@ export default function CardsForBeats() {
               </Select>
             </FormControl>
           </div>
-          <div className="col-md-6 my-1">
+          <div className="col-md-3 my-1">
+            <FormControl>
+              <FormLabel>Tempo (BPM)</FormLabel>
+              <Input
+                type="number"
+                defaultValue={tempo}
+                onChange={handleTempoChange}
+                maxW="400px"
+              />
+            </FormControl>
+          </div>
+          <div className="col-md-3 my-1">
             <div style={{ marginTop: '2em' }}>
-              <Button
+              {/* <Button
                 style={{
                   paddingLeft: '2em',
                   paddingRight: '2em',
                 }}
+                mx="1"
                 onClick={() => GenerateNewPhrase()}
               >
                 Generate
-              </Button>{' '}
+              </Button> */}
               <IconButton
+                mx="1"
                 aria-label="Share"
                 onClick={() => {
                   if (CopyPhraseToClipboard()) {
@@ -216,14 +313,36 @@ export default function CardsForBeats() {
                 title="Share"
               >
                 <Icon as={BsShareFill} />
-              </IconButton>{' '}
+              </IconButton>
               <IconButton
+                mx="1"
                 aria-label="Settings"
                 onClick={onOpen}
                 title="Settings"
               >
                 <SettingsIcon />
-              </IconButton>{' '}
+              </IconButton>
+
+              <IconButton onClick={handlePlayClick} aria-label="Play" mx="1">
+                <FaPlay />
+              </IconButton>
+              {isPlaying && (
+                <>
+                  <IconButton
+                    onClick={handleStopClick}
+                    aria-label="Stop"
+                    mx="1"
+                  >
+                    <FaStop />
+                  </IconButton>
+                  {beatIndex < 1 && (
+                    <Text fontSize="xl">{(beatIndex - 1) * -1 * 1}</Text>
+                  )}
+                  {beatIndex >= 1 && (
+                    <Text fontSize="xl">Follow the beat!</Text>
+                  )}
+                </>
+              )}
               {/* <IconButton
                 aria-label="Reload"
                 onClick={() => ReloadPhrase()}
@@ -235,6 +354,8 @@ export default function CardsForBeats() {
           </div>
           <div className="col-md-3 my-1"></div>
         </div>
+        <style>{`.noteIndex${beatIndex} .noteHightlight {  border-bottom: red 3px solid; }`}</style>
+        <div className="col-md-12 row"></div>
         {groups && groups.length > 0 && (
           <div className="col-md-12 row" style={{ border: '0px solid red' }}>
             {groups.map((group) => (

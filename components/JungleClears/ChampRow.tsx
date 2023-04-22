@@ -1,7 +1,7 @@
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react'
 import React, { ReactElement, useState } from 'react'
-import { JungleClear } from '../lib/JungleClear'
-import VideoEmbed from './VideoEmbed'
+import { JungleClear } from '../../lib/JungleClear'
+import VideoEmbed from '../VideoEmbed'
 
 export interface ChampRowProps {
   jungleClear: JungleClear

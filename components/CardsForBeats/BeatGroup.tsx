@@ -1,6 +1,6 @@
 import { useColorMode } from '@chakra-ui/react'
 import React from 'react'
-import { BeatGroupEntity, BeatNoteKey } from '../lib/CardsForBeatsService'
+import { BeatGroupEntity, BeatNoteKey } from '../../lib/CardsForBeatsService'
 import BeatNote from './BeatNotes'
 
 export default function BeatGroup({ notes }: BeatGroupEntity) {

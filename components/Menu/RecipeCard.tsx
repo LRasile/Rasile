@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Recipe } from '../lib/Recipe'
+import { Recipe } from '../../lib/Recipe'
 
 export interface RecipeCardProps {
   recipe: Recipe

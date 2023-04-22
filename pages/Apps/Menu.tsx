@@ -1,7 +1,7 @@
 import { SearchIcon } from '@chakra-ui/icons'
 import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import RecipeCard from '../../components/RecipeCard'
+import RecipeCard from '../../components/Menu/RecipeCard'
 import { Recipe } from '../../lib/Recipe'
 
 export interface MenuProps {

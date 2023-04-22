@@ -16,7 +16,7 @@ import {
   Pokemon,
   baseTypeArray,
 } from '../../lib/PokemonService'
-import PokemonEntry from '../../components/PokemonEntry'
+import PokemonEntry from '../../components/PokemonTypes/PokemonEntry'
 import PokemonType from '../../components/PokemonTypes'
 
 export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {

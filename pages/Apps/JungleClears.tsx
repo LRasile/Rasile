@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { SearchIcon } from '@chakra-ui/icons'
 import { JungleClear } from '../../lib/JungleClear'
-import ChampRow from '../../components/ChampRow'
+import ChampRow from '../../components/JungleClears/ChampRow'
 import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import { GetJungleClears } from '../../lib/JungleClearService'
 
