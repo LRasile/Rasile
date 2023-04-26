@@ -11,7 +11,7 @@ export default function Apps() {
       <div
         className="flex-item"
         style={styleTile}
-        onClick={() => router.push('Apps/JungleClears')}
+        onClick={() => router.push('Prototypes/JungleClears')}
       >
         <img
           style={{ margin: 'auto', padding: 10 }}
@@ -24,7 +24,7 @@ export default function Apps() {
       <div
         className="flex-item"
         style={styleTile}
-        onClick={() => router.push('Apps/PokemonEffectiveness')}
+        onClick={() => router.push('Prototypes/PokemonEffectiveness')}
       >
         <div style={{ height: 150, paddingTop: 20 }}>
           <div className="Pokeball" style={{ margin: 'auto' }}>
@@ -38,7 +38,7 @@ export default function Apps() {
       <div
         className="flex-item"
         style={styleTile}
-        onClick={() => router.push('Apps/LoopHeroSolver')}
+        onClick={() => router.push('Prototypes/LoopHeroSolver')}
       >
         <img
           style={{ margin: 'auto', padding: 10 }}
@@ -51,7 +51,7 @@ export default function Apps() {
       <div
         className="flex-item"
         style={styleTile}
-        onClick={() => router.push('Apps/CardsForBeats')}
+        onClick={() => router.push('Prototypes/CardsForBeats')}
       >
         <img
           style={{ margin: 'auto', paddingTop: 40 }}
@@ -64,7 +64,7 @@ export default function Apps() {
       <div
         className="flex-item"
         style={styleTile}
-        onClick={() => router.push('Apps/Menu')}
+        onClick={() => router.push('Prototypes/Menu')}
       >
         <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>
           🍝

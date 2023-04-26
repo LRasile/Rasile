@@ -50,9 +50,9 @@ const Header = (props) => {
         <Spacer />
         <Box padding={4}>
           <IconButton
-            aria-label="Apps"
-            onClick={() => router.push('/Apps')}
-            title="Apps"
+            aria-label="Prototypes"
+            onClick={() => router.push('/Prototypes')}
+            title="Prototypes"
           >
             <StarIcon />
           </IconButton>{' '}
