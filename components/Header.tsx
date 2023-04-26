@@ -16,6 +16,7 @@ const Header = (props) => {
   const { colorMode, toggleColorMode } = useColorMode()
   const headingColor = useColorModeValue('#037', '#adf')
   const filterColor = useColorModeValue('invert(0%)', 'invert(100%)')
+  const isDebug = process.env.NEXT_PUBLIC_DEBUG === 'true'
 
   return (
     <>
@@ -24,6 +25,13 @@ const Header = (props) => {
         <meta name="description" content="Leos Apps" />
         <link rel="icon" href="/logos/favicon.ico" />
       </Head>
+      {isDebug && (
+        <div
+          style={{ backgroundColor: 'red', color: 'white', padding: '10px' }}
+        >
+          DEBUG MODE
+        </div>
+      )}
       <Flex width="100%">
         <Box padding={4}>
           <Heading
