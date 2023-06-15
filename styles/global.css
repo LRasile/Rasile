@@ -329,11 +329,15 @@ button:focus {
   font-size: 0.8em;
 }
 
+.noteHightlight {
+  border-bottom: transparent 3px solid;
+}
+
 .beatGroup {
   margin-left: 2em;
   margin-right: 0.5em;
-  margin-top: 4em;
-  margin-bottom: 2em;
+  margin-top: 3em;
+  margin-bottom: 1em;
   border: 0px solid red;
 }
 
