@@ -1,5 +1,5 @@
 # Example
-# .\git.ps1 -m "Format changes"
+# .\git.ps1 -m "Message"
 param (    
     # commit message
     [string]$m = 'Updates'

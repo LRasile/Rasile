@@ -8,24 +8,11 @@ export default function Apps() {
 
   return (
     <div className="flex-container">
-      <div
-        className="flex-item"
-        style={styleTile}
-        onClick={() => router.push('Prototypes/JungleClears')}
-      >
-        <img
-          style={{ margin: 'auto', padding: 10 }}
-          height={150}
-          width={150}
-          src="../images/JungleIcon.png"
-        />
+      <div className="flex-item" style={styleTile} onClick={() => router.push('Prototypes/JungleClears')}>
+        <img style={{ margin: 'auto', padding: 10 }} height={150} width={150} src="../images/JungleIcon.png" />
         <div className="tileText">Jungle Clears</div>
       </div>
-      <div
-        className="flex-item"
-        style={styleTile}
-        onClick={() => router.push('Prototypes/PokemonEffectiveness')}
-      >
+      <div className="flex-item" style={styleTile} onClick={() => router.push('Prototypes/PokemonEffectiveness')}>
         <div style={{ height: 150, paddingTop: 20 }}>
           <div className="Pokeball" style={{ margin: 'auto' }}>
             <div className="PokeballLine"></div>
@@ -35,24 +22,11 @@ export default function Apps() {
         <div className="tileText"> Pokemon Effectiveness</div>
       </div>
 
-      <div
-        className="flex-item"
-        style={styleTile}
-        onClick={() => router.push('Prototypes/LoopHeroSolver')}
-      >
-        <img
-          style={{ margin: 'auto', padding: 10 }}
-          height={150}
-          width={150}
-          src="../images/LoopHeroLogo.png"
-        />
+      <div className="flex-item" style={styleTile} onClick={() => router.push('Prototypes/LoopHeroSolver')}>
+        <img style={{ margin: 'auto', padding: 10 }} height={150} width={150} src="../images/LoopHeroLogo.png" />
         <div className="tileText">Loop Hero</div>
       </div>
-      <div
-        className="flex-item"
-        style={styleTile}
-        onClick={() => router.push('Prototypes/CardsForBeats')}
-      >
+      <div className="flex-item" style={styleTile} onClick={() => router.push('Prototypes/CardsForBeats')}>
         <img
           style={{ margin: 'auto', paddingTop: 40 }}
           height={150}
@@ -61,15 +35,13 @@ export default function Apps() {
         />
         <div className="tileText">Cards For Beats</div>
       </div>
-      <div
-        className="flex-item"
-        style={styleTile}
-        onClick={() => router.push('Prototypes/Menu')}
-      >
-        <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>
-          🍝
-        </span>
+      <div className="flex-item" style={styleTile} onClick={() => router.push('Prototypes/Menu')}>
+        <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🍝</span>
         <div className="tileText">Menu</div>
+      </div>
+      <div className="flex-item" style={styleTile} onClick={() => router.push('Prototypes/Timezones')}>
+        <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>⏰</span>
+        <div className="tileText">Timezones</div>
       </div>
     </div>
   )

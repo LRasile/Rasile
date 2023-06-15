@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {
-  Box,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  Text,
-} from '@chakra-ui/react'
+import { Box, Popover, PopoverContent, PopoverTrigger, Text } from '@chakra-ui/react'
 import CityTime from '../../components/Timezones/CityTime'
 
 export default function Timezones() {
@@ -49,12 +43,9 @@ export default function Timezones() {
   return (
     <>
       <h1>UTC Time</h1>
+      <h2>{utcTime}</h2>
       <div style={{ position: 'relative', width: '100%' }}>
-        <img
-          style={{ left: 0, top: 0, position: 'absolute' }}
-          width="100%"
-          src="../images/worldMap.jpg"
-        />
+        <img style={{ left: 0, top: 0, position: 'absolute' }} width="100%" src="../images/worldMap.jpg" />
         {cities.map((city) => (
           <Popover key={city.name}>
             <PopoverTrigger>
@@ -75,11 +66,7 @@ export default function Timezones() {
               />
             </PopoverTrigger>
             <PopoverContent bg="#333" color="#FFF" p={2} borderRadius="4px">
-              <CityTime
-                city={city.name}
-                utcTime={utcTime}
-                timeZone={city.timeZone}
-              />
+              <CityTime city={city.name} utcTime={utcTime} timeZone={city.timeZone} />
             </PopoverContent>
           </Popover>
         ))}
