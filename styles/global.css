@@ -65,6 +65,7 @@ button:focus {
   margin: 10px;
   padding: 10px;
   width: 200px;
+  margin: auto;
 }
 .Pokeball {
   border-radius: 50%;
@@ -92,10 +93,11 @@ button:focus {
 /*#endregion */
 
 /*#region Pokemon*/
+
 .flex-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-content: flex-start;
 }
 .flex-item {
