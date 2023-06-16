@@ -160,8 +160,6 @@ export default function CardsForBeats() {
     // Check for AudioContext availability and fallback if needed
     if (typeof window.AudioContext !== 'undefined') {
       context = new AudioContext()
-    } else if (typeof window.webkitAudioContext !== 'undefined') {
-      context = new window.webkitAudioContext()
     } else {
       // Web Audio API is not supported
       console.error('Web Audio API is not supported in this environment.')
