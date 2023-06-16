@@ -236,7 +236,7 @@ export default function CardsForBeats() {
       const interval = 60 / tempo / numberOfBeats // Calculate the interval based on the tempo and beats per measure
       let nextTickTime = audioContextRef.current.currentTime + interval
 
-      function scheduleTick() {
+      const scheduleTick = () => {
         setBeatIndex((beatCount) => {
           let isAccent = beatCount % numberOfBeats === 0
           if (beatCount === totalNumberOfNotes) {
