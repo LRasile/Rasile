@@ -62,6 +62,12 @@ export default function Apps() {
           <div className="tileText">Timezones</div>
         </div>
       </div>
+      <div className="col-lg-3 col-md-6 my-2">
+        <div style={styleTile} onClick={() => router.push('Prototypes/HtmlColors')}>
+          <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🎨</span>
+          <div className="tileText">HTML Colors</div>
+        </div>
+      </div>
     </div>
   )
 }

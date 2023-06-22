@@ -356,3 +356,19 @@ button:focus {
 }
 
 /*#endregion */
+
+/*#region Html Colors */
+.colorTable {
+  border-collapse: collapse;
+}
+.colorTable tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.colorTable td,
+.colorTable th {
+  padding: 0.5rem 1rem;
+}
+.colorTable th {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
