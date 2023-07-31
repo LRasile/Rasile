@@ -45,8 +45,7 @@ export default function Home() {
           </Heading>
           <Text my={2}>
             I am an experienced software developer with advanced understanding of Azure Cloud technologies. I have also
-            led teams through Agile and Scrum methodologies, utilizing my exceptional leadership and mentorship skills
-            to guide them towards success.
+            led teams through Agile and Scrum methodologies.
           </Text>
           <Text>
             Software development is more than just a job to me; it's a genuine passion. I always strive to stay updated
