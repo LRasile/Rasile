@@ -44,16 +44,14 @@ export default function Home() {
             About me
           </Heading>
           <Text my={2}>
-            As a professional in the software industry, I am proud of the experience and expertise I bring to the table.
-            Over the years, I have honed my skills in software architecture and development, gaining a deep
-            understanding of Azure Cloud technologies. I have also led teams through Agile and Scrum methodologies,
-            utilizing my exceptional leadership and mentorship skills to guide them towards success.
+            I am an experienced software developer with advanced understanding of Azure Cloud technologies. I have also
+            led teams through Agile and Scrum methodologies, utilizing my exceptional leadership and mentorship skills
+            to guide them towards success.
           </Text>
           <Text>
-            My passion for software development is matched only by my commitment to staying on the cutting edge of new
-            technologies and trends. I take pride in being a valuable asset to any organization, helping them optimize
-            their software development processes and drive innovation. With my comprehensive skillset, I am confident in
-            my ability to deliver results and exceed expectations.
+            Software development is more than just a job to me; it's a genuine passion. I always strive to stay updated
+            on the latest technologies and trends, so I can bring the most value to any organization I work with. My
+            goal is to help companies optimize their software development processes and foster innovation.
           </Text>
         </div>
       </div>
