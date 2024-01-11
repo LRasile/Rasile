@@ -18,7 +18,8 @@ export default function Apps() {
     <div className="row justify-content-center">
       <div className="col-lg-3 col-md-6 my-2">
         <div style={styleTile} onClick={() => router.push('Prototypes/JungleClears')}>
-          <img style={{ margin: 'auto', padding: 10 }} height={150} width={150} src="../images/JungleIcon.png" />
+          <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🌲</span>
+          {/* <img style={{ margin: 'auto', padding: 10 }} height={150} width={150} src="../images/JungleIcon.png" /> */}
           <div className="tileText">Jungle Clears</div>
         </div>
       </div>
@@ -35,18 +36,21 @@ export default function Apps() {
       </div>
       <div className="col-lg-3 col-md-6 my-2">
         <div style={styleTile} onClick={() => router.push('Prototypes/LoopHeroSolver')}>
-          <img style={{ margin: 'auto', padding: 10 }} height={150} width={150} src="../images/LoopHeroLogo.png" />
+          <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🔁</span>
+          {/* <img style={{ margin: 'auto', padding: 10 }} height={150} width={150} src="../images/LoopHeroLogo.png" /> */}
           <div className="tileText">Loop Hero</div>
         </div>
       </div>
       <div className="col-lg-3 col-md-6 my-2">
         <div style={styleTile} onClick={() => router.push('Prototypes/CardsForBeats')}>
+          <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🥁</span>
+          {/*         
           <img
             style={{ margin: 'auto', paddingTop: 40 }}
             height={150}
             width={150}
             src="../images/cardsForBeats/LSBL.png"
-          />
+          /> */}
           <div className="tileText">Cards For Beats</div>
         </div>
       </div>
