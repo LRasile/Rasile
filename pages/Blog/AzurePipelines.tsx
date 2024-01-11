@@ -1,5 +1,5 @@
 import React from 'react'
 
-export default function AppConfigStore() {
-  return <div>App Config Store post</div>
+export default function AzurePipelines() {
+  return <div>Azure Pipelines</div>
 }
