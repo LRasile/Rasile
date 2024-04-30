@@ -1,0 +1,41 @@
+OUCH
+-----------
+4 darts
+3 Sniper
+2 Ninja
+Ninja 201
+Sniper 100
+Ninja 201
+Pat
+Ninja 301
+Ninja 301
+Sniper 102
+Ice 101
+Sniper 302
+Sniper 010
+Village 002
+Village 002
+Alch
+Ninja 402, left side of vent
+Alch  320
+Village 202
+20 Ninjas 030
+Ninja 502 
+Village 032
+Ninja 040
+Sniper 402
+Engineer 040
+Spike 240
+
+
+
+
+ABILITIES
+----------------
+21 Pat lvl3
+36 Pat lvl3
+41 Drain water
+43 Pat lvl3
+47 Pat lvl3
+95 Ninja Sabo
+

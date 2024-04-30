@@ -1,0 +1,33 @@
+Castle Revenge
+
+3 darts
+2 snipers
+psy
+first dart 320
+first sniper 022
+second sniper 110
+plane 203
+alch on plane 300
+second sniper 310
+village 220
+first dart 520
+village 320
+second sniper 420
+first sniper 032
+second alch 301
+plane 204
+spike 240
+upgrade alch to 301
+glue 024
+spike 250
+sub 240
+
+ABILITIES
+
+40 lvl3
+50 lvl3
+52 lvl3
+92 Spikes
+94 Spikes + lvl10
+98 Spikes + lvl10
+100 Spikes + sub

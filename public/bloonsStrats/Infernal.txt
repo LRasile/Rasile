@@ -1,0 +1,22 @@
+INFERNAL
+---------------
+Boomerang 012, last on round 1 then first
+Sniper
+Psy
+Sub
+Sniper 100
+Heli 220, Sniper on strong, Psy on strong
+Heli 320
+Alch on Heli 300
+Heli 420
+Sniper 420, 
+Heli 520
+Alch 420
+Wizard 205
+Alch on Wizard 420
+Boomerang 024
+Sub 240
+
+ABILITIES
+---------------
+100 sub + lvl10 + lvl3

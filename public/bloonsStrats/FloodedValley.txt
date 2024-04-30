@@ -1,0 +1,31 @@
+FLOODED VALLEY
+---------------
+2 Sub
+Brickel
+Bottom Sub 001
+Bottom Sub 201
+Boat 110
+Bottom Sub 301 for round 24 only
+Boat 220
+Bottom Sub 401
+Boat 420
+Top Sub 401
+Boat 520
+Ice 031
+Druid 130
+Village 202
+Druid 150
+Village 302 
+Glue 025
+Boomer 204
+Ice 041
+Spike 240
+Spike 240
+
+ABILITIES
+---------------
+
+31 Brickel lvl3
+40 Brickel lvl3
+
+100 use all abilities
