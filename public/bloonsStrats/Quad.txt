@@ -1,0 +1,64 @@
+Quad
+---------------
+ 6 3 Dart start, left bot and top
+ 8 Dart on the right
+ 9 Sniper on strong
+13 Gwen 
+15 Sub 100, lvl3 on pink at top
+17 Sub 200
+19 Sub 201
+20 Sniper2 to strong
+21 Sniper2 to first
+22 Sniper2 to strong, Sniper1 100, lvl3
+24 Left Dart 002
+25 lvl3 on purples retarget to middle, then retarget it back
+27 Sub 202
+29 Spikes bottom left
+31 lvl3
+33 Spikes top right, right dart 002
+35 Sub 203
+36 Spike 100, Alch sub set to strong
+37 Alch 200
+38 Alch 300, lvl3
+40 Village 002, Spike 100, lvl3 target the middle for moad insides, then retarget back to the top
+42 Bottom Spikes 120
+43 Sub set to close and lvl3 then back to first
+45 Village 002, Wizard 020
+46 Wizard 030
+47 Wizard 032, lvl3
+49 Another Wizard 032
+50 Bottom Spikes 320
+51 Alch 300 bottom spikes 
+52 Top Spikes 320
+54 Alch 300 top Spikes
+56 Both villages 202, bottom one first 
+60 Another Spikes 320 in the top 
+61 Another Spikes 200 in the bottom, lvl10
+62 Spikes 300
+63 Spikes 320, lvl10 first wave
+64 Another alch 300 at the bottom, lvl3
+66 Another alch 300 at the top
+71 top village 402, tack to 204 
+74 tack 204 at the bottom, Druid 301, Bottom village 302
+75 Druid 301 on the left, Bottom village 302, lvl3 bfb
+76 lvl10 to clear screen 
+77 Village 402 
+78 Druid 301 on the right, lvl10
+79 Tack 204 
+80 Ice 410
+81 Tack 204 
+82 Ice 410 
+83 Remove top and bot gizibos 
+84 2 Glues 013 on strong
+85 Boomerang 204 on strong at the bottom
+86 Boomerang 024 on strong at the top
+88 Boomerang 204 on strong at the bottom
+90 2 Mechanic 030 one at the top one at the bottom
+92 Bottom glue 014 
+93 Both glues to 024
+95 Ninja 040, Sabotage when DDTs show
+96 Boomerang 204 on strong at the bottom
+97 2 more Tack 204, Sub 030
+98 Sabotage right away, when bfb rounds the corner use lvl3 and lvl10
+99 Sabotage when DDTs spawn
+100 Sub 040, another Tack 203 at the top, lvl3 and lvl10 when bad rounds the corner, first strike to kill

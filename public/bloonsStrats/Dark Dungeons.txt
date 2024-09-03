@@ -1,0 +1,80 @@
+R06: 3 Darts
+R07: Activate Right Trap
+R08: Place Dart Right side + Activate Left Trap
+R09: Upgrade Center Dart 0-1-0 + Place Left Dart + Set bottom 3 darts on Strong
+R10: Place Dart Center.
+R11: 
+R12
+R13: Place Geraldo on Strong.
+R14: Place spikes left and right side + Activate Right Trap 
+R15: Set Right Dart on Strong + Shooty Turret Right side + Trap Left
+R16: Shooty Turret Left side  
+R17: 
+R18: Shooty Turret Right side + Nails Center
+R19: Druid Left side on Strong
+R20: 
+R21: Druid Center on Strong + Nails Right
+R22: 
+R23: Shooty Turret Left side + Center Druid 0-1-0
+R24: Trap Left
+R25: 
+R26: Right side Trap: when shooty turrets shoot in the wrong direction
+R27: Druid 0-3-0
+R28: Druid 1-3-0
+R29:
+R30: Druid 1-1-0
+
+R33: Spikes Left  and Center + Camo Potion on 1-3-0 Druid + Set druid on First
+R34: Druid 1-3-0
+R35
+R36: Ace 0-0-1 + traps just for safety
+R37: Ace 0-0-2 + Trap Left and Right on Camo's
+Rxx: Ace 0-0-3 into 2-0-3
+R40: Set Ace at the Top side of the Map + Pickle Ace + Blade  Trap
+R41
+R42: Camo on Ace
+R43: Village 2-0-0 as much to the Right as possible
+R44:
+R45: Both Traps when Camo's Spawn (just for safety)
+R46: Village 2-0-2 + Alchemist 3-2-0 as much to the Left as possible.
+
+R49: Sauce Center 2x + Left side
+
+R53: Camo Ace + Glue Right and Center
+
+R57: Pickle Ace + Trap Left if needed
+
+R59: Ace 2-0-4
+
+R63: Glue Right + Alchemist 4-2-0 + Traps if needed
+Rxx: Spike Factory 0-0-4
+
+R67: Camo on Ace
+
+R71: Glue Right and Left
+
+R76: Glue Right + Active both Traps (just for safety)
+
+R78: Camo Ace + Glue Left and Right + Activate both Traps 2x
+R79: Druids on First + Spike Factory 0-2-5
+R80:
+R81: Stone Ace and Spike + Alchemist 4-2-0
+R82: 
+R83: 2x Ice 1-1-0 + Glue Right and Left side + 5x Nails Right side.
+R84: Village 0-0-2 + Glue 0-1-3 on Strong
+R85: Move Ace to the Left corner + Village 2-0-2 + Boomerang 2-0-4 on Strong
+R86:
+R87: Boomerang 2-0-4
+R88: 
+R89:
+R90: Sauce 2 Ice Monkeys + Glue Left and Right + 5x Nails Right and Left
+R91: Stone on Spike and Ace + Pickle on Ace + Creepy Idol
+R92: Spike Factory on Smart + Village 0-0-2 + Tack Shooter 2-0-4  + Pickle and Stone + 2x Sauce
+R93: Alchemist 4-2-0
+R94: 
+R95: Camo on Ace and Druid + 5x Nails + Sauce Center + Village to 3-0-2 + Alchemist 0-3-0 on Strong
+R96: 2x Creepy Idols + Sauce + Pickle Ace + Glue 0-1-3 on Strong
+R97: 
+R98: Genie Bottles 2x!!!!! + Sauce + Pickle Tack
+R99:
+R100: Free. Do whatever you want. Make it juicy :)

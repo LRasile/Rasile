@@ -1,6 +1,98 @@
 OUCH
 -----------
-4 darts
+ 6 - Dart and Sub 
+ 7 - Dart, First dart on strong
+ 9 - Sub
+11 - Sniper on strong
+12 - Sniper2 on strong
+13 - Sub 100
+15 - Sub 101
+18 - Sub on strong, only this round
+19 - Psi Strong
+21 - lvl3 and Sub 201
+25 - lvl3
+27 - Sub 202. lvl3
+28 - Sniper 100
+33 - Sub 402
+37 - Sub 202
+38 - Sub 203
+40 - Sub 204, lvl3
+43 - Ice 030
+45 - Village 002
+46 - Village 002
+47 - Alch 300
+49 - Two Sub 202
+50 - Village 202
+51 - Two Sub 203
+54 - Sniper 300
+60 - Two Sub 204
+63 - Snowstorm, ability per wave
+
+36 - Druid 210
+39 - Sub 204
+40 - Alch 300, lvl3
+47 - Boat 302
+49 - Druid 310
+50 - lvl3
+54 - Sub 203
+55 - Druid 310
+59 - Alch 320
+60 - Druid 310, lvl3
+63 - Sub 204 and new Sub 204
+64 - lvl3 on last moabs
+65 - lvl3 on reds
+71 - Sniper 420, lvl3 
+75 - Sniper 042, Alch 420, lvl3
+76 - lvl10 
+77 - lvl3
+78 - lvl10 2 times
+79 - lvl3
+80 - lvl3 and lvl10 
+81 - Sub 205 and lvl3 mid round
+83 - Sub 204
+84 - Sub 204, lvl3
+85 - Sub 204
+87 - Sub 230
+89 - lvl10 and boomer 024
+
+
+
+15 - Brickell, Sub 100
+17 - Sub 101
+21 - lvl3
+22 - Sub 102
+23 - Sub 202
+24 - Sniper 010 
+29 - Sniper 110
+33 - Sub 402
+36 - Boat 210 upgrade during round
+37 - Boat 220
+38 - Sniper 120
+39 - Boat 320
+40 - Sniper 220, lvl3 and lvl7
+45 - Boat 420
+49 - lvl3
+55 - lvl3
+57 - lvl3
+58 - Boat 520
+60 - lvl3
+63 - Alch 420
+
+75 - Ice 030, Village 200
+78 - lvl3*2 once for each wave
+79 - village 202, Boat 420
+80 - lvl10
+82 - Sub 240
+84 - lvl3 
+85 - first strike second zomg
+87 - Plane 204, need to upgrade mid round and lvl3 
+90 - lvl10 and lvl3
+91 - Alch 420 on plane, lvl7
+92 - Ice 420, Snowstorm then first strike the last zomg
+93 - lvl3 when ddt
+94 - Spike 240, all abilities
+
+
 3 Sniper
 2 Ninja
 Ninja 201

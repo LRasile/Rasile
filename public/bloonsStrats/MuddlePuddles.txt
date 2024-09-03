@@ -1,0 +1,41 @@
+6  - Quincy - Strong -> First
+7  - Quincy - First
+9  - Dart1 - last, Sub1 - strong
+10 - Dart1 to strong, Dart2 - last -> strong on wave then place another Dart3 at the bottom
+11 - Dart1 to last 
+12 - lvl3 on yellows
+13 - Sniper1 - strong
+14 - Sub2
+15 - Sniper2 - strong
+16 - Sniper2 - set to first when they get passed the sub
+17 - Sub2 100
+18 - Sub2 200, lvl3 wave of greens
+19 - Sniper2 and Quincy - strong
+20 - Sub2 201
+21 - Dart4 for vision
+22 - Sniper1 100
+25 - lvl3 the purples
+26 - Sub2 202
+28 - Druid 030
+32 - Dart2 002
+35 - Sub2 203
+36 - lvl3 first wave
+37 - Sub2 204, lvl3 camos
+40 - Alch 300
+42 - 2 102 villages
+45 - Sub3 203
+47 - Sub4 220
+49 - Alch 420, village 202
+55 - lvl10 big ceramic wave, go slow
+63 - lvl10 first wave, Sub 205
+Try and fit 8 subs in that pool now, 7 is fine all to 203, top right dart to 002, and get an alch 420 on the top left of the pool
+79 - Sub 240
+80 - first strike
+87 - first strike last zomg
+88 - Sub 250
+93 - Mortar 024, re target each round
+94 - upgrade the subs to armour piercing darts, use first strike on last zomg and use lvl10
+97 - first strike 2nd zomg
+98 - ninja 040, lvl3 when zomgs round the first bend then lvl10 when they start to go round the second curve
+99 - Ice 401 and sabotage 99
+100- Grab 104 tacks on the far right, count 3 seconds on the final damage phase then first strike

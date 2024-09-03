@@ -1,0 +1,61 @@
+RAVINE
+---------
+ 6 - 3 Darts, left one on strong, top one on last
+ 7 - Bottom right dart 010, use sword on last green
+ 8 - Dart on the bottom left on strong
+ 9 - Dart on the bottom right on strong
+10 - Dart on the bottom left
+13 - Gerry
+14 - GSpikes on exit2
+15 - GTurret bottom right,  GSpikes on exit1
+16 - GTurret bottom left
+18 - Druid
+19 - Sniper on strong
+20 - Druid 010
+21 - GSpikes on exit3
+22 - GGlue left
+23 - GGlue right
+24 - GSpikes on exit4
+27 - Druid 030
+28 - Druid 130
+31 - GSpikes on exit3
+33 - Camo Druid
+34 - Pickle Druid
+36 - GGlue left
+37 - Druid 140
+40 - Spikes 102 on smart, GMalestrom and GGlue
+42 - Village 002
+43 - GGlue right
+44 - Spikes 302
+45 - Camo Druid
+46 - Spikes 102 on smart
+47 - Pickle Druid, Alch 300
+49 - Spikes 302
+50 - Village 102, Heli 003, GFire Druid
+51 - GBunny, Alch 300
+54 - GBunny, Pickle Druid
+55 - Camo Druid
+58 - Heli 004
+59 - GBunny, Heli 104
+60 - GBunny
+61 - Village 202
+63 - GGlue right x2
+64 - Position Heli on the left left lane then track
+67 - Camo Heli
+74 - GSharp Heli
+75 - GFire Heli, Pickle Heli
+76 - GGlue left
+78 - GGlue left, Camo Druid, Camo Heli, Pickle Druid, follow right lane down
+80 - Heli 105
+84 - Pickle Heli, Sharpen Heli
+86 - GFire Heli
+87 - Glue 000
+88 - Focus left side first
+89 - Pickle Heli, Camo Glue during round on slow
+90 - Hug right lane to push ddt back
+92 - Druid 150
+93 - Camo Heli, Camo Druid, GGenie, Glue 013
+94 - Sharpen Heli, Pickle Heli, GGenie,
+98 - GGenie, Sub 040, GGlue and Creepy Totem both bottom in intersections, Pickle Druid, Focus left side
+99 - Glue 024, GGlue right lane
+100- Refresh first strike 3 times

@@ -1,28 +1,22 @@
 import { CloseIcon, SearchIcon } from '@chakra-ui/icons'
-import {
-  Button,
-  IconButton,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  InputRightElement,
-  Text,
-} from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
+import { Button, IconButton, Input, InputGroup, InputLeftElement, InputRightElement, Text } from '@chakra-ui/react'
+import React, { useEffect, useRef, useState } from 'react'
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
-import {
-  parsePokemonGraphQL,
-  parseTypeEfficacy,
-  Pokemon,
-  baseTypeArray,
-} from '../../lib/PokemonService'
+import { parsePokemonGraphQL, parseTypeEfficacy, Pokemon, baseTypeArray } from '../../lib/PokemonService'
 import PokemonEntry from '../../components/PokemonTypes/PokemonEntry'
 import PokemonType from '../../components/PokemonTypes/PokemonTypes'
 
 export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
   const [data, setData] = useState<Pokemon[]>(pokedex)
   const originalData: Pokemon[] = pokedex
-  const [search, setSearch] = useState('>906')
+  const [search, setSearch] = useState('')
+  const inputRef = useRef(null)
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus()
+    }
+  }, [])
 
   useEffect(() => {
     if (originalData) {
@@ -49,10 +43,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
         return true
       }
       // greater than a number
-      if (
-        searchString.indexOf('>') == 0 &&
-        pokemon.id >= parseInt(searchString.substring(1, searchString.length))
-      ) {
+      if (searchString.indexOf('>') == 0 && pokemon.id >= parseInt(searchString.substring(1, searchString.length))) {
         return true
       }
     }
@@ -89,16 +80,13 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
           ))}
         </div>
         <InputGroup>
-          <InputLeftElement
-            fontSize="1.5em"
-            margin="1"
-            children={<SearchIcon color="gray.400" />}
-          />
+          <InputLeftElement fontSize="1.5em" margin="1" children={<SearchIcon color="gray.400" />} />
           <Input
             placeholder="Name or number, Rhydon or 112 or >906"
             size="lg"
             value={search}
             onChange={handleChange}
+            ref={inputRef}
           />
           <InputRightElement
             fontSize="1.5em"
@@ -119,13 +107,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
         {data &&
           data
             .slice(0, 150)
-            .map((pokemon) => (
-              <PokemonEntry
-                pokemon={pokemon}
-                typeEfficacy={typeEfficacy}
-                key={pokemon.id}
-              />
-            ))}
+            .map((pokemon) => <PokemonEntry pokemon={pokemon} typeEfficacy={typeEfficacy} key={pokemon.id} />)}
       </div>
     </>
   )
