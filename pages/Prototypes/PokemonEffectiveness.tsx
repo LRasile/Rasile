@@ -96,6 +96,9 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
                   color="gray.400"
                   onClick={() => {
                     setSearch('')
+                    if (inputRef.current) {
+                      inputRef.current.focus()
+                    }
                   }}
                 />
               </button>
