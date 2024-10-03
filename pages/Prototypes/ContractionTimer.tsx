@@ -36,6 +36,24 @@ export default function ContractionTimer() {
     sessionStorage.setItem('surgeCount', surgeCount.toString())
   }, [surgeTimes, surgeCount])
 
+  // Update surge timer every second while surging
+  useEffect(() => {
+    let interval: NodeJS.Timeout | null = null
+
+    if (isSurging && lastSurgeStart) {
+      interval = setInterval(() => {
+        setSurgeTimer(Date.now() - lastSurgeStart.getTime())
+      }, 1000)
+    } else {
+      if (interval) clearInterval(interval)
+    }
+
+    // Clean up interval on unmount or when surging ends
+    return () => {
+      if (interval) clearInterval(interval)
+    }
+  }, [isSurging, lastSurgeStart])
+
   const handleClick = () => {
     const currentTime = new Date()
 
