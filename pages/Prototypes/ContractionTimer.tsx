@@ -10,13 +10,19 @@ export default function ContractionTimer() {
   const [surgeTimer, setSurgeTimer] = useState(0)
   const [warning, setWarning] = useState(false)
 
-  // Load data from localStorage on initial render
+  // Load data from sessionStorage on initial render
   useEffect(() => {
     const storedSurgeTimes = sessionStorage.getItem('surgeTimes')
     const storedSurgeCount = sessionStorage.getItem('surgeCount')
 
     if (storedSurgeTimes) {
-      setSurgeTimes(JSON.parse(storedSurgeTimes))
+      // Parse JSON and convert strings back to Date objects
+      const parsedSurgeTimes = JSON.parse(storedSurgeTimes).map((surge: any) => ({
+        start: new Date(surge.start),
+        end: new Date(surge.end),
+        duration: surge.duration,
+      }))
+      setSurgeTimes(parsedSurgeTimes)
     }
 
     if (storedSurgeCount) {
@@ -24,53 +30,11 @@ export default function ContractionTimer() {
     }
   }, [])
 
-  // Save data to localStorage whenever surgeTimes or surgeCount changes
+  // Save data to sessionStorage whenever surgeTimes or surgeCount changes
   useEffect(() => {
     sessionStorage.setItem('surgeTimes', JSON.stringify(surgeTimes))
     sessionStorage.setItem('surgeCount', surgeCount.toString())
   }, [surgeTimes, surgeCount])
-
-  // Last surge duration (in ms)
-  const lastSurgeDuration = surgeTimes.length > 0 ? surgeTimes[surgeTimes.length - 1].duration : 0
-
-  // Time since last surge (in ms)
-  const timeSinceLastSurge = lastSurgeEnd ? Date.now() - lastSurgeEnd.getTime() : 0
-
-  // Time since first surge (in ms)
-  const timeSinceFirstSurge = surgeTimes.length > 0 ? Date.now() - surgeTimes[0].start.getTime() : 0
-
-  useEffect(() => {
-    // Check for 3 surges within 10 minutes, each lasting at least 45 seconds
-    if (surgeTimes.length >= 3) {
-      const recentSurges = surgeTimes.slice(-3)
-      const timeDiff = (recentSurges[2].start.getTime() - recentSurges[0].start.getTime()) / 60000 // in minutes
-      if (timeDiff <= 10 && recentSurges.every((surge) => surge.duration >= 45000)) {
-        setWarning(true)
-      } else {
-        setWarning(false)
-      }
-    }
-  }, [surgeTimes])
-
-  useEffect(() => {
-    let interval: NodeJS.Timeout | null = null
-
-    if (isSurging) {
-      // Start timer when surge starts
-      interval = setInterval(() => {
-        setSurgeTimer((prev) => prev + 1000) // Increment surge timer every second
-      }, 1000)
-    } else {
-      // Reset the timer when the surge ends
-      setSurgeTimer(0)
-    }
-
-    return () => {
-      if (interval) {
-        clearInterval(interval)
-      }
-    }
-  }, [isSurging])
 
   const handleClick = () => {
     const currentTime = new Date()
@@ -98,10 +62,17 @@ export default function ContractionTimer() {
     }
   }
 
-  const formatDuration = (milliseconds: number) => {
-    const minutes = Math.floor(milliseconds / 60000)
-    const seconds = Math.floor((milliseconds % 60000) / 1000)
-    return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
+  const handleReset = () => {
+    // Clear sessionStorage and reset state
+    sessionStorage.removeItem('surgeTimes')
+    sessionStorage.removeItem('surgeCount')
+    setSurgeTimes([])
+    setSurgeCount(0)
+    setLastSurgeStart(null)
+    setLastSurgeEnd(null)
+    setIsSurging(false)
+    setSurgeTimer(0)
+    setWarning(false)
   }
 
   const formatDurationToSeconds = (milliseconds: number) => {
@@ -118,6 +89,10 @@ export default function ContractionTimer() {
     const hours = Math.floor(milliseconds / 3600000)
     return `${hours}`
   }
+
+  const lastSurgeDuration = surgeTimes.length > 0 ? surgeTimes[surgeTimes.length - 1].duration : 0
+  const timeSinceLastSurge = lastSurgeEnd ? Date.now() - lastSurgeEnd.getTime() : 0
+  const timeSinceFirstSurge = surgeTimes.length > 0 ? Date.now() - surgeTimes[0].start.getTime() : 0
 
   return (
     <Box p={5} textAlign="center" style={{ marginTop: -70 }}>
@@ -145,6 +120,7 @@ export default function ContractionTimer() {
           Call the midwife
         </Text>
       )}
+
       <div className="row">
         <div className="col-6">
           <Text fontSize="5xl" mt={5}>
@@ -221,6 +197,11 @@ export default function ContractionTimer() {
             })}
         </List>
       </VStack>
+
+      {/* Reset Button */}
+      <Button mt={5} colorScheme="blue" onClick={handleReset}>
+        Reset
+      </Button>
     </Box>
   )
 }
