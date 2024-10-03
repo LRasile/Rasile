@@ -9,6 +9,8 @@ export default function ContractionTimer() {
   const [lastSurgeEnd, setLastSurgeEnd] = useState<Date | null>(null)
   const [surgeTimer, setSurgeTimer] = useState(0)
   const [warning, setWarning] = useState(false)
+  const [timeSinceLastSurge, setTimeSinceLastSurge] = useState(0)
+  const [timeSinceFirstSurge, setTimeSinceFirstSurge] = useState(0)
 
   // Load data from sessionStorage on initial render
   useEffect(() => {
@@ -54,6 +56,26 @@ export default function ContractionTimer() {
     }
   }, [isSurging, lastSurgeStart])
 
+  // Update timeSinceLastSurge and timeSinceFirstSurge every minute
+  useEffect(() => {
+    const updateTimes = () => {
+      if (lastSurgeEnd) {
+        setTimeSinceLastSurge(Date.now() - lastSurgeEnd.getTime())
+      }
+      if (surgeTimes.length > 0) {
+        setTimeSinceFirstSurge(Date.now() - surgeTimes[0].start.getTime())
+      }
+    }
+
+    updateTimes()
+
+    const interval = setInterval(() => {
+      updateTimes()
+    }, 60000) // Update every minute
+
+    return () => clearInterval(interval)
+  }, [lastSurgeEnd, surgeTimes])
+
   const handleClick = () => {
     const currentTime = new Date()
 
@@ -91,6 +113,8 @@ export default function ContractionTimer() {
     setIsSurging(false)
     setSurgeTimer(0)
     setWarning(false)
+    setTimeSinceLastSurge(0)
+    setTimeSinceFirstSurge(0)
   }
 
   const formatDurationToSeconds = (milliseconds: number) => {
@@ -109,8 +133,6 @@ export default function ContractionTimer() {
   }
 
   const lastSurgeDuration = surgeTimes.length > 0 ? surgeTimes[surgeTimes.length - 1].duration : 0
-  const timeSinceLastSurge = lastSurgeEnd ? Date.now() - lastSurgeEnd.getTime() : 0
-  const timeSinceFirstSurge = surgeTimes.length > 0 ? Date.now() - surgeTimes[0].start.getTime() : 0
 
   return (
     <Box p={5} textAlign="center" style={{ marginTop: -70 }}>
