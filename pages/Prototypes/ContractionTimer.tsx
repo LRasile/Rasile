@@ -18,7 +18,6 @@ export default function ContractionTimer() {
     const storedSurgeCount = sessionStorage.getItem('surgeCount')
 
     if (storedSurgeTimes) {
-      // Parse JSON and convert strings back to Date objects
       const parsedSurgeTimes = JSON.parse(storedSurgeTimes).map((surge: any) => ({
         start: new Date(surge.start),
         end: new Date(surge.end),
@@ -50,7 +49,6 @@ export default function ContractionTimer() {
       if (interval) clearInterval(interval)
     }
 
-    // Clean up interval on unmount or when surging ends
     return () => {
       if (interval) clearInterval(interval)
     }
@@ -71,11 +69,25 @@ export default function ContractionTimer() {
 
     const interval = setInterval(() => {
       updateTimes()
-    }, 60000) // Update every minute
+    }, 60000)
 
     return () => clearInterval(interval)
   }, [lastSurgeEnd, surgeTimes])
 
+  // Check for 3 surges within 10 minutes, each lasting at least 45 seconds
+  useEffect(() => {
+    if (surgeTimes.length >= 3) {
+      const recentSurges = surgeTimes.slice(-3)
+      const timeDiff = (recentSurges[2].start.getTime() - recentSurges[0].start.getTime()) / 60000 // in minutes
+      if (timeDiff <= 10 && recentSurges.every((surge) => surge.duration >= 45000)) {
+        setWarning(true)
+      } else {
+        setWarning(false)
+      }
+    }
+  }, [surgeTimes])
+
+  // Surge button on click
   const handleClick = () => {
     const currentTime = new Date()
 
@@ -102,6 +114,7 @@ export default function ContractionTimer() {
     }
   }
 
+  // Reset button on click
   const handleReset = () => {
     // Clear sessionStorage and reset state
     sessionStorage.removeItem('surgeTimes')
