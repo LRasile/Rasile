@@ -1,5 +1,22 @@
 import { useState, useEffect } from 'react'
-import { Box, Button, Text, List, ListItem, VStack } from '@chakra-ui/react'
+import { InfoOutlineIcon } from '@chakra-ui/icons'
+import {
+  Box,
+  Button,
+  Text,
+  List,
+  ListItem,
+  VStack,
+  IconButton,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalCloseButton,
+  useDisclosure,
+} from '@chakra-ui/react'
 
 export default function ContractionTimer() {
   const [isSurging, setIsSurging] = useState(false)
@@ -11,6 +28,7 @@ export default function ContractionTimer() {
   const [warning, setWarning] = useState(false)
   const [timeSinceLastSurge, setTimeSinceLastSurge] = useState(0)
   const [timeSinceFirstSurge, setTimeSinceFirstSurge] = useState(0)
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   // Load data from sessionStorage on initial render
   useEffect(() => {
@@ -149,6 +167,33 @@ export default function ContractionTimer() {
 
   return (
     <Box p={5} textAlign="center" style={{ marginTop: -70 }}>
+      <div>
+        <IconButton
+          style={{
+            marginRight: -200,
+            marginBottom: -50,
+            backgroundColor: 'rgba(0,0,0,0)',
+          }}
+          icon={<InfoOutlineIcon />}
+          aria-label="Open info popup"
+          onClick={onOpen}
+        />
+
+        <Modal isOpen={isOpen} onClose={onClose} isCentered>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Information</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              Before calling the midwife you are aiming for <b>3</b> surges within <b>10</b> minutes each lasting at
+              least <b>45</b> seconds
+            </ModalBody>
+
+            <ModalFooter></ModalFooter>
+          </ModalContent>
+        </Modal>
+      </div>
+
       <Button
         onClick={handleClick}
         colorScheme={isSurging ? 'pink' : 'teal'}
@@ -167,7 +212,6 @@ export default function ContractionTimer() {
           )}
         </div>
       </Button>
-
       {warning && (
         <Text color="tomato" fontSize="5xl" mt={3}>
           Call the midwife
