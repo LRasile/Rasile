@@ -36,6 +36,10 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
     }
   }
 
+  if (employees.length == 0) {
+    return res.status(400).json({ message: 'No employee data' })
+  }
+
   // If all validations pass
   return res.status(200).json({ message: 'Valid employee data', employees })
 }
