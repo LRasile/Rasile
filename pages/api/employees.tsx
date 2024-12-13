@@ -37,7 +37,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   if (employees.length == 0) {
-    return res.status(400).json({ message: 'No employee data' })
+    return res.status(400).json({ error: 'Invalid input: Expected an array of employee objects' })
   }
 
   // If all validations pass
