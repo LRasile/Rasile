@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const colorData = [
   { name: 'aliceblue', hex: '#f0f8ff', red: 240, green: 248, blue: 255 },
@@ -153,6 +153,8 @@ const colorData = [
 export default function HtmlColors() {
   const [data, setData] = useState(colorData)
   const [sortConfig, setSortConfig] = useState({ key: null, direction: null })
+  const [copiedHex, setCopiedHex] = useState<string | null>(null)
+  const clearCopyTimeoutRef = useRef<number | null>(null)
 
   // Function to handle header click and sort the table
   const handleSort = (key) => {
@@ -175,32 +177,106 @@ export default function HtmlColors() {
     setData(sortedData)
     setSortConfig({ key, direction })
   }
+  const renderSortIndicator = (key: string) => {
+    if (sortConfig.key !== key) return null
+    return (
+      <span className={`sortIndicator ${sortConfig.direction === 'ascending' ? 'asc' : 'desc'}`}>
+        {sortConfig.direction === 'ascending' ? '▲' : '▼'}
+      </span>
+    )
+  }
+
+  const handleCopy = async (hex: string) => {
+    try {
+      if (navigator?.clipboard?.writeText) {
+        await navigator.clipboard.writeText(hex)
+      } else {
+        const textArea = document.createElement('textarea')
+        textArea.value = hex
+        textArea.style.position = 'fixed'
+        textArea.style.left = '-9999px'
+        document.body.appendChild(textArea)
+        textArea.focus()
+        textArea.select()
+        document.execCommand('copy')
+        document.body.removeChild(textArea)
+      }
+      setCopiedHex(hex)
+      if (clearCopyTimeoutRef.current) {
+        window.clearTimeout(clearCopyTimeoutRef.current)
+      }
+      clearCopyTimeoutRef.current = window.setTimeout(() => setCopiedHex(null), 1200)
+    } catch (err) {
+      // Swallow error; copying is a UX enhancement
+    }
+  }
+
+  useEffect(() => {
+    return () => {
+      if (clearCopyTimeoutRef.current) {
+        window.clearTimeout(clearCopyTimeoutRef.current)
+      }
+    }
+  }, [])
+
   return (
-    <table className="colorTable">
-      <thead>
-        <tr>
-          <th onClick={() => handleSort('name')}>Name</th>
-          <th onClick={() => handleSort('hex')}>Hex</th>
-          <th onClick={() => handleSort('red')}>Red</th>
-          <th onClick={() => handleSort('green')}>Green</th>
-          <th onClick={() => handleSort('blue')}>Blue</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((color, index) => (
-          <tr key={index}>
-            <td>{color.name}</td>
-            <td>{color.hex}</td>
-            <td>{color.red}</td>
-            <td>{color.green}</td>
-            <td>{color.blue}</td>
-            <td>
-              <div style={{ height: 20, width: 20, borderRadius: 20, backgroundColor: color.hex }}></div>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className="colorTableCard">
+      <div className="colorTableScroll">
+        <table className="colorTable">
+          <thead>
+            <tr>
+              <th className="sortable" onClick={() => handleSort('name')}>
+                <span className="thLabel">Name</span>
+                {renderSortIndicator('name')}
+              </th>
+              <th className="sortable" onClick={() => handleSort('hex')}>
+                <span className="thLabel">Hex</span>
+                {renderSortIndicator('hex')}
+              </th>
+              <th className="sortable" onClick={() => handleSort('red')}>
+                <span className="thLabel">Red</span>
+                {renderSortIndicator('red')}
+              </th>
+              <th className="sortable" onClick={() => handleSort('green')}>
+                <span className="thLabel">Green</span>
+                {renderSortIndicator('green')}
+              </th>
+              <th className="sortable" onClick={() => handleSort('blue')}>
+                <span className="thLabel">Blue</span>
+                {renderSortIndicator('blue')}
+              </th>
+              <th className="swatchHeader"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((color, index) => (
+              <tr className="colorRow" key={index}>
+                <td className="colorName">{color.name}</td>
+                <td className="mono hexCell">
+                  <span className="hexText">{color.hex}</span>
+                  <button
+                    className={`copyBtn ${copiedHex === color.hex ? 'copied' : ''}`}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      handleCopy(color.hex)
+                    }}
+                    aria-label={`Copy ${color.hex}`}
+                    title="Copy hex"
+                  >
+                    {copiedHex === color.hex ? '✓' : '⧉'}
+                  </button>
+                </td>
+                <td className="mono">{color.red}</td>
+                <td className="mono">{color.green}</td>
+                <td className="mono">{color.blue}</td>
+                <td>
+                  <div className="colorSwatch" style={{ backgroundColor: color.hex }} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   )
 }
