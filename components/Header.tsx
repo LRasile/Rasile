@@ -25,19 +25,10 @@ const Header = (props) => {
         <meta name="description" content="Leos Apps" />
         <link rel="icon" href="/logos/favicon.ico" />
       </Head>
-      {isDebug && (
-        <div
-          style={{ backgroundColor: 'red', color: 'white', padding: '10px' }}
-        >
-          DEBUG MODE
-        </div>
-      )}
+      {isDebug && <div style={{ backgroundColor: 'red', color: 'white', padding: '10px' }}>DEBUG MODE</div>}
       <Flex width="100%">
         <Box padding={4}>
-          <Heading
-            style={{ color: headingColor, cursor: 'pointer' }}
-            onClick={() => router.push('/')}
-          >
+          <Heading style={{ color: headingColor, cursor: 'pointer' }} onClick={() => router.push('/')}>
             <img
               className="Logo"
               src="/logos/logo.svg"
@@ -57,18 +48,7 @@ const Header = (props) => {
         </Box>
         <Spacer />
         <Box padding={4}>
-          <IconButton
-            aria-label="Prototypes"
-            onClick={() => router.push('/Prototypes')}
-            title="Prototypes"
-          >
-            <StarIcon />
-          </IconButton>{' '}
-          <IconButton
-            aria-label="Toggle Mode"
-            onClick={toggleColorMode}
-            title="Toggle Mode"
-          >
+          <IconButton aria-label="Toggle Mode" onClick={toggleColorMode} title="Toggle Mode">
             {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
           </IconButton>
           <BuyMeACoffee />
