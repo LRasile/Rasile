@@ -86,24 +86,68 @@ h2 {
   border-radius: 50%;
   height: 120px;
   width: 120px;
-  border: 14px solid #555;
+  border: 0px solid #555;
   position: relative;
+  background: linear-gradient(to bottom, #d62828 0%, #ff4d4d 49%, #ffffff 51%, #f3f3f3 100%);
+  box-shadow: inset 0 10px 16px rgba(0, 0, 0, 0.18), inset 0 -10px 14px rgba(0, 0, 0, 0.08),
+    0 8px 16px rgba(0, 0, 0, 0.35);
 }
+
+.Pokeball::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  right: 14px;
+  height: 40%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.15) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  pointer-events: none;
+}
+
 .PokeballLine {
   position: absolute;
   top: calc(50% - 7px);
   height: 14px;
   width: 100%;
-  background-color: #555;
+  background: linear-gradient(to bottom, #3d3d3d, #1f1f1f 50%, #3d3d3d);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 -1px 0 rgba(0, 0, 0, 0.5) inset, 0 0 0 1px rgba(0, 0, 0, 0.2);
+  z-index: 2;
 }
+
 .PokeballDot {
   position: absolute;
-  top: calc(50% - 20px);
-  left: calc(50% - 20px);
-  height: 40px;
-  width: 40px;
+  top: calc(50% - 21px);
+  left: calc(50% - 21px);
+  height: 42px;
+  width: 42px;
   border-radius: 50%;
-  background-color: #555;
+  background: radial-gradient(circle at 35% 35%, #ffffff, #ebebeb 60%, #d6d6d6 100%);
+  border: 6px solid #555;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35), inset 0 2px 3px rgba(255, 255, 255, 0.7);
+  z-index: 3;
+}
+
+.PokeballDot::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.3) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  pointer-events: none;
 }
 /*#endregion */
 
