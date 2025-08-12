@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import { useRouter } from 'next/router'
 import { Heading, Text } from '@chakra-ui/react'
 
 export default function Home() {
   const router = useRouter()
+  const styleTile: CSSProperties = {
+    textAlign: 'center',
+    cursor: 'pointer',
+    background: 'rgba(150, 150, 150, 0.1)',
+    border: '0px solid rgba(150, 150, 150, 0.8)',
+    borderRadius: 10,
+    height: 200,
+    minWidth: 200,
+  }
 
   return (
     <div>
@@ -55,26 +64,61 @@ export default function Home() {
         </div>
       </div>
       <Heading as="h2" size="xl" margin={2}>
-        Blog Posts
+        Prototypes
       </Heading>
-      <div className="flex-container">
-        <div className="flex-item BlogTile" onClick={() => router.push('Blog/AppConfigStore')}>
-          <Heading as="h3" size="md">
-            App Config Store
-          </Heading>
-          <p>Why and how to set up an application configuration store in Azure</p>
+      <div className="row justify-content-center">
+        <div className="col-lg-3 col-md-6 my-2">
+          <div style={styleTile} onClick={() => router.push('Prototypes/JungleClears')}>
+            <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🌲</span>
+            <div className="tileText">Jungle Clears</div>
+          </div>
         </div>
-        <div className="flex-item BlogTile" onClick={() => router.push('Blog/AppConfigStore')}>
-          <Heading as="h3" size="md">
-            App Config Store
-          </Heading>
-          <p>Why and how to set up an application configuration store in Azure</p>
+        <div className="col-lg-3 col-md-6 my-2">
+          <div style={styleTile} onClick={() => router.push('Prototypes/PokemonEffectiveness')}>
+            <div style={{ height: 150, paddingTop: 20 }}>
+              <div className="Pokeball" style={{ margin: 'auto' }}>
+                <div className="PokeballLine"></div>
+                <div className="PokeballDot"></div>
+              </div>
+            </div>
+            <div className="tileText">Pokemon Effectiveness</div>
+          </div>
         </div>
-        <div className="flex-item BlogTile" onClick={() => router.push('Blog/AppConfigStore')}>
-          <Heading as="h3" size="md">
-            App Config Store
-          </Heading>
-          <p>Why and how to set up an application configuration store in Azure</p>
+        <div className="col-lg-3 col-md-6 my-2">
+          <div style={styleTile} onClick={() => router.push('Prototypes/LoopHeroSolver')}>
+            <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🔁</span>
+            <div className="tileText">Loop Hero</div>
+          </div>
+        </div>
+        <div className="col-lg-3 col-md-6 my-2">
+          <div style={styleTile} onClick={() => router.push('Prototypes/CardsForBeats')}>
+            <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🥁</span>
+            <div className="tileText">Cards For Beats</div>
+          </div>
+        </div>
+        <div className="col-lg-3 col-md-6 my-2">
+          <div style={styleTile} onClick={() => router.push('Prototypes/Menu')}>
+            <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🍝</span>
+            <div className="tileText">Menu</div>
+          </div>
+        </div>
+        <div className="col-lg-3 col-md-6 my-2">
+          <div style={styleTile} onClick={() => router.push('Prototypes/Timezones')}>
+            <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>⏰</span>
+            <div className="tileText">Timezones</div>
+          </div>
+        </div>
+        <div className="col-lg-3 col-md-6 my-2">
+          <div style={styleTile} onClick={() => router.push('Prototypes/HtmlColors')}>
+            <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🎨</span>
+            <div className="tileText">HTML Colors</div>
+          </div>
+        </div>
+        <div className="col-lg-3 col-md-6 my-2">
+          <div style={styleTile} onClick={() => router.push('Prototypes/ContractionTimer')}>
+            <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>👶</span>
+            <div className="tileText">Contraction Timer</div>
+          </div>
         </div>
       </div>
     </div>
