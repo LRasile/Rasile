@@ -43,7 +43,7 @@ export default function Home() {
         <div className="col-lg-9 p-5">
           <h1>Leonardo Rasile</h1>
           <p>Owner of Rasile Consulting Ltd.</p>
-          <p>Experienced Lead Full Stack Developer specialising in .NET Core, Azure and React.</p>
+          <p>Experienced Lead Full Stack Developer specialiing in .NET Core, Azure and React.</p>
           <h2>About me</h2>
           <p>
             I am an experienced software developer with advanced understanding of Azure Cloud technologies. I have also
@@ -58,9 +58,10 @@ export default function Home() {
       </div>
 
       {/* Love Reminders Section */}
-      <div className="row my-5">
-        <div className="col-12">
+      <div className="row p-2">
+        <div className="col-12 p-0">
           <div
+            className="m-4"
             style={{
               background: 'linear-gradient(135deg, rgba(255, 107, 157, 0.2), rgba(196, 69, 105, 0.2))',
               borderRadius: '15px',
@@ -96,8 +97,8 @@ export default function Home() {
       </div>
 
       {/* Prototypes Section */}
-      <h2>Prototypes</h2>
-      <div className="row justify-content-center">
+      <h2 className="p-2">Prototypes</h2>
+      <div className="row justify-content-center p-4">
         <div className="col-lg-3 col-md-6 my-2">
           <div style={styleTile} onClick={() => router.push('Prototypes/JungleClears')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🌲</span>
