@@ -10,18 +10,17 @@ export interface MenuProps {
 }
 
 export default function Menu({ recipes }: MenuProps) {
-  const sortRecipeFunction = (a, b) =>
-    a.name < b.name ? -1 : a.name > b.name ? 1 : 0
+  const sortRecipeFunction = (a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0)
 
   const [data, setData] = useState<Recipe[]>(recipes.sort(sortRecipeFunction))
-  const oringalData: Recipe[] = recipes.sort(sortRecipeFunction)
+  const originalData: Recipe[] = recipes.sort(sortRecipeFunction)
 
   const [search, setSearch] = useState('')
 
   useEffect(() => {
-    if (oringalData) {
+    if (originalData) {
       setData(
-        oringalData.filter(
+        originalData.filter(
           (item) =>
             item.name.toLowerCase().search(search.toLowerCase()) != -1 ||
             item.category.toLowerCase().search(search.toLowerCase()) != -1
@@ -38,22 +37,11 @@ export default function Menu({ recipes }: MenuProps) {
     <>
       <div className="col-12 p-md-2">
         <InputGroup>
-          <InputLeftElement
-            fontSize="1.5em"
-            margin="1"
-            children={<SearchIcon color="gray.400" />}
-          />
-          <Input
-            placeholder="Recipe name or category"
-            size="lg"
-            value={search}
-            onChange={handleChange}
-          />
+          <InputLeftElement fontSize="1.5em" margin="1" children={<SearchIcon color="gray.400" />} />
+          <Input placeholder="Recipe name or category" size="lg" value={search} onChange={handleChange} />
         </InputGroup>
       </div>
-      <div className="col-12 m-0 p-0 row">
-        {data && data.map((recipe) => <RecipeCard recipe={recipe} />)}
-      </div>
+      <div className="col-12 m-0 p-0 row">{data && data.map((recipe) => <RecipeCard recipe={recipe} />)}</div>
     </>
   )
 }
@@ -82,7 +70,7 @@ export async function getStaticProps() {
       difficulty: 5,
       steps: [],
       ingredients: [],
-      description: 'Lamb currry with a spicy tomato sauce',
+      description: 'Lamb curry with a spicy tomato sauce',
     },
     {
       name: 'Tagliatelle Trimalcione',
@@ -90,8 +78,7 @@ export async function getStaticProps() {
       difficulty: 4,
       ingredients: [],
       steps: [],
-      description:
-        'Tagliatelle with fennel sausage meat in a cream and tomato sauce',
+      description: 'Tagliatelle with fennel sausage meat in a cream and tomato sauce',
     },
     {
       name: 'Spaghetti Gamberi',
@@ -147,8 +134,7 @@ export async function getStaticProps() {
       ingredients: [],
       difficulty: 2,
       steps: [],
-      description:
-        'Risotto with asparagus and paramasn, this can also be made with tenderstem broccoli',
+      description: 'Risotto with asparagus and parmesan, this can also be made with tenderstem broccoli',
     },
     {
       name: 'Beetroot Risotto',
@@ -156,7 +142,7 @@ export async function getStaticProps() {
       ingredients: [],
       difficulty: 2,
       steps: [],
-      description: 'Risotto with fresh beetroot and parmasan',
+      description: 'Risotto with fresh beetroot and parmesan',
     },
     {
       name: 'Milanese',
@@ -180,7 +166,7 @@ export async function getStaticProps() {
       ingredients: [],
       difficulty: 1,
       steps: [],
-      description: 'Pan-fried Sirlion steak',
+      description: 'Pan-fried Sirloin steak',
     },
     {
       name: 'Chicken',
@@ -196,8 +182,7 @@ export async function getStaticProps() {
       ingredients: [],
       difficulty: 5,
       steps: [],
-      description:
-        'Chicken and parma ham with sage cooked in butter and white wine',
+      description: 'Chicken and parma ham with sage cooked in butter and white wine',
     },
   ]
 
