@@ -1,6 +1,5 @@
 import React, { CSSProperties } from 'react'
 import { useRouter } from 'next/router'
-import { Heading, Text } from '@chakra-ui/react'
 
 export default function Home() {
   const router = useRouter()
@@ -42,25 +41,19 @@ export default function Home() {
           />
         </div>
         <div className="col-lg-9 p-5">
-          <Heading as="h1" size="2xl">
-            Leonardo Rasile
-          </Heading>
-          <Text fontSize="xl">Owner of Rasile Consulting Ltd.</Text>
-          <Text fontSize="md" noOfLines={[1, 2, 3]}>
-            Experienced Lead Full Stack Developer specialising in .NET Core, Azure and React.
-          </Text>
-          <Heading as="h2" size="lg" mt={4}>
-            About me
-          </Heading>
-          <Text my={2}>
+          <h1>Leonardo Rasile</h1>
+          <p>Owner of Rasile Consulting Ltd.</p>
+          <p>Experienced Lead Full Stack Developer specialising in .NET Core, Azure and React.</p>
+          <h2>About me</h2>
+          <p>
             I am an experienced software developer with advanced understanding of Azure Cloud technologies. I have also
             led teams through Agile and Scrum methodologies.
-          </Text>
-          <Text>
+          </p>
+          <p>
             Software development is more than just a job to me; it's a genuine passion. I always strive to stay updated
             on the latest technologies and trends, so I can bring the most value to any organization I work with. My
             goal is to help companies optimize their software development processes and foster innovation.
-          </Text>
+          </p>
         </div>
       </div>
 
@@ -90,27 +83,20 @@ export default function Home() {
             >
               💝
             </div>
-            <Heading as="h2" size="xl" mb={4}>
-              💕 Love Reminders - Coming Soon
-            </Heading>
-            <Text fontSize="lg" mb={3} fontWeight="medium">
-              Never miss a moment to show your love and appreciation
-            </Text>
-            <Text fontSize="md" mb={4} opacity="0.9">
+            <h2>💕 Love Reminders - Coming Soon</h2>
+            <p>Never miss a moment to show your love and appreciation</p>
+            <p>
               Love Reminders is your personal relationship companion, designed to help you nurture the connections that
               matter most. From thoughtful birthday surprises to anniversary celebrations, our intelligent reminder
               system ensures you're always there for the people you love, even when life gets busy.
-            </Text>
-            <Text fontSize="sm" opacity="0.8" fontStyle="italic">
-              Coming soon to iOS and Android app stores
-            </Text>
+            </p>
+            <p>Coming soon to iOS and Android app stores</p>
           </div>
         </div>
       </div>
+
       {/* Prototypes Section */}
-      <Heading as="h2" size="xl" margin={2}>
-        Prototypes
-      </Heading>
+      <h2>Prototypes</h2>
       <div className="row justify-content-center">
         <div className="col-lg-3 col-md-6 my-2">
           <div style={styleTile} onClick={() => router.push('Prototypes/JungleClears')}>
