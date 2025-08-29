@@ -3,15 +3,6 @@ import { useRouter } from 'next/router'
 
 export default function Home() {
   const router = useRouter()
-  const styleTile: CSSProperties = {
-    textAlign: 'center',
-    cursor: 'pointer',
-    background: 'rgba(150, 150, 150, 0.1)',
-    border: '0px solid rgba(150, 150, 150, 0.8)',
-    borderRadius: 10,
-    height: 200,
-    minWidth: 200,
-  }
 
   return (
     <div>
@@ -100,13 +91,13 @@ export default function Home() {
       <h2 className="p-2">Prototypes</h2>
       <div className="row justify-content-center p-4">
         <div className="col-lg-3 col-md-6 my-2">
-          <div style={styleTile} onClick={() => router.push('Prototypes/JungleClears')}>
+          <div className="prototype-tile" onClick={() => router.push('Prototypes/JungleClears')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🌲</span>
             <div className="tileText">Jungle Clears</div>
           </div>
         </div>
         <div className="col-lg-3 col-md-6 my-2">
-          <div style={styleTile} onClick={() => router.push('Prototypes/PokemonEffectiveness')}>
+          <div className="prototype-tile" onClick={() => router.push('Prototypes/PokemonEffectiveness')}>
             <div style={{ height: 150, paddingTop: 20 }}>
               <div className="Pokeball" style={{ margin: 'auto' }}>
                 <div className="PokeballLine"></div>
@@ -117,43 +108,43 @@ export default function Home() {
           </div>
         </div>
         <div className="col-lg-3 col-md-6 my-2">
-          <div style={styleTile} onClick={() => router.push('Prototypes/LoopHeroSolver')}>
+          <div className="prototype-tile" onClick={() => router.push('Prototypes/LoopHeroSolver')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🔁</span>
             <div className="tileText">Loop Hero</div>
           </div>
         </div>
         <div className="col-lg-3 col-md-6 my-2">
-          <div style={styleTile} onClick={() => router.push('Prototypes/CardsForBeats')}>
+          <div className="prototype-tile" onClick={() => router.push('Prototypes/CardsForBeats')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🥁</span>
             <div className="tileText">Cards For Beats</div>
           </div>
         </div>
         <div className="col-lg-3 col-md-6 my-2">
-          <div style={styleTile} onClick={() => router.push('Prototypes/Menu')}>
+          <div className="prototype-tile" onClick={() => router.push('Prototypes/Menu')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🍝</span>
             <div className="tileText">Menu</div>
           </div>
         </div>
         <div className="col-lg-3 col-md-6 my-2">
-          <div style={styleTile} onClick={() => router.push('Prototypes/Timezones')}>
+          <div className="prototype-tile" onClick={() => router.push('Prototypes/Timezones')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>⏰</span>
             <div className="tileText">Timezones</div>
           </div>
         </div>
         <div className="col-lg-3 col-md-6 my-2">
-          <div style={styleTile} onClick={() => router.push('Prototypes/HtmlColors')}>
+          <div className="prototype-tile" onClick={() => router.push('Prototypes/HtmlColors')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🎨</span>
             <div className="tileText">HTML Colors</div>
           </div>
         </div>
         <div className="col-lg-3 col-md-6 my-2">
-          <div style={styleTile} onClick={() => router.push('Prototypes/ContractionTimer')}>
+          <div className="prototype-tile" onClick={() => router.push('Prototypes/ContractionTimer')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>👶</span>
             <div className="tileText">Contraction Timer</div>
           </div>
         </div>
         <div className="col-lg-3 col-md-6 my-2">
-          <div style={styleTile} onClick={() => router.push('Prototypes/PhpMigration')}>
+          <div className="prototype-tile" onClick={() => router.push('Prototypes/PhpMigration')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🐘</span>
             <div className="tileText">PHP Gotchas</div>
           </div>

@@ -82,6 +82,24 @@ h2 {
   width: 200px;
   margin: auto;
 }
+
+.prototype-tile {
+  text-align: center;
+  cursor: pointer;
+  background: rgba(150, 150, 150, 0.1);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  height: 200px;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.prototype-tile:hover {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 2px 5px rgba(59, 130, 246, 0.15);
+}
+
 .Pokeball {
   border-radius: 50%;
   height: 120px;
