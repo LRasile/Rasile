@@ -63,6 +63,51 @@ export default function Home() {
           </Text>
         </div>
       </div>
+
+      {/* Love Reminders Section */}
+      <div className="row my-5">
+        <div className="col-12">
+          <div
+            style={{
+              background: 'linear-gradient(135deg, rgba(255, 107, 157, 0.2), rgba(196, 69, 105, 0.2))',
+              borderRadius: '15px',
+              padding: '2rem',
+              textAlign: 'center',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
+            <div
+              style={{
+                position: 'absolute',
+                top: '-50px',
+                right: '-50px',
+                fontSize: '120px',
+                opacity: '0.1',
+                transform: 'rotate(15deg)',
+              }}
+            >
+              💝
+            </div>
+            <Heading as="h2" size="xl" mb={4}>
+              💕 Love Reminders - Coming Soon
+            </Heading>
+            <Text fontSize="lg" mb={3} fontWeight="medium">
+              Never miss a moment to show your love and appreciation
+            </Text>
+            <Text fontSize="md" mb={4} opacity="0.9">
+              Love Reminders is your personal relationship companion, designed to help you nurture the connections that
+              matter most. From thoughtful birthday surprises to anniversary celebrations, our intelligent reminder
+              system ensures you're always there for the people you love, even when life gets busy.
+            </Text>
+            <Text fontSize="sm" opacity="0.8" fontStyle="italic">
+              Coming soon to iOS and Android app stores
+            </Text>
+          </div>
+        </div>
+      </div>
+      {/* Prototypes Section */}
       <Heading as="h2" size="xl" margin={2}>
         Prototypes
       </Heading>
