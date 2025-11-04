@@ -83,10 +83,8 @@ export default function Home() {
               system ensures you're always there for the people you love, even when life gets busy.
             </p>
             <p>Coming soon to iOS and Android app stores</p>
-            <p>
-              <a href="/LoveRemindersPrivacyPolicy" style={{ textDecoration: 'underline', color: 'inherit' }}>
-                Privacy Policy
-              </a>
+            <p onClick={() => router.push('LoveRemindersPrivacyPolicy')}>
+              <a style={{ textDecoration: 'underline', color: 'inherit', cursor: 'pointer' }}>Privacy Policy</a>
             </p>
           </div>
         </div>
