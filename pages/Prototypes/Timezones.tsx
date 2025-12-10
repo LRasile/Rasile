@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Popover, PopoverContent, PopoverTrigger, Text } from '@chakra-ui/react'
 import CityTime from '../../components/Timezones/CityTime'
 
 export default function Timezones() {
@@ -47,28 +46,24 @@ export default function Timezones() {
       <div style={{ position: 'relative', width: '100%' }}>
         <img style={{ left: 0, top: 0, position: 'absolute' }} width="100%" src="../images/worldMap.jpg" />
         {cities.map((city) => (
-          <Popover key={city.name}>
-            <PopoverTrigger>
-              <Box
-                style={{
-                  position: 'absolute',
-                  width: '10px',
-                  height: '10px',
-                  borderRadius: '50%',
-                  background: 'red',
-                  transform: 'translate(-50%, -50%)',
-                  cursor: 'pointer',
-                  top: city.top,
-                  left: city.left,
-                }}
-                onMouseEnter={handleDotHover}
-                onMouseLeave={handleDotLeave}
-              />
-            </PopoverTrigger>
-            <PopoverContent bg="#333" color="#FFF" p={2} borderRadius="4px">
-              <CityTime city={city.name} utcTime={utcTime} timeZone={city.timeZone} />
-            </PopoverContent>
-          </Popover>
+          <div key={city.name} style={{ position: 'relative' }}>
+            <div
+              style={{
+                position: 'absolute',
+                width: '10px',
+                height: '10px',
+                borderRadius: '50%',
+                background: 'red',
+                transform: 'translate(-50%, -50%)',
+                cursor: 'pointer',
+                top: city.top,
+                left: city.left,
+              }}
+              onMouseEnter={handleDotHover}
+              onMouseLeave={handleDotLeave}
+              title={`${city.name}: ${utcTime}`}
+            />
+          </div>
         ))}
       </div>
     </>

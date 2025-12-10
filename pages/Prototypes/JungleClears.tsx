@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { SearchIcon } from '@chakra-ui/icons'
+import { FaSearch } from 'react-icons/fa'
 import { JungleClear } from '../../lib/JungleClear'
 import ChampRow from '../../components/JungleClears/ChampRow'
-import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import { GetJungleClears } from '../../lib/JungleClearService'
 
 export interface JungleClearProps {
@@ -35,24 +34,17 @@ export default function JungleClears({ jungleClears }: JungleClearProps) {
   return (
     <>
       <div className="col-12 p-md-2">
-        <InputGroup>
-          <InputLeftElement
-            fontSize="1.5em"
-            margin="1"
-            children={<SearchIcon color="gray.400" />}
-          />
-          <Input
+        <div style={{ position: 'relative' }}>
+          <input
             placeholder="Champion name or clear time, Amumu or 3:15"
-            size="lg"
             value={search}
             onChange={handleChange}
+            style={{ width: '100%', padding: '0.75rem', paddingRight: '2.5rem', fontSize: '1.125rem' }}
           />
-        </InputGroup>
+          <FaSearch style={{ position: 'absolute', right: '0.5rem', top: '50%', transform: 'translateY(-50%)', fontSize: '1.5em', color: '#999' }} />
+        </div>
       </div>
-      <div className="col-12 m-0 p-0">
-        {data &&
-          data.map((jungleClear) => <ChampRow jungleClear={jungleClear} />)}
-      </div>
+      <div className="col-12 m-0 p-0">{data && data.map((jungleClear) => <ChampRow jungleClear={jungleClear} />)}</div>
     </>
   )
 }

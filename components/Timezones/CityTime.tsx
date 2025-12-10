@@ -1,6 +1,3 @@
-import { Box, Text } from '@chakra-ui/react'
-import React from 'react'
-
 export default function CityTime({ city, utcTime, timeZone }) {
   const localDateTime = convertTZ(utcTime, timeZone).toLocaleString()
 
@@ -32,13 +29,13 @@ export default function CityTime({ city, utcTime, timeZone }) {
   }
 
   return (
-    <Box display="flex" alignItems="center" justifyContent="space-between">
-      <Text px={4} py={2}>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div style={{ padding: '0.5rem 1rem' }}>
         {city}
-      </Text>
-      <Text px={4} py={2}>
+      </div>
+      <div style={{ padding: '0.5rem 1rem' }}>
         {localDateTime} {calculateDifference()}
-      </Text>
-    </Box>
+      </div>
+    </div>
   )
 }

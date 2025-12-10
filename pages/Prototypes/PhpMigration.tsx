@@ -1,127 +1,108 @@
 // @ts-nocheck
 import React from 'react'
-import {
-  Heading,
-  Text,
-  List,
-  ListItem,
-  Code,
-  Divider,
-  Box,
-  SimpleGrid,
-  Badge,
-  useColorModeValue,
-} from '@chakra-ui/react'
 
 const ExampleCard = ({ title, smell, modern }) => {
-  const smellBg = useColorModeValue('red.50', 'red.700') as string
-  const smellBorder = useColorModeValue('red.200', 'red.500') as string
-  const modernBg = useColorModeValue('green.50', 'green.700') as string
-  const modernBorder = useColorModeValue('green.200', 'green.500') as string
-  const smellText = useColorModeValue('red.900', 'red.100') as string
-  const modernText = useColorModeValue('green.900', 'green.100') as string
-
   return (
-    <Box borderWidth="1px" borderRadius="md" p={4} mb={4}>
-      <Heading as="h3" size="md" mb={3}>
+    <div style={{ border: '1px solid #ccc', borderRadius: '6px', padding: '1rem', marginBottom: '1rem' }}>
+      <h3 style={{ fontSize: '1.125rem', marginBottom: '0.75rem' }}>
         {title}
-      </Heading>
-      <Box mb={3} p={3} borderRadius="md" bg={smellBg} borderWidth="1px" borderColor={smellBorder}>
-        <Badge colorScheme="red" variant="subtle" mb={2}>
+      </h3>
+      <div style={{ marginBottom: '0.75rem', padding: '0.75rem', borderRadius: '6px', backgroundColor: '#FED7D7', border: '1px solid #FC8181' }}>
+        <span style={{ backgroundColor: '#E53E3E', color: 'white', padding: '0.25rem 0.5rem', borderRadius: '4px', fontSize: '0.75rem', marginBottom: '0.5rem', display: 'inline-block' }}>
           Smell (PHP 5)
-        </Badge>
+        </span>
         <pre style={{ margin: 0 }}>
-          <code style={{ color: useColorModeValue('black', 'white') }}>{smell}</code>
+          <code style={{ color: 'black' }}>{smell}</code>
         </pre>
-      </Box>
-      <Box p={3} borderRadius="md" bg={modernBg} borderWidth="1px" borderColor={modernBorder}>
-        <Badge colorScheme="green" variant="subtle" mb={2}>
+      </div>
+      <div style={{ padding: '0.75rem', borderRadius: '6px', backgroundColor: '#C6F6D5', border: '1px solid #68D391' }}>
+        <span style={{ backgroundColor: '#38A169', color: 'white', padding: '0.25rem 0.5rem', borderRadius: '4px', fontSize: '0.75rem', marginBottom: '0.5rem', display: 'inline-block' }}>
           Modern (PHP 7/8)
-        </Badge>
+        </span>
         <pre style={{ margin: 0 }}>
-          <code style={{ color: useColorModeValue('black', 'white') }}>{modern}</code>
+          <code style={{ color: 'black' }}>{modern}</code>
         </pre>
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }
 
 export default function PhpMigration() {
   return (
     <div className="col-12">
-      <Heading as="h1" size="xl" mb={4}>
+      <h1 style={{ fontSize: '1.875rem', marginBottom: '1rem' }}>
         PHP 5 → 7/8: Dos and Don'ts
-      </Heading>
-      <Text mb={2}>
+      </h1>
+      <p style={{ marginBottom: '0.5rem' }}>
         A quick, practical checklist to migrate legacy PHP 5 codebases to PHP 7.x or 8.x. Focus on type safety, modern
         APIs, and removing deprecated features.
-      </Text>
+      </p>
 
-      <Heading as="h2" size="lg" mt={6} mb={2}>
+      <h2 style={{ fontSize: '1.5rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         Do
-      </Heading>
-      <List spacing={2} styleType="disc" pl={6}>
-        <ListItem>
-          Enable per-file strict typing: <Code>declare(strict_types=1);</Code>
-        </ListItem>
-        <ListItem>
-          Add scalar and return types where possible (e.g. <Code>function add(int $a, int $b): int</Code>).
-        </ListItem>
-        <ListItem>Replace ext/mysql with PDO or MySQLi and use prepared statements.</ListItem>
-        <ListItem>
-          Use modern language features: null coalescing <Code>??</Code>, nullsafe <Code>?-&gt;</Code> (PHP 8), spaceship{' '}
-          <Code>&lt;=&gt;</Code>, array destructuring, <Code>??=</Code> (PHP 7.4).
-        </ListItem>
-        <ListItem>
-          Replace <Code>create_function</Code> and <Code>preg_replace('/e')</Code> with closures and
-          <Code>preg_replace_callback</Code>.
-        </ListItem>
-        <ListItem>
-          Use <Code>password_hash</Code> / <Code>password_verify</Code> for credentials.
-        </ListItem>
-        <ListItem>
-          Replace <Code>mt_rand</Code>/<Code>rand</Code> with <Code>random_int</Code> / <Code>random_bytes</Code>{' '}
+      </h2>
+      <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem' }}>
+        <li style={{ marginBottom: '0.5rem' }}>
+          Enable per-file strict typing: <code>declare(strict_types=1);</code>
+        </li>
+        <li style={{ marginBottom: '0.5rem' }}>
+          Add scalar and return types where possible (e.g. <code>function add(int $a, int $b): int</code>).
+        </li>
+        <li style={{ marginBottom: '0.5rem' }}>Replace ext/mysql with PDO or MySQLi and use prepared statements.</li>
+        <li style={{ marginBottom: '0.5rem' }}>
+          Use modern language features: null coalescing <code>??</code>, nullsafe <code>?-&gt;</code> (PHP 8), spaceship{' '}
+          <code>&lt;=&gt;</code>, array destructuring, <code>??=</code> (PHP 7.4).
+        </li>
+        <li style={{ marginBottom: '0.5rem' }}>
+          Replace <code>create_function</code> and <code>preg_replace('/e')</code> with closures and
+          <code>preg_replace_callback</code>.
+        </li>
+        <li style={{ marginBottom: '0.5rem' }}>
+          Use <code>password_hash</code> / <code>password_verify</code> for credentials.
+        </li>
+        <li style={{ marginBottom: '0.5rem' }}>
+          Replace <code>mt_rand</code>/<code>rand</code> with <code>random_int</code> / <code>random_bytes</code>{' '}
           (cryptographically secure).
-        </ListItem>
-        <ListItem>
-          Handle engine errors via exceptions (<Code>Error</Code>, <Code>TypeError</Code>, <Code>ParseError</Code>), not
-          silencing with <Code>@</Code>.
-        </ListItem>
-        <ListItem>
-          Use <Code>intdiv($a, $b)</Code> when you need integer division semantics.
-        </ListItem>
-        <ListItem>
-          Replace <Code>__autoload</Code> with <Code>spl_autoload_register</Code> or Composer autoloading.
-        </ListItem>
-        <ListItem>
-          Fix <Code>count()</Code> on non-countable values; guard with <Code>is_countable()</Code> (PHP 7.3+).
-        </ListItem>
-      </List>
+        </li>
+        <li style={{ marginBottom: '0.5rem' }}>
+          Handle engine errors via exceptions (<code>Error</code>, <code>TypeError</code>, <code>ParseError</code>), not
+          silencing with <code>@</code>.
+        </li>
+        <li style={{ marginBottom: '0.5rem' }}>
+          Use <code>intdiv($a, $b)</code> when you need integer division semantics.
+        </li>
+        <li style={{ marginBottom: '0.5rem' }}>
+          Replace <code>__autoload</code> with <code>spl_autoload_register</code> or Composer autoloading.
+        </li>
+        <li style={{ marginBottom: '0.5rem' }}>
+          Fix <code>count()</code> on non-countable values; guard with <code>is_countable()</code> (PHP 7.3+).
+        </li>
+      </ul>
 
-      <Heading as="h2" size="lg" mt={6} mb={2}>
+      <h2 style={{ fontSize: '1.5rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         Don't
-      </Heading>
-      <List spacing={2} styleType="disc" pl={6}>
-        <ListItem>Do not use removed extensions: ext/mysql, ext/ereg, ext/mcrypt (use OpenSSL/Sodium), etc.</ListItem>
-        <ListItem>
-          Do not rely on <Code>each()</Code> (removed in PHP 8); refactor to <Code>foreach</Code>.
-        </ListItem>
-        <ListItem>
-          Do not depend on old-style constructors (method named like the class); use <Code>__construct</Code>.
-        </ListItem>
-        <ListItem>
-          Do not pass strings to <Code>assert()</Code> (no eval); pass boolean expressions.
-        </ListItem>
-        <ListItem>Do not depend on magic quotes, register_globals, or call-time pass-by-reference.</ListItem>
-        <ListItem>
-          Do not suppress errors with <Code>@</Code>; use proper exception handling.
-        </ListItem>
-      </List>
+      </h2>
+      <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem' }}>
+        <li style={{ marginBottom: '0.5rem' }}>Do not use removed extensions: ext/mysql, ext/ereg, ext/mcrypt (use OpenSSL/Sodium), etc.</li>
+        <li style={{ marginBottom: '0.5rem' }}>
+          Do not rely on <code>each()</code> (removed in PHP 8); refactor to <code>foreach</code>.
+        </li>
+        <li style={{ marginBottom: '0.5rem' }}>
+          Do not depend on old-style constructors (method named like the class); use <code>__construct</code>.
+        </li>
+        <li style={{ marginBottom: '0.5rem' }}>
+          Do not pass strings to <code>assert()</code> (no eval); pass boolean expressions.
+        </li>
+        <li style={{ marginBottom: '0.5rem' }}>Do not depend on magic quotes, register_globals, or call-time pass-by-reference.</li>
+        <li style={{ marginBottom: '0.5rem' }}>
+          Do not suppress errors with <code>@</code>; use proper exception handling.
+        </li>
+      </ul>
 
-      <Heading as="h2" size="lg" mt={6} mb={2}>
+      <h2 style={{ fontSize: '1.5rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         Spot the smells (PHP 5 patterns to replace)
-      </Heading>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
+      </h2>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
         <ExampleCard
           title="ext/mysql → PDO"
           smell={`$link = mysql_connect($host, $user, $pass);
@@ -227,17 +208,17 @@ $stmt->execute([':name' => $_POST['name']]); // rely on parameterization`}
           smell={`$token = md5(uniqid(mt_rand(), true));`}
           modern={`$token = bin2hex(random_bytes(32));`}
         />
-      </SimpleGrid>
+      </div>
 
-      <Heading as="h2" size="lg" mt={6} mb={2}>
+      <h2 style={{ fontSize: '1.5rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         Common refactors
-      </Heading>
-      <Divider mb={3} />
-      <Text fontWeight="bold" mb={1}>
+      </h2>
+      <hr style={{ marginBottom: '0.75rem' }} />
+      <p style={{ fontWeight: 'bold', marginBottom: '0.25rem' }}>
         Database
-      </Text>
+      </p>
       <pre>
-        <code style={{ color: useColorModeValue('black', 'white') }}>{`// Before (PHP 5, removed)
+        <code style={{ color: 'black' }}>{`// Before (PHP 5, removed)
 // $link = mysql_connect($host, $user, $pass);
 // mysql_query("INSERT ...");
 
@@ -250,11 +231,11 @@ $stmt->execute([':name' => $name]);
 `}</code>
       </pre>
 
-      <Text fontWeight="bold" mb={1}>
+      <p style={{ fontWeight: 'bold', marginBottom: '0.25rem' }}>
         Regex
-      </Text>
+      </p>
       <pre>
-        <code style={{ color: useColorModeValue('black', 'white') }}>{`// Before
+        <code style={{ color: 'black' }}>{`// Before
 $out = preg_replace('/(\w+)/e', 'strtoupper("$1")', $in);
 
 // After
@@ -262,11 +243,11 @@ $out = preg_replace_callback('/(\w+)/', function ($m) { return strtoupper($m[1])
 `}</code>
       </pre>
 
-      <Text fontWeight="bold" mb={1}>
+      <p style={{ fontWeight: 'bold', marginBottom: '0.25rem' }}>
         Types and null handling
-      </Text>
+      </p>
       <pre>
-        <code style={{ color: useColorModeValue('black', 'white') }}>{`declare(strict_types=1);
+        <code style={{ color: 'black' }}>{`declare(strict_types=1);
 
 function greet(?string $name): string {
   return 'Hello ' . ($name ?? 'world');
@@ -274,34 +255,34 @@ function greet(?string $name): string {
 `}</code>
       </pre>
 
-      <Heading as="h2" size="lg" mt={6} mb={2}>
+      <h2 style={{ fontSize: '1.5rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         Behavior changes / gotchas
-      </Heading>
-      <List spacing={2} styleType="disc" pl={6}>
-        <ListItem>
-          Division now returns float; use <Code>intdiv</Code> for integer division.
-        </ListItem>
-        <ListItem>
-          More strict comparisons and type errors when type hints are present (<Code>TypeError</Code> thrown).
-        </ListItem>
-        <ListItem>
-          <Code>foreach</Code> by-reference and in-loop modifications can behave differently; avoid mutating the
+      </h2>
+      <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem' }}>
+        <li style={{ marginBottom: '0.5rem' }}>
+          Division now returns float; use <code>intdiv</code> for integer division.
+        </li>
+        <li style={{ marginBottom: '0.5rem' }}>
+          More strict comparisons and type errors when type hints are present (<code>TypeError</code> thrown).
+        </li>
+        <li style={{ marginBottom: '0.5rem' }}>
+          <code>foreach</code> by-reference and in-loop modifications can behave differently; avoid mutating the
           iterated array unless intentional.
-        </ListItem>
-        <ListItem>
+        </li>
+        <li style={{ marginBottom: '0.5rem' }}>
           Many warnings/notices became exceptions or promoted to errors in PHP 8 (e.g., passing null to non-nullable).
-        </ListItem>
-      </List>
+        </li>
+      </ul>
 
-      <Heading as="h2" size="lg" mt={6} mb={2}>
+      <h2 style={{ fontSize: '1.5rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         Upgrade tips
-      </Heading>
-      <List spacing={2} styleType="disc" pl={6}>
-        <ListItem>Upgrade incrementally: 5.x → 7.4 first, then 8.x.</ListItem>
-        <ListItem>Run static analysis (Psalm/PHPStan) and fix reported issues.</ListItem>
-        <ListItem>Run with deprecations enabled; fix all E_DEPRECATED before next major.</ListItem>
-        <ListItem>Ensure test coverage for critical paths before refactors.</ListItem>
-      </List>
+      </h2>
+      <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem' }}>
+        <li style={{ marginBottom: '0.5rem' }}>Upgrade incrementally: 5.x → 7.4 first, then 8.x.</li>
+        <li style={{ marginBottom: '0.5rem' }}>Run static analysis (Psalm/PHPStan) and fix reported issues.</li>
+        <li style={{ marginBottom: '0.5rem' }}>Run with deprecations enabled; fix all E_DEPRECATED before next major.</li>
+        <li style={{ marginBottom: '0.5rem' }}>Ensure test coverage for critical paths before refactors.</li>
+      </ul>
     </div>
   )
 }

@@ -1,28 +1,4 @@
-import { SettingsIcon } from '@chakra-ui/icons'
-import { FaPlay, FaStop } from 'react-icons/fa'
-import {
-  Button,
-  FormControl,
-  FormLabel,
-  Icon,
-  IconButton,
-  Select,
-  useDisclosure,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  Input,
-  Text,
-  Slider,
-  SliderFilledTrack,
-  SliderThumb,
-  SliderTrack,
-  Box,
-} from '@chakra-ui/react'
+import { FaPlay, FaStop, FaCog } from 'react-icons/fa'
 import React, { useEffect, useRef, useState } from 'react'
 import BeatGroup from '../../components/CardsForBeats/BeatGroup'
 import {
@@ -34,7 +10,6 @@ import {
   UserSettings,
 } from '../../lib/CardsForBeatsService'
 import { BsShareFill } from 'react-icons/bs'
-import { useToast } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import useCookie from 'react-use-cookie'
 
@@ -43,9 +18,11 @@ export default function CardsForBeats() {
   const [groups, setGroups] = useState<BeatGroupEntity[] | undefined>(undefined)
   const [numberOfBeats, setNumberOfBeats] = useState<number>(4)
   const [numberOfGroups, setNumberOfGroups] = useState<number>(4)
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const toast = useToast()
+  const [isOpen, setIsOpen] = useState(false)
   const [userSettingObj, setUserSettingObj] = useState<UserSettings>(defaultSettings)
+  
+  const onOpen = () => setIsOpen(true)
+  const onClose = () => setIsOpen(false)
 
   const [userSettings, setUserSettings] = useCookie('settings', JSON.stringify(defaultSettings))
 
@@ -293,9 +270,9 @@ export default function CardsForBeats() {
       <div className="row col-12">
         <div className="col-md-12 row">
           <div className="col-md-3 my-1">
-            <FormControl>
-              <FormLabel>Number of bars</FormLabel>
-              <Select onChange={numberOfGroupsOnChange} value={numberOfGroups}>
+            <div>
+              <label>Number of bars</label>
+              <select onChange={numberOfGroupsOnChange} value={numberOfGroups}>
                 <option value={4}>1</option>
                 <option value={8}>2</option>
                 <option value={12}>3</option>
@@ -304,40 +281,36 @@ export default function CardsForBeats() {
                 <option value={24}>6</option>
                 <option value={28}>7</option>
                 <option value={32}>8</option>
-              </Select>
-            </FormControl>
+              </select>
+            </div>
           </div>
           <div className="col-md-3 my-1">
-            <FormControl>
-              <FormLabel>Type</FormLabel>
-              <Select onChange={typeOnChange} value={numberOfBeats}>
+            <div>
+              <label>Type</label>
+              <select onChange={typeOnChange} value={numberOfBeats}>
                 <option value={3}>Triplets</option>
                 <option value={4}>Semiquavers</option>
                 <option value={5}>Quintuplet</option>
                 <option value={6}>Sextuplet</option>
-              </Select>
-            </FormControl>
+              </select>
+            </div>
           </div>
           <div className="col-md-3 my-1">
-            <FormControl>
-              <FormLabel>Tempo (BPM)</FormLabel>
-              <Box display="flex" alignItems="center">
-                <Slider
+            <div>
+              <label>Tempo (BPM)</label>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <input
+                  type="range"
                   defaultValue={tempo}
-                  onChange={(value) => handleTempoChange(value)}
+                  onChange={(e) => handleTempoChange(e.target.value)}
                   min={1}
                   max={300}
                   step={1}
-                  colorScheme="blue"
-                >
-                  <SliderTrack>
-                    <SliderFilledTrack />
-                  </SliderTrack>
-                  <SliderThumb />
-                </Slider>
-                <Box ml={4}>{tempo} BPM</Box>
-              </Box>
-            </FormControl>
+                  style={{ flex: 1 }}
+                />
+                <div style={{ marginLeft: '1rem' }}>{tempo} BPM</div>
+              </div>
+            </div>
           </div>
           <div className="col-md-3 my-1">
             <div style={{ marginTop: '2em' }}>
@@ -351,37 +324,32 @@ export default function CardsForBeats() {
               >
                 Generate
               </Button> */}
-              <IconButton
-                mx="1"
+              <button
+                style={{ margin: '0 0.25rem' }}
                 aria-label="Share"
                 onClick={() => {
                   if (CopyPhraseToClipboard()) {
-                    return toast({
-                      title: 'Phrase Copied!',
-                      status: 'success',
-                      duration: 2000,
-                      isClosable: true,
-                    })
+                    console.log('Phrase Copied!')
                   }
                 }}
                 title="Share"
               >
-                <Icon as={BsShareFill} />
-              </IconButton>
-              <IconButton mx="1" aria-label="Settings" onClick={onOpen} title="Settings">
-                <SettingsIcon />
-              </IconButton>
+                <BsShareFill />
+              </button>
+              <button style={{ margin: '0 0.25rem' }} aria-label="Settings" onClick={onOpen} title="Settings">
+                <FaCog />
+              </button>
 
-              <IconButton onClick={handlePlayClick} aria-label="Play" mx="1">
+              <button onClick={handlePlayClick} aria-label="Play" style={{ margin: '0 0.25rem' }}>
                 <FaPlay />
-              </IconButton>
+              </button>
               {isPlaying && (
                 <>
-                  <IconButton onClick={handleStopClick} aria-label="Stop" mx="1">
+                  <button onClick={handleStopClick} aria-label="Stop" style={{ margin: '0 0.25rem' }}>
                     <FaStop />
-                  </IconButton>
-                  {beatIndex < 1 && <Text fontSize="xl">{(beatIndex - 1) * -1 * 1}</Text>}
-                  {beatIndex >= 1 && <Text fontSize="xl">Follow the beat!</Text>}
+                  </button>
+                  {beatIndex < 1 && <span style={{ fontSize: '1.25rem' }}>{(beatIndex - 1) * -1 * 1}</span>}
+                  {beatIndex >= 1 && <span style={{ fontSize: '1.25rem' }}>Follow the beat!</span>}
                 </>
               )}
               {/* <IconButton
@@ -405,64 +373,58 @@ export default function CardsForBeats() {
           </div>
         )}
       </div>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Settings</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Text>Label changes are saved to cookies and require you to re-generate the phrase</Text>
-            <br />
-            <FormControl>
-              <FormLabel>High Hat Label</FormLabel>
-              <Input maxLength={1} defaultValue={userSettingObj.highHatLabel} onChange={highHatLabelChange} />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Snare Label</FormLabel>
-              <Input maxLength={1} defaultValue={userSettingObj.snareLabel} onChange={snareLabelChange} />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Bass Label</FormLabel>
-              <Input maxLength={1} defaultValue={userSettingObj.bassLabel} onChange={bassLabelChange} />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Pedal Label</FormLabel>
-              <Input maxLength={1} defaultValue={userSettingObj.pedalLabel} onChange={pedalLabelChange} />
-            </FormControl>
-          </ModalBody>
-          <ModalFooter>
-            <Button
-              mr={3}
-              onClick={() => {
-                resetUserSettings()
-                onClose()
-                return toast({
-                  title: 'Settings Saved!',
-                  status: 'success',
-                  duration: 2000,
-                  isClosable: true,
-                })
-              }}
-            >
-              Reset defaults
-            </Button>
-            <Button
-              onClick={() => {
-                saveUserSettings()
-                onClose()
-                return toast({
-                  title: 'Settings Saved!',
-                  status: 'success',
-                  duration: 2000,
-                  isClosable: true,
-                })
-              }}
-            >
-              Save
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+      {isOpen && (
+        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000 }}>
+          <div style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '8px', maxWidth: '500px', width: '90%' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+              <h2>Settings</h2>
+              <button onClick={onClose} style={{ background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer' }}>×</button>
+            </div>
+            <div>
+              <p>Label changes are saved to cookies and require you to re-generate the phrase</p>
+              <br />
+              <div style={{ marginBottom: '1rem' }}>
+                <label>High Hat Label</label>
+                <input type="text" maxLength={1} defaultValue={userSettingObj.highHatLabel} onChange={highHatLabelChange} style={{ width: '100%', padding: '0.5rem' }} />
+              </div>
+              <div style={{ marginBottom: '1rem' }}>
+                <label>Snare Label</label>
+                <input type="text" maxLength={1} defaultValue={userSettingObj.snareLabel} onChange={snareLabelChange} style={{ width: '100%', padding: '0.5rem' }} />
+              </div>
+              <div style={{ marginBottom: '1rem' }}>
+                <label>Bass Label</label>
+                <input type="text" maxLength={1} defaultValue={userSettingObj.bassLabel} onChange={bassLabelChange} style={{ width: '100%', padding: '0.5rem' }} />
+              </div>
+              <div style={{ marginBottom: '1rem' }}>
+                <label>Pedal Label</label>
+                <input type="text" maxLength={1} defaultValue={userSettingObj.pedalLabel} onChange={pedalLabelChange} style={{ width: '100%', padding: '0.5rem' }} />
+              </div>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.5rem', marginTop: '1rem' }}>
+              <button
+                onClick={() => {
+                  resetUserSettings()
+                  onClose()
+                  console.log('Settings Saved!')
+                }}
+                style={{ padding: '0.5rem 1rem', marginRight: '0.5rem' }}
+              >
+                Reset defaults
+              </button>
+              <button
+                onClick={() => {
+                  saveUserSettings()
+                  onClose()
+                  console.log('Settings Saved!')
+                }}
+                style={{ padding: '0.5rem 1rem' }}
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }

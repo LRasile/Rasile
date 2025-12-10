@@ -1,11 +1,5 @@
-import {
-  ChevronRightIcon,
-  CloseIcon,
-  MinusIcon,
-  TriangleUpIcon,
-} from '@chakra-ui/icons'
-import { useColorMode } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
+import { FaChevronRight, FaTimes, FaMinus, FaCaretUp } from 'react-icons/fa'
+import { useEffect, useState } from 'react'
 import { BeatNoteEntity, defaultSettings } from '../../lib/CardsForBeatsService'
 import useCookie from 'react-use-cookie'
 
@@ -20,10 +14,7 @@ export default function BeatNote({ name, position, type }: BeatNoteEntity) {
   }, [])
 
   return (
-    <div
-      style={{ minWidth: '2em', position: 'relative' }}
-      className={'noteIndex' + (position + 1)}
-    >
+    <div style={{ minWidth: '2em', position: 'relative' }} className={'noteIndex' + (position + 1)}>
       {name == 'H' && <HighHatNote />}
       {name == 'S' && <SnareNote />}
       {name == 'B' && <BassNote />}
@@ -31,14 +22,11 @@ export default function BeatNote({ name, position, type }: BeatNoteEntity) {
       {isAccentedSnare && (
         <>
           <div className="accentedSnare">
-            <ChevronRightIcon />
+            <FaChevronRight />
           </div>
         </>
       )}
-      <div
-        className="noteHightlight"
-        style={{ marginLeft: '-.5rem', width: '1.5rem' }}
-      ></div>
+      <div className="noteHightlight" style={{ marginLeft: '-.5rem', width: '1.5rem' }}></div>
     </div>
   )
 }
@@ -52,16 +40,12 @@ export function HighHatNote() {
       setNoteLabel(JSON.parse(userSettings).highHatLabel)
     }
   }, [userSettings])
-  const { colorMode } = useColorMode()
-  const noteColour = colorMode === 'light' ? '#111' : '#eee'
+  const noteColour = '#eee'
   return (
     <div className="noteContainer">
-      <div
-        className="verticalLine"
-        style={{ height: '1em', background: noteColour }}
-      ></div>
+      <div className="verticalLine" style={{ height: '1em', background: noteColour }}></div>
       <div className="noteHead">
-        <CloseIcon />
+        <FaTimes />
       </div>
       <div className="noteLetter">{noteLabel}</div>
     </div>
@@ -78,16 +62,12 @@ export function SnareNote() {
     }
   }, [userSettings])
 
-  const { colorMode } = useColorMode()
-  const noteColour = colorMode === 'light' ? '#111' : '#eee'
+  const noteColour = '#eee'
   return (
     <div className="noteContainer">
-      <div
-        className="verticalLine"
-        style={{ height: '2em', background: noteColour }}
-      ></div>
+      <div className="verticalLine" style={{ height: '2em', background: noteColour }}></div>
       <div className="noteHead">
-        <MinusIcon />
+        <FaMinus />
       </div>
       <div className="noteLetter">{noteLabel}</div>
     </div>
@@ -104,16 +84,12 @@ export function BassNote() {
     }
   }, [userSettings])
 
-  const { colorMode } = useColorMode()
-  const noteColour = colorMode === 'light' ? '#111' : '#eee'
+  const noteColour = '#eee'
   return (
     <div className="noteContainer">
-      <div
-        className="verticalLine"
-        style={{ height: '3em', background: noteColour }}
-      ></div>
+      <div className="verticalLine" style={{ height: '3em', background: noteColour }}></div>
       <div className="noteHead">
-        <TriangleUpIcon />
+        <FaCaretUp />
       </div>
       <div className="noteLetter">{noteLabel}</div>
     </div>
@@ -130,17 +106,13 @@ export function PedalNote() {
     }
   }, [userSettings])
 
-  const { colorMode } = useColorMode()
-  const noteColour = colorMode === 'light' ? '#111' : '#eee'
+  const noteColour = '#eee'
 
   return (
     <div className="noteContainer">
-      <div
-        className="verticalLine"
-        style={{ height: '4em', background: noteColour }}
-      ></div>
+      <div className="verticalLine" style={{ height: '4em', background: noteColour }}></div>
       <div className="noteHead">
-        <CloseIcon />
+        <FaTimes />
       </div>
       <div className="noteLetter">{noteLabel}</div>
     </div>

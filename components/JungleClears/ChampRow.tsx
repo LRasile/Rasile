@@ -1,5 +1,4 @@
-import { Box, Flex, Grid, GridItem } from '@chakra-ui/react'
-import React, { ReactElement, useState } from 'react'
+import { useState } from 'react'
 import { JungleClear } from '../../lib/JungleClear'
 import VideoEmbed from '../VideoEmbed'
 
@@ -35,16 +34,12 @@ function Capitalize(input: string): string {
 }
 
 const jungleCamps = {
-  krugs:
-    'https://static.wikia.nocookie.net/leagueoflegends/images/f/fe/Ancient_KrugSquare.png',
-  raptors:
-    'https://static.wikia.nocookie.net/leagueoflegends/images/e/e3/RaptorSquare.png',
-  gromp:
-    'https://static.wikia.nocookie.net/leagueoflegends/images/e/e8/GrompSquare.png',
+  krugs: 'https://static.wikia.nocookie.net/leagueoflegends/images/f/fe/Ancient_KrugSquare.png',
+  raptors: 'https://static.wikia.nocookie.net/leagueoflegends/images/e/e3/RaptorSquare.png',
+  gromp: 'https://static.wikia.nocookie.net/leagueoflegends/images/e/e8/GrompSquare.png',
   blue: 'https://static.wikia.nocookie.net/leagueoflegends/images/8/85/Blue_SentinelSquare.png',
   red: 'https://static.wikia.nocookie.net/leagueoflegends/images/e/e7/Red_BramblebackSquare.png',
-  wolves:
-    'https://static.wikia.nocookie.net/leagueoflegends/images/d/d6/Greater_Murk_WolfSquare.png',
+  wolves: 'https://static.wikia.nocookie.net/leagueoflegends/images/d/d6/Greater_Murk_WolfSquare.png',
 }
 
 export default function ChampRow({ jungleClear }: ChampRowProps) {
@@ -101,20 +96,11 @@ export default function ChampRow({ jungleClear }: ChampRowProps) {
   }
 
   function ChampionIcon({ name }): JSX.Element {
-    return (
-      <img
-        className="champIcon"
-        src={GetImageUrl(name)}
-        alt={name}
-        title={name}
-      />
-    )
+    return <img className="champIcon" src={GetImageUrl(name)} alt={name} title={name} />
   }
 
   function Champion({ name }): JSX.Element {
-    return (
-      <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{name}</span>
-    )
+    return <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{name}</span>
   }
 
   function ClearTime({ time }): JSX.Element {

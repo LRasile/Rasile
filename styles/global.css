@@ -1,3 +1,20 @@
+html,
+body {
+  background-color: #1a202c;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+input {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #777;
+  border-radius: 4px;
+  outline: transparent solid 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-image: none;
+}
+
 .container {
   min-height: 100vh;
 }
@@ -214,9 +231,15 @@ h2 {
 .pokemonType:focus {
   outline: 1px solid;
 }
+.pokemon-link {
+  color: #fff;
+}
+.pokemon-link:hover {
+  color: #eee;
+}
 
 .pokemonTypeIcon {
-  margin: 0.2rem;
+  margin: 0.1rem;
   border-radius: 2rem;
   color: #fff;
   text-align: center;
@@ -224,6 +247,10 @@ h2 {
   height: 3rem;
   padding: 0.4rem;
   transition: all ease 0.1s;
+}
+.pokemonTypeIcon img {
+  width: 90%;
+  height: 90%;
 }
 
 .pokemonTypeIcon:focus {

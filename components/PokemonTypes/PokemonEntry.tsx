@@ -1,38 +1,24 @@
-import { Link } from '@chakra-ui/react'
-import React from 'react'
-import {
-  baseTypeArray,
-  GetUrlName as GetUrlName,
-  Pokemon,
-  PokemonTypeEfficacy,
-} from '../../lib/PokemonService'
+import { baseTypeArray, GetUrlName as GetUrlName, Pokemon, PokemonTypeEfficacy } from '../../lib/PokemonService'
 
 export interface PokemonEntryProps {
   pokemon: Pokemon
   typeEfficacy: PokemonTypeEfficacy[]
 }
 
-export default function PokemonEntry({
-  pokemon,
-  typeEfficacy,
-}: PokemonEntryProps) {
+export default function PokemonEntry({ pokemon, typeEfficacy }: PokemonEntryProps) {
   let pokemonEfficacyArray = []
 
   baseTypeArray.map((type) => {
     const attackingType = type.Name.toLowerCase()
 
     let firstTypingDamageFactor = typeEfficacy.filter(
-      (t) =>
-        t.attackingType == attackingType &&
-        t.defendingType == pokemon.types[0].toLowerCase()
+      (t) => t.attackingType == attackingType && t.defendingType == pokemon.types[0].toLowerCase()
     )[0].damageFactor
 
     let secondTypingDamageFactor = 1
     if (pokemon.types[1]) {
       secondTypingDamageFactor = typeEfficacy.filter(
-        (t) =>
-          t.attackingType == attackingType &&
-          t.defendingType == pokemon.types[1].toLowerCase()
+        (t) => t.attackingType == attackingType && t.defendingType == pokemon.types[1].toLowerCase()
       )[0].damageFactor
     }
 
@@ -55,21 +41,11 @@ export default function PokemonEntry({
           fontWeight: 'bold',
         }}
       >
-        <Link
-          href={`https://bulbapedia.bulbagarden.net/wiki/${GetUrlName(
-            pokemon
-          )}_(Pokémon)`}
-        >
+        <a className="pokemon-link" href={`https://bulbapedia.bulbagarden.net/wiki/${GetUrlName(pokemon)}_(Pokémon)`}>
           #{pokemon.id} {pokemon.name}
-        </Link>{' '}
-        <div className={`pokemonType pokemonType${pokemon.types[0]}`}>
-          {pokemon.types[0]}
-        </div>
-        {pokemon.types[1] && (
-          <div className={`pokemonType pokemonType${pokemon.types[1]}`}>
-            {pokemon.types[1]}
-          </div>
-        )}
+        </a>{' '}
+        <div className={`pokemonType pokemonType${pokemon.types[0]}`}>{pokemon.types[0]}</div>
+        {pokemon.types[1] && <div className={`pokemonType pokemonType${pokemon.types[1]}`}>{pokemon.types[1]}</div>}
       </div>
       <div className="flex-container">
         <div className="flex-item-type">

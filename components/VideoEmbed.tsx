@@ -1,29 +1,19 @@
-import React from "react";
-
 export default function VideoEmbed({ src }) {
-  let embedUrl = src;
-  if (src.search("youtube") != -1) {
-    embedUrl = `https://www.youtube.com/embed/${src.split("?v=")[1]}`;
+  let embedUrl = src
+  if (src.search('youtube') != -1) {
+    embedUrl = `https://www.youtube.com/embed/${src.split('?v=')[1]}`
   }
-  if (src.search("twitch") != -1) {
+  if (src.search('twitch') != -1) {
     embedUrl =
-      src.replace(
-        "https://www.twitch.tv/videos/",
-        "https://player.twitch.tv/?video="
-      ) + `&parent=${window.location.hostname}&autoplay=false`;
-    console.log(embedUrl);
+      src.replace('https://www.twitch.tv/videos/', 'https://player.twitch.tv/?video=') +
+      `&parent=${window.location.hostname}&autoplay=false`
+    console.log(embedUrl)
   }
-  if (src.search("streamable") != -1) {
-    embedUrl = src.replace(
-      "https://streamable.com/",
-      "https://streamable.com/e/"
-    );
+  if (src.search('streamable') != -1) {
+    embedUrl = src.replace('https://streamable.com/', 'https://streamable.com/e/')
   }
-  if (src.search("medal") != -1) {
-    embedUrl = src.replace(
-      "https://medal.tv/games/league-of-legends/clips",
-      "https://medal.tv/clip"
-    );
+  if (src.search('medal') != -1) {
+    embedUrl = src.replace('https://medal.tv/games/league-of-legends/clips', 'https://medal.tv/clip')
   }
 
   return (
@@ -38,5 +28,5 @@ export default function VideoEmbed({ src }) {
         title="Embedded youtube"
       />
     </div>
-  );
+  )
 }

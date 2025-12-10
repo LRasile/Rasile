@@ -1,7 +1,6 @@
-import { CloseIcon, SearchIcon } from '@chakra-ui/icons'
-import { Button, IconButton, Input, InputGroup, InputLeftElement, InputRightElement, Text } from '@chakra-ui/react'
+import { FaSearch, FaTimes } from 'react-icons/fa'
 import React, { useEffect, useRef, useState } from 'react'
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
+import { ApolloClient, HttpLink, InMemoryCache, gql } from '@apollo/client'
 import { parsePokemonGraphQL, parseTypeEfficacy, Pokemon, baseTypeArray } from '../../lib/PokemonService'
 import PokemonEntry from '../../components/PokemonTypes/PokemonEntry'
 import PokemonType from '../../components/PokemonTypes/PokemonTypes'
@@ -58,10 +57,11 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
   return (
     <>
       <div className="col-12 p-md-2">
-        <Text fontSize="4xl">Pokémon Search</Text>
+        <h1 style={{ fontSize: '2.25rem' }}>Pokémon Search</h1>
         <div style={{ margin: '1rem 0rem 0rem', textAlign: 'center' }}>
           {baseTypeArray.map((t) => (
             <div
+              key={t.Name}
               style={{
                 padding: 0,
                 marginBottom: '.4rem',
@@ -69,7 +69,6 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
               }}
             >
               <button
-                key={t.Name}
                 onClick={() => setSearch(t.Search)}
                 className={`pokemonType${t.Name} pokemonTypeIcon`}
                 title={t.Name}
@@ -79,32 +78,29 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
             </div>
           ))}
         </div>
-        <InputGroup>
-          <InputLeftElement fontSize="1.5em" margin="1" children={<SearchIcon color="gray.400" />} />
-          <Input
+        <div style={{ position: 'relative' }}>
+          <FaSearch style={{ position: 'absolute', left: '0.5rem', top: '50%', transform: 'translateY(-50%)', fontSize: '1.5em', color: '#999' }} />
+          <input
             placeholder="Name or number, Rhydon or 112 or >906"
-            size="lg"
             value={search}
             onChange={handleChange}
             ref={inputRef}
+            style={{ width: '100%', padding: '0.75rem', paddingLeft: '2.5rem', paddingRight: '2.5rem', fontSize: '1.125rem' }}
           />
-          <InputRightElement
-            fontSize="1.5em"
-            children={
-              <button>
-                <CloseIcon
-                  color="gray.400"
-                  onClick={() => {
-                    setSearch('')
-                    if (inputRef.current) {
-                      inputRef.current.focus()
-                    }
-                  }}
-                />
-              </button>
-            }
-          ></InputRightElement>
-        </InputGroup>
+          {search && (
+            <button
+              onClick={() => {
+                setSearch('')
+                if (inputRef.current) {
+                  inputRef.current.focus()
+                }
+              }}
+              style={{ position: 'absolute', right: '0.5rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer' }}
+            >
+              <FaTimes style={{ fontSize: '1.5em', color: '#999' }} />
+            </button>
+          )}
+        </div>
       </div>
       <div className="col-12 m-0 p-0">
         {data &&
@@ -118,7 +114,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
 
 export async function getStaticProps() {
   const client = new ApolloClient({
-    uri: 'https://beta.pokeapi.co/graphql/v1beta',
+    link: new HttpLink({ uri: 'https://beta.pokeapi.co/graphql/v1beta' }),
     cache: new InMemoryCache(),
   })
 

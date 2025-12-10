@@ -1,5 +1,4 @@
-import { SearchIcon } from '@chakra-ui/icons'
-import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
+import { FaSearch } from 'react-icons/fa'
 import React, { useEffect, useState } from 'react'
 import RecipeCard from '../../components/Menu/RecipeCard'
 import { Recipe } from '../../lib/Recipe'
@@ -36,10 +35,15 @@ export default function Menu({ recipes }: MenuProps) {
   return (
     <>
       <div className="col-12 p-md-2">
-        <InputGroup>
-          <InputLeftElement fontSize="1.5em" margin="1" children={<SearchIcon color="gray.400" />} />
-          <Input placeholder="Recipe name or category" size="lg" value={search} onChange={handleChange} />
-        </InputGroup>
+        <div style={{ position: 'relative' }}>
+          <input
+            placeholder="Recipe name or category"
+            value={search}
+            onChange={handleChange}
+            style={{ width: '100%', padding: '0.75rem', paddingRight: '2.5rem', fontSize: '1.125rem' }}
+          />
+          <FaSearch style={{ position: 'absolute', right: '0.5rem', top: '50%', transform: 'translateY(-50%)', fontSize: '1.5em', color: '#999' }} />
+        </div>
       </div>
       <div className="col-12 m-0 p-0 row">{data && data.map((recipe) => <RecipeCard recipe={recipe} />)}</div>
     </>

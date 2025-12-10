@@ -1,22 +1,5 @@
 import { useState, useEffect } from 'react'
-import { InfoOutlineIcon } from '@chakra-ui/icons'
-import {
-  Box,
-  Button,
-  Text,
-  List,
-  ListItem,
-  VStack,
-  IconButton,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  ModalCloseButton,
-  useDisclosure,
-} from '@chakra-ui/react'
+import { FaInfoCircle } from 'react-icons/fa'
 
 export default function ContractionTimer() {
   const [isSurging, setIsSurging] = useState(false)
@@ -28,7 +11,10 @@ export default function ContractionTimer() {
   const [warning, setWarning] = useState(false)
   const [timeSinceLastSurge, setTimeSinceLastSurge] = useState(0)
   const [timeSinceFirstSurge, setTimeSinceFirstSurge] = useState(0)
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [isOpen, setIsOpen] = useState(false)
+  
+  const onOpen = () => setIsOpen(true)
+  const onClose = () => setIsOpen(false)
 
   // Load data from sessionStorage on initial render
   useEffect(() => {
@@ -166,95 +152,102 @@ export default function ContractionTimer() {
   const lastSurgeDuration = surgeTimes.length > 0 ? surgeTimes[surgeTimes.length - 1].duration : 0
 
   return (
-    <Box p={5} textAlign="center" style={{ marginTop: -70 }}>
+    <div style={{ padding: '1.25rem', textAlign: 'center', marginTop: -70 }}>
       <div>
-        <IconButton
+        <button
           style={{
             marginRight: -200,
             marginBottom: -50,
             backgroundColor: 'rgba(0,0,0,0)',
+            border: 'none',
+            cursor: 'pointer',
           }}
-          icon={<InfoOutlineIcon />}
           aria-label="Open info popup"
           onClick={onOpen}
-        />
+        >
+          <FaInfoCircle />
+        </button>
 
-        <Modal isOpen={isOpen} onClose={onClose} isCentered>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Information</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              Before calling the midwife you are aiming for <b>3</b> surges within <b>10</b> minutes each lasting at
-              least <b>45</b> seconds
-            </ModalBody>
-
-            <ModalFooter></ModalFooter>
-          </ModalContent>
-        </Modal>
+        {isOpen && (
+          <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000 }}>
+            <div style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '8px', maxWidth: '500px', width: '90%' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                <h2>Information</h2>
+                <button onClick={onClose} style={{ background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer' }}>×</button>
+              </div>
+              <div>
+                Before calling the midwife you are aiming for <b>3</b> surges within <b>10</b> minutes each lasting at
+                least <b>45</b> seconds
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
-      <Button
+      <button
         onClick={handleClick}
-        colorScheme={isSurging ? 'pink' : 'teal'}
         style={{
           height: 200,
           width: 200,
           borderRadius: 200,
+          backgroundColor: isSurging ? '#ED64A6' : '#319795',
+          color: 'white',
+          border: 'none',
+          cursor: 'pointer',
         }}
       >
         <div>
-          <Text fontSize="5xl">{isSurging ? 'Finish ' : 'Start'}</Text>
+          <div style={{ fontSize: '3rem' }}>{isSurging ? 'Finish ' : 'Start'}</div>
           {isSurging && (
-            <Text fontSize="2xl" mt={3}>
+            <div style={{ fontSize: '1.5rem', marginTop: '0.75rem' }}>
               {formatDurationToSeconds(surgeTimer)}
-            </Text>
+            </div>
           )}
         </div>
-      </Button>
+      </button>
       {warning && (
-        <Text color="tomato" fontSize="5xl" mt={3}>
+        <div style={{ color: 'tomato', fontSize: '3rem', marginTop: '0.75rem' }}>
           Call the midwife
-        </Text>
+        </div>
       )}
 
       <div className="row">
         <div className="col-6">
-          <Text fontSize="5xl" mt={5}>
+          <div style={{ fontSize: '3rem', marginTop: '1.25rem' }}>
             {formatDurationToSeconds(lastSurgeDuration)}
-            <Text fontSize="sm">Last Surge Duration</Text>
-            <Text fontSize="xs">
+            <div style={{ fontSize: '0.875rem' }}>Last Surge Duration</div>
+            <div style={{ fontSize: '0.75rem' }}>
               <i>Seconds</i>
-            </Text>
-          </Text>
+            </div>
+          </div>
         </div>
         <div className="col-6">
-          <Text fontSize="5xl" mt={5}>
+          <div style={{ fontSize: '3rem', marginTop: '1.25rem' }}>
             {formatDurationToMinutes(timeSinceLastSurge)}
-            <Text fontSize="sm">Time Since Last Surge</Text>
-            <Text fontSize="xs">
+            <div style={{ fontSize: '0.875rem' }}>Time Since Last Surge</div>
+            <div style={{ fontSize: '0.75rem' }}>
               <i>Minutes</i>
-            </Text>
-          </Text>
+            </div>
+          </div>
         </div>
         <div className="col-6">
-          <Text fontSize="5xl" mt={5}>
+          <div style={{ fontSize: '3rem', marginTop: '1.25rem' }}>
             {surgeCount}
-            <Text fontSize="sm">Total Surges</Text>
-          </Text>
+            <div style={{ fontSize: '0.875rem' }}>Total Surges</div>
+          </div>
         </div>
         <div className="col-6">
-          <Text fontSize="5xl" mt={5}>
+          <div style={{ fontSize: '3rem', marginTop: '1.25rem' }}>
             {formatDurationToHours(timeSinceFirstSurge)}
-            <Text fontSize="sm">Time Since First Surge</Text>
-            <Text fontSize="xs">
+            <div style={{ fontSize: '0.875rem' }}>Time Since First Surge</div>
+            <div style={{ fontSize: '0.75rem' }}>
               <i>Hours</i>
-            </Text>
-          </Text>
+            </div>
+          </div>
         </div>
       </div>
-      <VStack spacing={4} mt={10}>
-        <List>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '2.5rem' }}>
+        <ul style={{ listStyle: 'none', padding: 0 }}>
           {surgeTimes
             .slice()
             .reverse()
@@ -265,7 +258,7 @@ export default function ContractionTimer() {
                 : 'N/A'
 
               return (
-                <ListItem key={index} mb={10}>
+                <li key={index} style={{ marginBottom: '2.5rem' }}>
                   <div
                     style={{
                       position: 'relative',
@@ -275,30 +268,30 @@ export default function ContractionTimer() {
                     }}
                   >
                     {previousSurge && (
-                      <Text fontSize="xs" px={3} py={2} style={{ position: 'absolute', top: -40, left: 70 }}>
+                      <div style={{ fontSize: '0.75rem', padding: '0.5rem 0.75rem', position: 'absolute', top: -40, left: 70 }}>
                         {timeDifference} minutes between surges
-                      </Text>
+                      </div>
                     )}
-                    <Text fontSize="xl" mx={2} my={2} px={4} py={4} textAlign="left">
+                    <div style={{ fontSize: '1.25rem', margin: '0.5rem', padding: '1rem', textAlign: 'left' }}>
                       {formatDurationToSeconds(surge.duration)} seconds
-                    </Text>
-                    <Text fontSize="xs" px={3} py={2} style={{ position: 'absolute', top: 0, right: 0 }}>
+                    </div>
+                    <div style={{ fontSize: '0.75rem', padding: '0.5rem 0.75rem', position: 'absolute', top: 0, right: 0 }}>
                       {surge.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
-                    </Text>
-                    <Text fontSize="xs" px={3} py={2} style={{ position: 'absolute', bottom: 0, right: 0 }}>
+                    </div>
+                    <div style={{ fontSize: '0.75rem', padding: '0.5rem 0.75rem', position: 'absolute', bottom: 0, right: 0 }}>
                       Surge {surgeTimes.length - index}
-                    </Text>
+                    </div>
                   </div>
-                </ListItem>
+                </li>
               )
             })}
-        </List>
-      </VStack>
+        </ul>
+      </div>
 
       {/* Reset Button */}
-      <Button mt={5} colorScheme="blue" onClick={handleReset}>
+      <button style={{ marginTop: '1.25rem', backgroundColor: '#3182CE', color: 'white', padding: '0.5rem 1rem', border: 'none', borderRadius: '4px', cursor: 'pointer' }} onClick={handleReset}>
         Reset
-      </Button>
-    </Box>
+      </button>
+    </div>
   )
 }

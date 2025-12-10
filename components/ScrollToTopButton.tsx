@@ -1,14 +1,11 @@
-import { ArrowUpIcon, StarIcon } from '@chakra-ui/icons'
-import { Button, IconButton } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
+import { FaArrowUp } from 'react-icons/fa'
+import { useEffect, useState } from 'react'
 
 export default function ScrollToTopButton() {
   const [showButton, setShowButton] = useState(false)
 
   function visibility() {
-    window && window.pageYOffset > 300
-      ? setShowButton(true)
-      : setShowButton(false)
+    window && window.pageYOffset > 300 ? setShowButton(true) : setShowButton(false)
   }
 
   function scrollToTop() {
@@ -23,14 +20,9 @@ export default function ScrollToTopButton() {
   return (
     <div className="ScrollToTop">
       {showButton && (
-        <IconButton
-          aria-label="Scroll to top"
-          title="Scroll to top"
-          onClick={scrollToTop}
-          className=""
-        >
-          <ArrowUpIcon />
-        </IconButton>
+        <button aria-label="Scroll to top" title="Scroll to top" onClick={scrollToTop} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+          <FaArrowUp />
+        </button>
       )}
     </div>
   )

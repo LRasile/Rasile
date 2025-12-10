@@ -1,5 +1,4 @@
-import { ArrowLeftIcon, ArrowRightIcon, SpinnerIcon } from '@chakra-ui/icons'
-import { Button, ButtonGroup, Text } from '@chakra-ui/react'
+import { FaArrowLeft, FaArrowRight, FaSpinner } from 'react-icons/fa'
 import { useState } from 'react'
 
 export default function LoopHeroSolver() {
@@ -10,50 +9,48 @@ export default function LoopHeroSolver() {
     height: 600,
     margin: 'auto',
     transition: 'all 0.4s ease',
-    transform:
-      (rotated ? 'rotate(180deg) ' : 'rotate(0deg) ') +
-      (mirrored ? 'rotateY(180deg)' : 'rotateY(0deg)'),
+    transform: (rotated ? 'rotate(180deg) ' : 'rotate(0deg) ') + (mirrored ? 'rotateY(180deg)' : 'rotateY(0deg)'),
   }
 
   return (
     <>
-      <ButtonGroup>
-        <Button
-          leftIcon={!mirrored ? <ArrowRightIcon /> : <ArrowLeftIcon />}
-          onClick={() => setMirrored(!mirrored)}
-        >
-          {!mirrored ? 'Mirror' : 'Un-Mirror'}
-        </Button>
-        <Button leftIcon={<SpinnerIcon />} onClick={() => setRotated(!rotated)}>
+      <div style={{ display: 'flex', gap: '0.5rem' }}>
+        <button onClick={() => setMirrored(!mirrored)}>
+          {!mirrored ? (
+            <>
+              Mirror
+              <FaArrowRight />
+            </>
+          ) : (
+            <>
+              Un-Mirror
+              <FaArrowLeft />
+            </>
+          )}
+        </button>
+        <button onClick={() => setRotated(!rotated)}>
           {!rotated ? 'Rotate' : 'Un-Rotate'}
-        </Button>
-      </ButtonGroup>
+          <FaSpinner />
+        </button>
+      </div>
       <div className="flex-container">
         <div className="flex-item">
           {' '}
           <div style={{ margin: 'auto', textAlign: 'center' }}>
-            <Text fontSize="lg">234% Attack Speed</Text>
-            <Text fontSize="md">22 Thickets</Text>
-            <Text fontSize="md">38 Rivers</Text>
+            <p style={{ fontSize: '1.125rem' }}>234% Attack Speed</p>
+            <p style={{ fontSize: '1rem' }}>22 Thickets</p>
+            <p style={{ fontSize: '1rem' }}>38 Rivers</p>
           </div>
-          <img
-            style={imageStyle}
-            src="../images/5by12.jpg"
-            title="234% Attack Speed"
-          />
+          <img style={imageStyle} src="../images/5by12.jpg" title="234% Attack Speed" />
         </div>
         <div className="flex-item">
           {' '}
           <div style={{ margin: 'auto', textAlign: 'center' }}>
-            <Text fontSize="lg">176% Attack Speed</Text>
-            <Text fontSize="md"> 14 Thickets </Text>
-            <Text fontSize="md"> 34 Rivers</Text>
+            <p style={{ fontSize: '1.125rem' }}>176% Attack Speed</p>
+            <p style={{ fontSize: '1rem' }}> 14 Thickets </p>
+            <p style={{ fontSize: '1rem' }}> 34 Rivers</p>
           </div>
-          <img
-            style={imageStyle}
-            src="../images/4by12.jpg"
-            title="176% Attack Speed"
-          />
+          <img style={imageStyle} src="../images/4by12.jpg" title="176% Attack Speed" />
         </div>
       </div>
     </>

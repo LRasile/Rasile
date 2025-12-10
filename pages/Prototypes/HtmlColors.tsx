@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const colorData = [
   { name: 'aliceblue', hex: '#f0f8ff', red: 240, green: 248, blue: 255 },

@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react'
+import { CSSProperties } from 'react'
 import { useRouter } from 'next/router'
 
 export default function Apps() {
@@ -8,24 +8,11 @@ export default function Apps() {
 
   return (
     <div className="flex-container">
-      <div
-        className="flex-item"
-        style={styleTile}
-        onClick={() => router.push('Blog/AppConfig')}
-      >
-        <img
-          style={{ margin: 'auto', padding: 10 }}
-          height={150}
-          width={150}
-          src="../images/JungleIcon.png"
-        />
+      <div className="flex-item" style={styleTile} onClick={() => router.push('Blog/AppConfig')}>
+        <img style={{ margin: 'auto', padding: 10 }} height={150} width={150} src="../images/JungleIcon.png" />
         <div className="tileText">App Config</div>
       </div>
-      <div
-        className="flex-item"
-        style={styleTile}
-        onClick={() => router.push('Apps/PokemonEffectiveness')}
-      >
+      <div className="flex-item" style={styleTile} onClick={() => router.push('Apps/PokemonEffectiveness')}>
         <div style={{ height: 150, paddingTop: 20 }}>
           <div className="Pokeball" style={{ margin: 'auto' }}>
             <div className="PokeballLine"></div>
@@ -35,17 +22,8 @@ export default function Apps() {
         <div className="tileText"> Pokemon Effectiveness</div>
       </div>
 
-      <div
-        className="flex-item"
-        style={styleTile}
-        onClick={() => router.push('Apps/LoopHeroSolver')}
-      >
-        <img
-          style={{ margin: 'auto', padding: 10 }}
-          height={150}
-          width={150}
-          src="../images/LoopHeroLogo.png"
-        />
+      <div className="flex-item" style={styleTile} onClick={() => router.push('Apps/LoopHeroSolver')}>
+        <img style={{ margin: 'auto', padding: 10 }} height={150} width={150} src="../images/LoopHeroLogo.png" />
         <div className="tileText">Loop Hero</div>
       </div>
     </div>
