@@ -55,7 +55,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
   }
 
   return (
-    <>
+    <div className="card" style={{ margin: '1rem' }}>
       <div className="col-12 p-md-2">
         <h1 style={{ fontSize: '2.25rem' }}>Pokémon Search</h1>
         <div style={{ margin: '1rem 0rem 0rem', textAlign: 'center' }}>
@@ -108,7 +108,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
             .slice(0, 150)
             .map((pokemon) => <PokemonEntry pokemon={pokemon} typeEfficacy={typeEfficacy} key={pokemon.id} />)}
       </div>
-    </>
+    </div>
   )
 }
 

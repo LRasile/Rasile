@@ -266,7 +266,7 @@ export default function CardsForBeats() {
   }
 
   return (
-    <>
+    <div className="card" style={{ margin: '1rem' }}>
       <div className="row col-12">
         <div className="col-md-12 row">
           <div className="col-md-3 my-1">
@@ -425,6 +425,6 @@ export default function CardsForBeats() {
           </div>
         </div>
       )}
-    </>
+    </div>
   )
 }

@@ -1,6 +1,10 @@
 html,
 body {
-  background-color: #1a202c;
+  background-image: url('/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -89,6 +93,91 @@ h2 {
   padding-top: 10px;
   transition: all ease 0.4s;
 }
+/*#endregion */
+
+/*#region Home vertical menu*/
+
+.homeWrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.homePanel {
+  border-radius: 5;
+  margin-top: -100;
+}
+.homePanel:hover {
+  /* backdrop-filter: blur(10px); */
+}
+
+.homePanel h1 {
+  font-size: 1.6rem;
+  padding: 50;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  text-shadow: #111 2 2;
+}
+
+.homeMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 520px;
+  overflow: hidden;
+}
+
+.homeMenuItem {
+  border-radius: 5;
+  width: 100%;
+  padding: 1.4rem 2.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  list-style-type: none;
+  backdrop-filter: blur(2px);
+  transition: all 0.4s ease;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.homeMenuItem:hover {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(5px);
+}
+
+/*#endregion */
+
+/*#region Shared card*/
+
+.card {
+  border-radius: 5px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  cursor: default;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  transition: all 0.4s ease;
+  background: rgba(0, 0, 0, 0.65);
+  height: 100%;
+}
+
+.card:hover {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
 /*#endregion */
 
 /*#region Index*/

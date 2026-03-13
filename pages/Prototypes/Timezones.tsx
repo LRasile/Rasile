@@ -40,7 +40,7 @@ export default function Timezones() {
   ]
 
   return (
-    <>
+    <div className="card" style={{ margin: '1rem' }}>
       <h1>UTC Time</h1>
       <h2>{utcTime}</h2>
       <div style={{ position: 'relative', width: '100%' }}>
@@ -66,6 +66,6 @@ export default function Timezones() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   )
 }
