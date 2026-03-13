@@ -257,7 +257,7 @@ function Nav9() {
   return (
     <div style={{ background: '#0f0f0f', padding: '12px 2rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <nav style={{
-        display: 'flex', alignItems: 'center', gap: '0',
+        display: 'flex', alignItems: 'center',
         background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(20px)',
         border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px',
         padding: '6px 8px', gap: '4px',
