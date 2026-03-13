@@ -33,7 +33,7 @@ const services = [
 
 export default function Services() {
   return (
-    <div style={{ padding: '2rem 1rem' }}>
+    <div className="card" style={{ margin: '2rem 0', padding: '2rem 1rem' }}>
       <h2 style={{ marginBottom: '0.5rem' }}>What we do</h2>
       <p style={{ color: '#a0aec0', marginBottom: '2rem' }}>A selection of our most popular services.</p>
 

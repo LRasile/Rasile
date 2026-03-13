@@ -4,7 +4,7 @@ export default function Prototypes() {
   const router = useRouter()
 
   return (
-    <div>
+    <div className="card" style={{ margin: '2rem 0' }}>
       <h2 className="p-2">Prototypes</h2>
       <div className="row justify-content-center p-4">
         <div className="col-lg-3 col-md-6 my-2">
