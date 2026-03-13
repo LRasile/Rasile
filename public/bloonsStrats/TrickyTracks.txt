@@ -1,0 +1,43 @@
+tricky tracks
+-------------
+6 - 2 desperado
+8 - dart
+9 - dart
+10 - mermonky, darts to close
+11 - darts back to first
+12 - obyn
+13 - obyn close
+15 - mermonkey
+16 - mermonkey
+17 - sniper
+19 - wizard 200
+22 - snipes 100
+24 - snipes 110
+25 - druid
+29 - wizard 302
+33 - top mermonkey 002
+35 - top mermonkey 032
+36 - wizard 012,brambles
+37 - druid 
+40 - wizard 032
+42 - mermonkey 302
+44 - village 002
+45 - mermonky 002, another mermonky 002
+46 - mermonkeys to 032
+48 - another mermonkey 032
+49 - mermonkey 402
+50 - another mermonkey 032
+51 - jungle drums
+52 - another mermonkey 032, then till 10 echosense stacks
+61 - wziard 402
+62 - brambles
+63 - village 202
+80 - wizard 502, village 302
+81 - freeze 410
+84 - boomer 024, bomb 320
+93 - freeze 510, alch 301
+95 - boomer 024, glue 013
+97 - overdrive
+98 - overdrive
+99 - overdrive, wizard on strong
+100 - wizard on first

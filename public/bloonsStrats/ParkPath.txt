@@ -1,0 +1,40 @@
+tricky tracks
+-------------
+ 6 - 2 desperado
+ 9 - dart, mermonkey, desperados to strong
+12 - Sauda
+14 - Druid
+15 - Druid 010
+16 - Druid 020
+21 - Druid 030 on strong
+22 - Druid 130
+23 - Right mermonkey 101
+24 - Right mermonkey 201
+28 - Right mermonkey 301
+35 - Village 002, spactory 002
+37 - spactory 003
+38 - spactory 103
+39 - Sauda lvl3 ability 
+40 - Alch 300
+41 - Village 001
+42 - Village 002, spactory 002
+43 - Ice 110
+46 - mermonkey 401
+49 - left spike 104, right spike 102
+50 - left desperado 023, right spikes 302
+51 - right desperado 023
+57 - left desperado 024
+59 - ice 310, right village 202
+63 - both villages to 302, new alch 300 on right side
+64 - alch 300 the left desperado
+70 - right desperado 024
+73 - right alch 420
+75 - glue 013, strong
+84 - spike 205 
+85 - boomer 024 left side on strong
+89 - spike 402, ice 410
+91 - new mermonkey 401
+93 - new glue 013 on right
+95 - right glue 024, engineer 031 right side
+96 - new boomer 024 right side , left glue to 024
+97 - new boomer 024 left side 
