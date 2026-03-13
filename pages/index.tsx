@@ -5,7 +5,6 @@ const menuItems = [
   { label: 'About', href: '/About' },
   { label: 'Projects', href: '/Projects' },
   { label: 'Prototypes', href: '/Prototypes' },
-  { label: 'Blog', href: '/Blog' },
 ]
 
 export default function Home() {
