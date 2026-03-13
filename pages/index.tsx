@@ -52,7 +52,7 @@ export default function Home() {
               ✉️ leonardo@rasile.co.uk
             </a>
             <a
-              href="https://www.linkedin.com/in/leonardorasile"
+              href="https://www.linkedin.com/in/leonardo-rasile"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: '#63b3ed', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
