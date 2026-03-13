@@ -33,7 +33,7 @@ export default function Home() {
         <div className="col-lg-9 p-5">
           <h1>Leonardo Rasile</h1>
           <p>Owner of Rasile Consulting Ltd.</p>
-          <p>Experienced Lead Full Stack Developer specialiing in .NET Core, Azure and React.</p>
+          <p>Experienced Lead Full Stack Developer specialising in .NET Core, Azure and React.</p>
           <h2>About me</h2>
           <p>
             I am an experienced software developer with advanced understanding of Azure Cloud technologies. I have also
@@ -44,47 +44,21 @@ export default function Home() {
             on the latest technologies and trends, so I can bring the most value to any organization I work with. My
             goal is to help companies optimize their software development processes and foster innovation.
           </p>
-        </div>
-      </div>
-
-      {/* Love Reminders Section */}
-      <div className="row p-2">
-        <div className="col-12 p-0">
-          <div
-            className="m-4"
-            style={{
-              background: 'linear-gradient(135deg, rgba(255, 107, 157, 0.2), rgba(196, 69, 105, 0.2))',
-              borderRadius: '15px',
-              padding: '2rem',
-              textAlign: 'center',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-              position: 'relative',
-              overflow: 'hidden',
-            }}
-          >
-            <div
-              style={{
-                position: 'absolute',
-                top: '-50px',
-                right: '-50px',
-                fontSize: '120px',
-                opacity: '0.1',
-                transform: 'rotate(15deg)',
-              }}
+          <div style={{ display: 'flex', gap: '1.5rem', marginTop: '1rem', flexWrap: 'wrap' }}>
+            <a
+              href="mailto:leonardo@rasile.co.uk"
+              style={{ color: '#63b3ed', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
             >
-              💝
-            </div>
-            <h2>💕 Love Reminders - Coming Soon</h2>
-            <p>Never miss a moment to show your love and appreciation</p>
-            <p>
-              Love Reminders is your personal relationship companion, designed to help you nurture the connections that
-              matter most. From thoughtful birthday surprises to anniversary celebrations, our intelligent reminder
-              system ensures you're always there for the people you love, even when life gets busy.
-            </p>
-            <p>Coming soon to iOS and Android app stores</p>
-            <p onClick={() => router.push('LoveRemindersPrivacyPolicy')}>
-              <a style={{ textDecoration: 'underline', color: 'inherit', cursor: 'pointer' }}>Privacy Policy</a>
-            </p>
+              ✉️ leonardo@rasile.co.uk
+            </a>
+            <a
+              href="https://www.linkedin.com/in/leonardorasile"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#63b3ed', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
+            >
+              🔗 LinkedIn
+            </a>
           </div>
         </div>
       </div>
@@ -96,6 +70,7 @@ export default function Home() {
           <div className="prototype-tile" onClick={() => router.push('Prototypes/JungleClears')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🌲</span>
             <div className="tileText">Jungle Clears</div>
+            <div className="tileDescription">League of Legends jungle route planner pulled live from Google Sheets</div>
           </div>
         </div>
         <div className="col-lg-3 col-md-6 my-2">
@@ -107,48 +82,88 @@ export default function Home() {
               </div>
             </div>
             <div className="tileText">Pokemon Effectiveness</div>
+            <div className="tileDescription">Look up type matchups and damage multipliers for any Pokémon</div>
           </div>
         </div>
         <div className="col-lg-3 col-md-6 my-2">
           <div className="prototype-tile" onClick={() => router.push('Prototypes/LoopHeroSolver')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🔁</span>
             <div className="tileText">Loop Hero</div>
+            <div className="tileDescription">Tile placement helper and strategy guide for Loop Hero runs</div>
           </div>
         </div>
         <div className="col-lg-3 col-md-6 my-2">
           <div className="prototype-tile" onClick={() => router.push('Prototypes/CardsForBeats')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🥁</span>
             <div className="tileText">Cards For Beats</div>
+            <div className="tileDescription">Card-based game for generating beat patterns and rhythm ideas</div>
           </div>
         </div>
         <div className="col-lg-3 col-md-6 my-2">
           <div className="prototype-tile" onClick={() => router.push('Prototypes/Menu')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🍝</span>
             <div className="tileText">Menu</div>
+            <div className="tileDescription">Weekly meal planner and recipe browser for home cooking</div>
           </div>
         </div>
         <div className="col-lg-3 col-md-6 my-2">
           <div className="prototype-tile" onClick={() => router.push('Prototypes/Timezones')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>⏰</span>
             <div className="tileText">Timezones</div>
+            <div className="tileDescription">Compare current times across multiple cities at a glance</div>
           </div>
         </div>
         <div className="col-lg-3 col-md-6 my-2">
           <div className="prototype-tile" onClick={() => router.push('Prototypes/HtmlColors')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🎨</span>
             <div className="tileText">HTML Colors</div>
+            <div className="tileDescription">Browse and search all named HTML/CSS colours with hex values</div>
           </div>
         </div>
         <div className="col-lg-3 col-md-6 my-2">
           <div className="prototype-tile" onClick={() => router.push('Prototypes/ContractionTimer')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>👶</span>
             <div className="tileText">Contraction Timer</div>
+            <div className="tileDescription">Time and track contractions during labour with duration and frequency</div>
           </div>
         </div>
         <div className="col-lg-3 col-md-6 my-2">
           <div className="prototype-tile" onClick={() => router.push('Prototypes/PhpMigration')}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🐘</span>
             <div className="tileText">PHP Gotchas</div>
+            <div className="tileDescription">Common PHP pitfalls and migration gotchas for .NET developers</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Love Reminders Section */}
+      <div className="row p-2">
+        <div className="col-12 p-0">
+          <div
+            className="m-4"
+            style={{
+              background: 'linear-gradient(135deg, rgba(255, 107, 157, 0.15), rgba(196, 69, 105, 0.15))',
+              borderRadius: '12px',
+              padding: '1.2rem 1.5rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '0.75rem',
+            }}
+          >
+            <div>
+              <strong>💕 Love Reminders</strong>
+              <span style={{ color: '#a0aec0', marginLeft: '0.75rem' }}>
+                A relationship companion app — coming soon to iOS &amp; Android
+              </span>
+            </div>
+            <span
+              onClick={() => router.push('LoveRemindersPrivacyPolicy')}
+              style={{ color: '#a0aec0', fontSize: '0.8rem', cursor: 'pointer', textDecoration: 'underline' }}
+            >
+              Privacy Policy
+            </span>
           </div>
         </div>
       </div>

@@ -106,9 +106,18 @@ h2 {
   background: rgba(150, 150, 150, 0.1);
   border: 1px solid transparent;
   border-radius: 10px;
-  height: 200px;
+  min-height: 200px;
   min-width: 200px;
+  display: flex;
+  flex-direction: column;
   transition: all 0.3s ease;
+}
+
+.tileDescription {
+  font-size: 0.8rem;
+  color: #a0aec0;
+  padding: 0 12px 12px;
+  line-height: 1.4;
 }
 
 .prototype-tile:hover {
