@@ -233,7 +233,9 @@
 .mobileMenu {
   display: flex;
   flex-direction: column;
-  background: rgba(15, 15, 15, 0.97);
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   border-bottom: 1px solid rgba(255,255,255,0.08);
   padding: 0.5rem 0;
   position: sticky;
