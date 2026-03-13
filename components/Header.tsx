@@ -3,6 +3,7 @@ import { BuyMeACoffee } from './BuyMeACoffee'
 import { useRouter } from 'next/router'
 import ScrollToTopButton from './ScrollToTopButton'
 import styles from '../styles/Header.module.css'
+import { useState } from 'react'
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -15,6 +16,7 @@ const navLinks = [
 const Header = (props) => {
   const router = useRouter()
   const isDebug = process.env.NEXT_PUBLIC_DEBUG === 'true'
+  const [menuOpen, setMenuOpen] = useState(false)
 
   if (router.pathname === '/') {
     return (
@@ -65,7 +67,7 @@ const Header = (props) => {
           Rasile
         </span>
 
-        <div style={{ display: 'flex', gap: '2rem' }}>
+        <div className={styles.links}>
           {navLinks.map((link) => (
             <span
               key={link.href}
@@ -77,10 +79,31 @@ const Header = (props) => {
           ))}
         </div>
 
-        <a href="mailto:leonardo@rasile.co.uk" className={styles.cta}>
+        <a href="mailto:leonardo@rasile.co.uk" className={`${styles.cta} ${styles.ctaDesktop}`}>
           Get in touch
         </a>
+
+        <button className={styles.burger} onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+          <span className={`${styles.burgerLine} ${menuOpen ? styles.burgerOpen1 : ''}`} />
+          <span className={`${styles.burgerLine} ${menuOpen ? styles.burgerOpen2 : ''}`} />
+          <span className={`${styles.burgerLine} ${menuOpen ? styles.burgerOpen3 : ''}`} />
+        </button>
       </nav>
+
+      {menuOpen && (
+        <div className={styles.mobileMenu}>
+          {navLinks.map((link) => (
+            <span
+              key={link.href}
+              onClick={() => { router.push(link.href); setMenuOpen(false) }}
+              className={`${styles.mobileLink} ${router.pathname === link.href ? styles.linkActive : ''}`}
+            >
+              {link.label}
+            </span>
+          ))}
+          <a href="mailto:leonardo@rasile.co.uk" className={styles.mobileCta}>Get in touch</a>
+        </div>
+      )}
 
       <BuyMeACoffee />
       <ScrollToTopButton />
