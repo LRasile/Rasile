@@ -7,7 +7,6 @@ export default function VideoEmbed({ src }) {
     embedUrl =
       src.replace('https://www.twitch.tv/videos/', 'https://player.twitch.tv/?video=') +
       `&parent=${window.location.hostname}&autoplay=false`
-    console.log(embedUrl)
   }
   if (src.search('streamable') != -1) {
     embedUrl = src.replace('https://streamable.com/', 'https://streamable.com/e/')

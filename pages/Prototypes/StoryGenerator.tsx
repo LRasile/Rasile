@@ -121,7 +121,8 @@ export default function StoryGenerator() {
       })
 
       if (!response.ok) {
-        throw new Error('Failed to generate story')
+        const body = await response.json().catch(() => ({}))
+        throw new Error(body.detail || body.error || 'Failed to generate story')
       }
 
       const reader = response.body?.getReader()
@@ -138,8 +139,7 @@ export default function StoryGenerator() {
       }
     } catch (err) {
       setLoading(false)
-      setError('Something went wrong — please try again.')
-      console.error(err)
+      setError(err instanceof Error ? err.message : 'Something went wrong — please try again.')
     }
   }
 

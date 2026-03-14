@@ -1,9 +1,12 @@
 import Anthropic from '@anthropic-ai/sdk'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-const client = new Anthropic()
+export const config = {
+  api: { responseLimit: false },
+}
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const client = new Anthropic()
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
   }
@@ -50,9 +53,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     res.end()
-  } catch (_error) {
+  } catch (error) {
     if (!res.headersSent) {
-      res.status(500).json({ error: 'Failed to generate story' })
+      res.status(500).json({ error: 'Failed to generate story', detail: String(error) })
     } else {
       res.end()
     }

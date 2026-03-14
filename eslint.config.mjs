@@ -38,6 +38,7 @@ export default [
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
     rules: {
+      'no-console': 'error',
       'no-dupe-keys': 'error',
       'no-duplicate-case': 'error',
       'no-unreachable': 'warn',
@@ -59,6 +60,7 @@ export default [
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
     rules: {
+      'no-console': 'error',
       'no-dupe-keys': 'error',
       'no-duplicate-case': 'error',
       'no-unreachable': 'warn',

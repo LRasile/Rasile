@@ -34,7 +34,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   try {
     const rawBody = await getRawBody(req)
-    console.log(rawBody)
     // Length validation
     if (rawBody.trim().length <= 4) {
       return res.status(400).end('Bad Request: Content is less that 4 characters')
@@ -43,7 +42,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const contentType = req.headers['content-type']
 
     if (contentType === 'application/json') {
-      console.log('JSON')
       try {
         const jsonData = JSON.parse(rawBody)
         return res.status(200).json(jsonData)
@@ -51,7 +49,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         return res.status(400).json({ error: 'Invalid JSON' })
       }
     } else if (contentType === 'application/xml' || contentType === 'text/xml') {
-      console.log('XML')
       res.setHeader('Content-Type', 'application/xml')
       return res.status(200).send(rawBody)
     } else {
