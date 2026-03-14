@@ -152,7 +152,7 @@ export default function ContractionTimer() {
   const lastSurgeDuration = surgeTimes.length > 0 ? surgeTimes[surgeTimes.length - 1].duration : 0
 
   return (
-    <div className="card" style={{ padding: '1.25rem', textAlign: 'center', margin: '1rem' }}>
+    <div className="panel" style={{ padding: '1.25rem', textAlign: 'center', margin: '1rem' }}>
       <div>
         <button
           style={{

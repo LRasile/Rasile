@@ -33,7 +33,7 @@ export default function Menu({ recipes }: MenuProps) {
   }
 
   return (
-    <div className="card" style={{ margin: '1rem' }}>
+    <div className="panel" style={{ margin: '1rem' }}>
       <div className="col-12 p-md-2">
         <div style={{ position: 'relative' }}>
           <input

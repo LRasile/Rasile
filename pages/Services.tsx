@@ -33,17 +33,17 @@ const services = [
 
 export default function Services() {
   return (
-    <div className="card" style={{ margin: '0.75rem 0' }}>
+    <div className="panel" style={{ margin: '0.75rem 0' }}>
       <h2 style={{ marginBottom: '0.5rem' }}>What we do</h2>
-      <p style={{ color: '#a0aec0', marginBottom: '2rem' }}>A selection of our most popular services.</p>
+      <p style={{ color: '#cbd5e0', marginBottom: '2rem' }}>A selection of our most popular services.</p>
 
       <div className="row g-3">
         {services.map((s) => (
           <div key={s.title} className="col-lg-4 col-md-6 my-2">
-            <div className="card">
+            <div className="tile">
               <div style={{ fontSize: '1.75rem', marginBottom: '0.75rem' }}>{s.icon}</div>
               <h5 style={{ marginBottom: '0.4rem' }}>{s.title}</h5>
-              <p style={{ color: '#c0cec0', margin: 0, fontSize: '0.9rem' }}>{s.description}</p>
+              <p style={{ color: '#cbd5e0', margin: 0, fontSize: '0.9rem' }}>{s.description}</p>
             </div>
           </div>
         ))}

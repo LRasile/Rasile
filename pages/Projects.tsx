@@ -13,6 +13,12 @@ const projects = [
     link: 'https://www.themelodycrafters.com/',
   },
   {
+    title: 'Dr. Martens',
+    description: 'Finance and HR integrations between D365 and Dayforce via Azure Functions.',
+    tags: ['Azure Functions', 'D365', 'Dayforce', 'Finance', 'HR'],
+    status: 'Live',
+  },
+  {
     title: 'Rasile Consulting Website',
     description: 'This site — a Next.js portfolio and consulting hub with interactive prototypes and tools.',
     tags: ['Next.js', 'TypeScript', 'React', 'Vercel'],
@@ -34,21 +40,21 @@ const statusColour = (status: string) => (status === 'Live' ? '#68d391' : '#f6ad
 
 export default function Projects() {
   return (
-    <div className="card" style={{ margin: '0.75rem 0' }}>
+    <div className="panel" style={{ margin: '0.75rem 0' }}>
       <h1 style={{ marginBottom: '0.5rem' }}>Projects</h1>
-      <p style={{ color: '#a0aec0', marginBottom: '2.5rem' }}>A selection of things we've built.</p>
+      <p style={{ color: '#cbd5e0', marginBottom: '2.5rem' }}>A selection of things we've built.</p>
 
       <div className="row g-4">
         {projects.map((p) => (
           <div key={p.title} className="col-lg-6 my-3">
-            <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <div className="tile" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <h4 style={{ margin: 0 }}>{p.title}</h4>
                 <span style={{ color: statusColour(p.status), fontSize: '0.82rem', fontWeight: 600 }}>
                   ● {p.status}
                 </span>
               </div>
-              <p style={{ color: '#a0aec0', margin: 0, fontSize: '0.95rem' }}>{p.description}</p>
+              <p style={{ color: '#cbd5e0', margin: 0, fontSize: '0.95rem' }}>{p.description}</p>
               <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', marginTop: 'auto' }}>
                 {p.tags.map((t) => (
                   <span key={t} style={tagStyle}>
@@ -73,7 +79,7 @@ export default function Projects() {
         {/* Placeholder */}
         <div className="col-lg-6">
           <div
-            className="card"
+            className="tile"
             style={{
               display: 'flex',
               flexDirection: 'column',

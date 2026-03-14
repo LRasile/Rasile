@@ -1,3 +1,7 @@
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 html,
 body {
   background-image: url('/bg.jpg');
@@ -21,9 +25,6 @@ input {
 
 .container {
   min-height: 100vh;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
 }
 
 .Logo {
@@ -111,30 +112,29 @@ h2 {
 }
 
 .homePanel {
-  border-radius: 5;
-  margin-top: -100;
-}
-.homePanel:hover {
-  /* backdrop-filter: blur(10px); */
+  width: 100%;
+  max-width: 520px;
+  padding: 0 1rem;
 }
 
 .homePanel h1 {
-  font-size: 1.6rem;
-  padding: 50;
+  font-size: 1.6rem !important;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #fff;
   margin-bottom: 0.5rem;
   font-weight: 700;
-  text-shadow: #111 2 2;
+  padding-left: 0.25rem;
 }
 
 .homeMenu {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  min-width: 520px;
+  width: 100%;
   overflow: hidden;
+  padding: 0;
+  margin: 0;
 }
 
 .homeMenuItem {
@@ -145,7 +145,7 @@ h2 {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  margin-top: 20px;
+  margin-top: 4px;
   cursor: pointer;
   text-decoration: none;
   list-style-type: none;
@@ -163,23 +163,32 @@ h2 {
 
 /*#region Shared card*/
 
-.card {
+.panel {
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 1rem;
   cursor: default;
   transition: all 0.3s ease;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.75);
   height: 100%;
 }
 
-.card:hover {
-  border-color: rgba(255, 255, 255, 0.5);
+.tile {
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: border-color 0.3s ease;
+  height: 100%;
+}
+
+.tile:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 @media (max-width: 768px) {
-  .card {
+  .panel {
     border-radius: 0;
     padding-left: 0.75rem;
     padding-right: 0.75rem;

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { baseTypeArray, GetUrlName as GetUrlName, Pokemon, PokemonTypeEfficacy } from '../../lib/PokemonService'
 
 export interface PokemonEntryProps {
@@ -6,6 +7,7 @@ export interface PokemonEntryProps {
 }
 
 export default function PokemonEntry({ pokemon, typeEfficacy }: PokemonEntryProps) {
+  const [imgLoaded, setImgLoaded] = useState(false)
   let pokemonEfficacyArray = []
 
   baseTypeArray.map((type) => {
@@ -39,13 +41,51 @@ export default function PokemonEntry({ pokemon, typeEfficacy }: PokemonEntryProp
           textTransform: 'capitalize',
           fontSize: 20,
           fontWeight: 'bold',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
         }}
       >
-        <a className="pokemon-link" href={`https://bulbapedia.bulbagarden.net/wiki/${GetUrlName(pokemon)}_(Pokémon)`}>
-          #{pokemon.id} {pokemon.name}
-        </a>{' '}
-        <div className={`pokemonType pokemonType${pokemon.types[0]}`}>{pokemon.types[0]}</div>
-        {pokemon.types[1] && <div className={`pokemonType pokemonType${pokemon.types[1]}`}>{pokemon.types[1]}</div>}
+        <div style={{ width: 64, height: 64, position: 'relative', flexShrink: 0 }}>
+          {!imgLoaded && (
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <div
+                style={{
+                  width: 24,
+                  height: 24,
+                  borderRadius: '50%',
+                  border: '2px solid rgba(255,255,255,0.1)',
+                  borderTop: '2px solid #63b3ed',
+                  animation: 'spin 0.8s linear infinite',
+                }}
+              />
+            </div>
+          )}
+          <img
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
+            alt=""
+            width={64}
+            height={64}
+            loading="lazy"
+            onLoad={() => setImgLoaded(true)}
+            style={{ imageRendering: 'pixelated', opacity: imgLoaded ? 1 : 0, transition: 'opacity 0.3s' }}
+          />
+        </div>
+        <div>
+          <a className="pokemon-link" href={`https://bulbapedia.bulbagarden.net/wiki/${GetUrlName(pokemon)}_(Pokémon)`}>
+            #{pokemon.id} {pokemon.name}
+          </a>{' '}
+          <div className={`pokemonType pokemonType${pokemon.types[0]}`}>{pokemon.types[0]}</div>
+          {pokemon.types[1] && <div className={`pokemonType pokemonType${pokemon.types[1]}`}>{pokemon.types[1]}</div>}
+        </div>
       </div>
       <div className="flex-container">
         <div className="flex-item-type">

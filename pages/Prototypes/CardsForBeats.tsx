@@ -87,8 +87,7 @@ export default function CardsForBeats() {
   }
 
   function CopyPhraseToClipboard() {
-    let origin = ''
-    origin = typeof window !== 'undefined' && window.location.origin
+    const origin = typeof window !== 'undefined' && window.location.origin
 
     const url = router.asPath.split('?')[0]
     let phraseQueryString = `${numberOfGroups}-${numberOfBeats}-`
@@ -132,17 +131,13 @@ export default function CardsForBeats() {
   const [totalNumberOfNotes, setTotalNumberOfNotes] = useState<number>(numberOfBeats * numberOfGroups)
 
   useEffect(() => {
-    let context = null
-
     // Check for AudioContext availability and fallback if needed
-    if (typeof window.AudioContext !== 'undefined') {
-      context = new AudioContext()
-    } else {
-      // Web Audio API is not supported
+    if (typeof window.AudioContext === 'undefined') {
       console.error('Web Audio API is not supported in this environment.')
       return
     }
 
+    const context = new AudioContext()
     audioContextRef.current = context
 
     const osc = audioContextRef.current.createOscillator() // Use the ref to access AudioContext
@@ -266,7 +261,7 @@ export default function CardsForBeats() {
   }
 
   return (
-    <div className="card" style={{ margin: '1rem' }}>
+    <div className="panel" style={{ margin: '1rem' }}>
       <div className="row col-12">
         <div className="col-md-12 row">
           <div className="col-md-3 my-1">

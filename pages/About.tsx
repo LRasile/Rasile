@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <div className="card" style={{ margin: '0.75rem 0' }}>
+    <div className="panel" style={{ margin: '0.75rem 0' }}>
       <div className="row">
         <div className="col-lg-3 text-center">
           <img

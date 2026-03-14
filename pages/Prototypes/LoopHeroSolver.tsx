@@ -13,7 +13,7 @@ export default function LoopHeroSolver() {
   }
 
   return (
-    <div className="card" style={{ margin: '1rem' }}>
+    <div className="panel" style={{ margin: '1rem' }}>
       <div style={{ display: 'flex', gap: '0.5rem' }}>
         <button onClick={() => setMirrored(!mirrored)}>
           {!mirrored ? (

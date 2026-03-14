@@ -15,6 +15,12 @@ const globals = {
   clearInterval: 'readonly',
   fetch: 'readonly',
   process: 'readonly',
+  navigator: 'readonly',
+  sessionStorage: 'readonly',
+  localStorage: 'readonly',
+  AudioContext: 'readonly',
+  OscillatorNode: 'readonly',
+  NodeJS: 'readonly',
 }
 
 export default [
