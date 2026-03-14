@@ -1,40 +1,20 @@
-export default function CityTime({ city, utcTime, timeZone }) {
-  const localDateTime = convertTZ(utcTime, timeZone).toLocaleString()
+export default function CityTime({ city, timeZone, now }: { city: string; timeZone: string; now: Date }) {
+  const localTime = now.toLocaleTimeString('en-GB', { timeZone, hour: '2-digit', minute: '2-digit', second: '2-digit' })
 
-  function convertTZ(date: string | Date, tzString: string): Date {
-    const inputDate = typeof date === 'string' ? new Date(date) : date
-    const localDateString = inputDate.toLocaleString('en', { timeZone: tzString })
-    const convertedDate = new Date(localDateString)
-
-    return convertedDate
-  }
-
-  function calculateDifference(): string {
-    const date1: number = Date.parse(utcTime)
-
-    const [datePart, timePart]: string[] = localDateTime.split(', ')
-    const [day, month, year]: number[] = datePart.split('/').map(Number)
-    const [hour, minute, second]: number[] = timePart.split(':').map(Number)
-
-    const date2: Date = new Date(year, month - 1, day, hour, minute, second)
-    const differenceInHours: number = (date2.getTime() - date1) / (1000 * 60 * 60)
-
-    const roundedDifference: string = differenceInHours.toFixed(1)
-    const formattedDifference: number = parseFloat(roundedDifference)
-
-    if (formattedDifference >= 0) {
-      return `+${formattedDifference}`
-    }
-    return formattedDifference.toString()
-  }
+  const utcMs = new Date(now.toLocaleString('en-US', { timeZone: 'UTC' })).getTime()
+  const tzMs = new Date(now.toLocaleString('en-US', { timeZone })).getTime()
+  const diffH = (tzMs - utcMs) / (1000 * 60 * 60)
+  const sign = diffH >= 0 ? '+' : '-'
+  const absH = Math.abs(diffH)
+  const hours = Math.floor(absH)
+  const minutes = Math.round((absH - hours) * 60)
+  const offset = `UTC${sign}${hours}${minutes > 0 ? ':' + String(minutes).padStart(2, '0') : ''}`
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-      <div style={{ padding: '0.5rem 1rem' }}>
-        {city}
-      </div>
-      <div style={{ padding: '0.5rem 1rem' }}>
-        {localDateTime} {calculateDifference()}
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.5rem 1rem' }}>
+      <div style={{ fontWeight: 600 }}>{city}</div>
+      <div style={{ fontFamily: 'monospace' }}>
+        {localTime} <span style={{ color: '#718096', fontSize: '0.85rem' }}>{offset}</span>
       </div>
     </div>
   )
