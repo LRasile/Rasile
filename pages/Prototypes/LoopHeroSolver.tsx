@@ -1,56 +1,59 @@
-import { FaArrowLeft, FaArrowRight, FaSpinner } from 'react-icons/fa'
+import { FaArrowsAltH, FaSyncAlt } from 'react-icons/fa'
 import { useState } from 'react'
+
+const btn = (active: boolean): React.CSSProperties => ({
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '0.4rem',
+  padding: '0.45rem 1rem',
+  borderRadius: '6px',
+  border: `1px solid ${active ? 'rgba(99,179,237,0.7)' : 'rgba(255,255,255,0.15)'}`,
+  background: active ? 'rgba(99,179,237,0.15)' : 'rgba(255,255,255,0.05)',
+  color: active ? '#63b3ed' : 'rgba(255,255,255,0.8)',
+  fontSize: '0.88rem',
+  fontWeight: 600,
+  cursor: 'pointer',
+  transition: 'all 0.15s ease',
+})
 
 export default function LoopHeroSolver() {
   const [rotated, setRotated] = useState(false)
   const [mirrored, setMirrored] = useState(false)
 
-  const imageStyle = {
+  const imageStyle: React.CSSProperties = {
     height: 600,
     margin: 'auto',
     transition: 'all 0.4s ease',
-    transform: (rotated ? 'rotate(180deg) ' : 'rotate(0deg) ') + (mirrored ? 'rotateY(180deg)' : 'rotateY(0deg)'),
+    transform: (rotated ? 'rotate(180deg) ' : '') + (mirrored ? 'rotateY(180deg)' : ''),
   }
 
   return (
     <div className="panel" style={{ margin: '1rem' }}>
-      <div style={{ display: 'flex', gap: '0.5rem' }}>
-        <button onClick={() => setMirrored(!mirrored)}>
-          {!mirrored ? (
-            <>
-              Mirror
-              <FaArrowRight />
-            </>
-          ) : (
-            <>
-              Un-Mirror
-              <FaArrowLeft />
-            </>
-          )}
+      <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
+        <button style={btn(mirrored)} onClick={() => setMirrored(!mirrored)}>
+          <FaArrowsAltH />
+          Mirror
         </button>
-        <button onClick={() => setRotated(!rotated)}>
-          {!rotated ? 'Rotate' : 'Un-Rotate'}
-          <FaSpinner />
+        <button style={btn(rotated)} onClick={() => setRotated(!rotated)}>
+          <FaSyncAlt style={{ transform: rotated ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.4s ease' }} />
+          Rotate
         </button>
       </div>
+
       <div className="flex-container">
         <div className="flex-item">
-          {' '}
           <div style={{ margin: 'auto', textAlign: 'center' }}>
-            <p style={{ fontSize: '1.125rem' }}>234% Attack Speed</p>
-            <p style={{ fontSize: '1rem' }}>22 Thickets</p>
-            <p style={{ fontSize: '1rem' }}>38 Rivers</p>
+            <p style={{ fontSize: '1.125rem', fontWeight: 600 }}>234% Attack Speed</p>
+            <p style={{ fontSize: '0.9rem', color: '#a0aec0' }}>22 Thickets · 38 Rivers</p>
           </div>
-          <img style={imageStyle} src="../images/5by12.jpg" title="234% Attack Speed" />
+          <img style={imageStyle} src="../images/5by12.jpg" title="234% Attack Speed" alt="5x12 loop layout" />
         </div>
         <div className="flex-item">
-          {' '}
           <div style={{ margin: 'auto', textAlign: 'center' }}>
-            <p style={{ fontSize: '1.125rem' }}>176% Attack Speed</p>
-            <p style={{ fontSize: '1rem' }}> 14 Thickets </p>
-            <p style={{ fontSize: '1rem' }}> 34 Rivers</p>
+            <p style={{ fontSize: '1.125rem', fontWeight: 600 }}>176% Attack Speed</p>
+            <p style={{ fontSize: '0.9rem', color: '#a0aec0' }}>14 Thickets · 34 Rivers</p>
           </div>
-          <img style={imageStyle} src="../images/4by12.jpg" title="176% Attack Speed" />
+          <img style={imageStyle} src="../images/4by12.jpg" title="176% Attack Speed" alt="4x12 loop layout" />
         </div>
       </div>
     </div>
