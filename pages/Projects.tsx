@@ -34,7 +34,7 @@ const statusColour = (status: string) => (status === 'Live' ? '#68d391' : '#f6ad
 
 export default function Projects() {
   return (
-    <div className="card" style={{ margin: '2rem 0' }}>
+    <div className="card" style={{ margin: '0.75rem 0' }}>
       <h1 style={{ marginBottom: '0.5rem' }}>Projects</h1>
       <p style={{ color: '#a0aec0', marginBottom: '2.5rem' }}>A selection of things we've built.</p>
 
