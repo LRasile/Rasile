@@ -21,6 +21,8 @@ const globals = {
   AudioContext: 'readonly',
   OscillatorNode: 'readonly',
   NodeJS: 'readonly',
+  TextDecoder: 'readonly',
+  ReadableStream: 'readonly',
 }
 
 export default [
