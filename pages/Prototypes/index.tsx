@@ -75,6 +75,13 @@ export default function Prototypes() {
             <div className="tileDescription">Common PHP pitfalls and migration gotchas for .NET developers</div>
           </div>
         </div>
+        <div className="col-lg-3 col-md-6 my-2">
+          <div className="tile" onClick={() => router.push('Prototypes/StoryGenerator')} style={{ cursor: 'pointer', textAlign: 'center' }}>
+            <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>📖</span>
+            <div className="tileText">Story Generator</div>
+            <div className="tileDescription">Build a bedtime story one choice at a time — hero, world, quest and more</div>
+          </div>
+        </div>
       </div>
     </div>
   )

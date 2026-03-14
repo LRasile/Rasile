@@ -114,8 +114,6 @@ export default function CardsForBeats() {
   }
 
   function ReloadPhrase() {
-    console.log('ReloadPhrase')
-    console.log(GetPhaseString())
     const newGroups = BuildGroupsFromPhrase(GetPhaseString(), numberOfGroups, numberOfBeats)
     setGroups(newGroups)
   }
@@ -133,7 +131,6 @@ export default function CardsForBeats() {
   useEffect(() => {
     // Check for AudioContext availability and fallback if needed
     if (typeof window.AudioContext === 'undefined') {
-      console.error('Web Audio API is not supported in this environment.')
       return
     }
 
@@ -323,9 +320,7 @@ export default function CardsForBeats() {
                 style={{ margin: '0 0.25rem' }}
                 aria-label="Share"
                 onClick={() => {
-                  if (CopyPhraseToClipboard()) {
-                    console.log('Phrase Copied!')
-                  }
+                  CopyPhraseToClipboard()
                 }}
                 title="Share"
               >
@@ -400,7 +395,6 @@ export default function CardsForBeats() {
                 onClick={() => {
                   resetUserSettings()
                   onClose()
-                  console.log('Settings Saved!')
                 }}
                 style={{ padding: '0.5rem 1rem', marginRight: '0.5rem' }}
               >
@@ -410,7 +404,6 @@ export default function CardsForBeats() {
                 onClick={() => {
                   saveUserSettings()
                   onClose()
-                  console.log('Settings Saved!')
                 }}
                 style={{ padding: '0.5rem 1rem' }}
               >
