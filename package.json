@@ -5,7 +5,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "tunnel": "ngrok http 3000",
+    "lint": "eslint .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@apollo/client": "4.0.9",
@@ -18,11 +20,23 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.12.0",
-    "react-use-cookie": "^1.4.0"
+    "react-use-cookie": "^1.4.0",
+    "rxjs": "^7.8.2"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,jsx,js}": "eslint --fix"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "24.10.2",
     "@types/react": "^17.0.38",
+    "@typescript-eslint/eslint-plugin": "^8.57.0",
+    "@typescript-eslint/parser": "^8.57.0",
+    "eslint": "^9.7.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.3.3",
     "typescript": "^4.9.4"
   }
 }

@@ -33,7 +33,7 @@ export default function Menu({ recipes }: MenuProps) {
   }
 
   return (
-    <>
+    <div className="panel" style={{ margin: '1rem' }}>
       <div className="col-12 p-md-2">
         <div style={{ position: 'relative' }}>
           <input
@@ -46,7 +46,7 @@ export default function Menu({ recipes }: MenuProps) {
         </div>
       </div>
       <div className="col-12 m-0 p-0 row">{data && data.map((recipe) => <RecipeCard recipe={recipe} />)}</div>
-    </>
+    </div>
   )
 }
 

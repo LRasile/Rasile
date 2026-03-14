@@ -220,7 +220,7 @@ export default function HtmlColors() {
   }, [])
 
   return (
-    <div className="colorTableCard">
+    <div className="colorTableCard card" style={{ margin: '1rem' }}>
       <div className="colorTableScroll">
         <table className="colorTable">
           <thead>

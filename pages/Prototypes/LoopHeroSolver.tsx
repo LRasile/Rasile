@@ -13,7 +13,7 @@ export default function LoopHeroSolver() {
   }
 
   return (
-    <>
+    <div className="panel" style={{ margin: '1rem' }}>
       <div style={{ display: 'flex', gap: '0.5rem' }}>
         <button onClick={() => setMirrored(!mirrored)}>
           {!mirrored ? (
@@ -53,6 +53,6 @@ export default function LoopHeroSolver() {
           <img style={imageStyle} src="../images/4by12.jpg" title="176% Attack Speed" />
         </div>
       </div>
-    </>
+    </div>
   )
 }

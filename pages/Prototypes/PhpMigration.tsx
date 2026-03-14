@@ -29,7 +29,7 @@ const ExampleCard = ({ title, smell, modern }) => {
 
 export default function PhpMigration() {
   return (
-    <div className="col-12">
+    <div className="card col-12" style={{ margin: '1rem' }}>
       <h1 style={{ fontSize: '1.875rem', marginBottom: '1rem' }}>
         PHP 5 → 7/8: Dos and Don'ts
       </h1>

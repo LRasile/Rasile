@@ -32,7 +32,7 @@ export default function JungleClears({ jungleClears }: JungleClearProps) {
   }
 
   return (
-    <>
+    <div className="panel" style={{ margin: '1rem' }}>
       <div className="col-12 p-md-2">
         <div style={{ position: 'relative' }}>
           <input
@@ -45,7 +45,7 @@ export default function JungleClears({ jungleClears }: JungleClearProps) {
         </div>
       </div>
       <div className="col-12 m-0 p-0">{data && data.map((jungleClear) => <ChampRow jungleClear={jungleClear} />)}</div>
-    </>
+    </div>
   )
 }
 
