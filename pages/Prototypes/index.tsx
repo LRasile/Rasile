@@ -4,9 +4,15 @@ export default function Prototypes() {
   const router = useRouter()
 
   return (
-    <div className="panel" style={{ margin: '2rem 0' }}>
-      <h2 className="p-2">Prototypes</h2>
-      <div className="row justify-content-center p-4">
+    <div className="pageWrapper">
+
+      <div className="pageHeader">
+        <p className="pageEyebrow">Lab</p>
+        <h1 className="pageTitle">Prototypes.</h1>
+        <p className="pageSubtitle">Interactive tools and experiments — built to explore ideas and solve problems.</p>
+      </div>
+
+      <div className="row justify-content-center g-3">
         <div className="col-lg-3 col-md-6 my-2">
           <div className="tile" onClick={() => router.push('Prototypes/JungleClears')} style={{ cursor: 'pointer', textAlign: 'center' }}>
             <span style={{ margin: 'auto', paddingTop: 10, fontSize: 100 }}>🌲</span>
@@ -83,6 +89,7 @@ export default function Prototypes() {
           </div>
         </div>
       </div>
+
     </div>
   )
 }
