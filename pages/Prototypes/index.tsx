@@ -4,7 +4,7 @@ export default function Prototypes() {
   const router = useRouter()
 
   return (
-    <div className="pageWrapper" style={{ maxWidth: '1100px' }}>
+    <div className="pageWrapper">
 
       <div className="pageHeader">
         <p className="pageEyebrow">Lab</p>

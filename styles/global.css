@@ -252,6 +252,75 @@ h2 {
 
 /*#endregion */
 
+/*#region Page header */
+
+.pageWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.pageHeader {
+  margin-bottom: 4rem;
+}
+
+.pageEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+}
+
+.pageTitle {
+  font-size: clamp(2rem, 4vw, 3rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.pageSubtitle {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 620px;
+  margin-bottom: 0;
+}
+
+.pageDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin-bottom: 4rem;
+}
+
+/*#endregion */
+
+/*#region Buttons */
+
+.btnPrimary {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: #3b82f6;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btnPrimary:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+/*#endregion */
+
 /*#region Shared card*/
 
 .panel {
