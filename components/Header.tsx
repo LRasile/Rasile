@@ -15,7 +15,6 @@ const navLinks = [
 
 const Header = (props) => {
   const router = useRouter()
-  const isDebug = process.env.NEXT_PUBLIC_DEBUG === 'true'
   const [menuOpen, setMenuOpen] = useState(false)
 
   if (router.pathname === '/') {
@@ -35,7 +34,6 @@ const Header = (props) => {
         <meta name="description" content="Rasile Consulting — end-to-end software delivery" />
         <link rel="icon" href="/logos/favicon.ico" />
       </Head>
-      {isDebug && <div style={{ backgroundColor: 'red', color: 'white', padding: '10px' }}>DEBUG MODE</div>}
 
       <nav className={styles.nav}>
         <span className={styles.wordmark} onClick={() => router.push('/')}>
