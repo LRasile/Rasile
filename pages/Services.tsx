@@ -33,9 +33,15 @@ const services = [
 
 export default function Services() {
   return (
-    <div className="panel" style={{ margin: '0.75rem 0' }}>
-      <h2 style={{ marginBottom: '0.5rem' }}>What we do</h2>
-      <p style={{ color: '#cbd5e0', marginBottom: '2rem' }}>A selection of our most popular services.</p>
+    <div className="pageWrapper">
+
+      <div className="pageHeader">
+        <p className="pageEyebrow">Services</p>
+        <h1 className="pageTitle">What we build.</h1>
+        <p className="pageSubtitle">
+          End-to-end software delivery across web, cloud, and enterprise. Here's what we do best.
+        </p>
+      </div>
 
       <div className="row g-3">
         {services.map((s) => (
@@ -43,17 +49,20 @@ export default function Services() {
             <div className="tile">
               <div style={{ fontSize: '1.75rem', marginBottom: '0.75rem' }}>{s.icon}</div>
               <h5 style={{ marginBottom: '0.4rem' }}>{s.title}</h5>
-              <p style={{ color: '#cbd5e0', margin: 0, fontSize: '0.9rem' }}>{s.description}</p>
+              <p style={{ color: 'rgba(255,255,255,0.5)', margin: 0, fontSize: '0.9rem' }}>{s.description}</p>
             </div>
           </div>
         ))}
       </div>
 
-      <div style={{ marginTop: '2rem' }}>
-        <a href="mailto:leonardo@rasile.co.uk" style={{ color: '#63b3ed', fontSize: '0.9rem' }}>
-          Get in touch to discuss your project →
-        </a>
+      <div className="pageDivider" style={{ marginTop: '4rem' }} />
+
+      <div>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.75rem' }}>Have a project in mind?</h2>
+        <p className="pageSubtitle" style={{ marginBottom: '1.5rem' }}>Get in touch and let's talk about what you need.</p>
+        <a href="mailto:leonardo@rasile.co.uk" className="btnPrimary">Get in touch</a>
       </div>
+
     </div>
   )
 }
