@@ -12,8 +12,18 @@ export default function Home() {
 
   return (
     <div className="homeWrapper">
-      <div className="homePanel">
-        <h1>Rasile Consulting</h1>
+      <div className="homeLeft">
+        <p className="homeEyebrow">Software Consultancy</p>
+        <h1>
+          Rasile
+          <br />
+          <span>Consulting</span>
+        </h1>
+        <p className="homeTagline">End-to-end software delivery. .NET Core · Azure · React.</p>
+      </div>
+
+      <div className="homeRight">
+        <p className="homeRightLabel">Navigate</p>
         <ul className="homeMenu">
           {menuItems.map((item) => (
             <li key={item.href} className="homeMenuItem" onClick={() => router.push(item.href)}>
