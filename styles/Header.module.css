@@ -1,206 +1,66 @@
 /* ─── Nav shell ─────────────────────────────────────────────── */
 .nav {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
-  height: 64px;
-  padding: 0 2rem;
-  background: rgba(26, 32, 44, 0.95);
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  height: 56px;
+  background: rgba(13, 17, 23, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   position: sticky;
   top: 0;
   z-index: 200;
 }
 
-/* ─── Logo ───────────────────────────────────────────────────── */
-.logoBtn {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
+/* ─── Wordmark ───────────────────────────────────────────────── */
 .wordmark {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #e2e8f0;
-  letter-spacing: 0.01em;
-}
-
-/* ─── CTA button ─────────────────────────────────────────────── */
-.cta {
-  padding: 7px 18px;
-  background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 6px;
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background 0.15s ease, border-color 0.15s ease;
-}
-
-.cta:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.5);
   color: #fff;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
 }
 
-.cta:active {
-  background: rgba(255, 255, 255, 0.15);
+.wordmarkAccent {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ─── Link group ─────────────────────────────────────────────── */
 .links {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 100%;
   gap: 0;
 }
 
 /* ─── Individual nav link ────────────────────────────────────── */
 .link {
-  font-size: 0.78rem;
-  font-weight: 500;
+  font-size: 0.75rem;
+  font-weight: 600;
   cursor: pointer;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
-  padding: 8px 16px;
+  color: rgba(255, 255, 255, 0.35);
+  padding: 6px 14px;
   border-radius: 6px;
-  transition: color 0.15s ease, background 0.15s ease;
+  transition: color 0.2s ease, background 0.2s ease;
   user-select: none;
 }
 
 .link:hover {
-  color: rgba(255, 255, 255, 0.85);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.link:active {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .linkActive {
-  color: #fff;
-}
-
-/* ─── Dropdown wrapper ───────────────────────────────────────── */
-.dropdownWrapper {
-  position: relative;
-  display: flex;
-  align-items: stretch;
-  height: 100%;
-}
-
-.dropdownTrigger {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  padding: 0 0.9rem;
-  height: 100%;
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: #718096;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  white-space: nowrap;
-  user-select: none;
-  text-decoration: none;
-}
-
-.dropdownTrigger:hover {
-  color: #e2e8f0;
-}
-
-.dropdownTriggerActive {
-  color: #e2e8f0;
-  border-bottom-color: #63b3ed;
-}
-
-.chevron {
-  font-size: 0.6rem;
-  opacity: 0.6;
-  margin-top: 1px;
-  transition: transform 0.15s ease;
-}
-
-.dropdownWrapper:hover .chevron {
-  transform: rotate(180deg);
-}
-
-/* ─── Dropdown panel ─────────────────────────────────────────── */
-.dropdown {
-  display: none;
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  min-width: 200px;
-  background: #2d3748;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
-  overflow: hidden;
-  padding: 0.3rem 0;
-}
-
-.dropdownWrapper:hover .dropdown {
-  display: block;
-}
-
-.dropdownItem {
-  display: block;
-  width: 100%;
-  padding: 0.55rem 1rem;
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: #a0aec0;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background 0.12s ease, color 0.12s ease;
-  text-align: left;
-  background: none;
-  border: none;
-  white-space: nowrap;
-}
-
-.dropdownItem:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: #e2e8f0;
-}
-
-.dropdownItemActive {
-  color: #63b3ed;
-  font-weight: 500;
-  background: rgba(99, 179, 237, 0.07);
-}
-
-.dropdownItemActive:hover {
-  background: rgba(99, 179, 237, 0.12);
-}
-
-/* ─── Divider inside dropdown ────────────────────────────────── */
-.dropdownDivider {
-  height: 1px;
-  background: rgba(255, 255, 255, 0.06);
-  margin: 0.3rem 0;
-}
-
-/* ─── Right side spacer ──────────────────────────────────────── */
-.spacer {
-  flex: 1;
+  color: #3b82f6 !important;
 }
 
 /* ─── Burger button (mobile only) ───────────────────────────── */
@@ -220,7 +80,7 @@
   display: block;
   width: 22px;
   height: 2px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.6);
   border-radius: 2px;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -233,8 +93,8 @@
 .mobileMenu {
   display: flex;
   flex-direction: column;
-  background: #111;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+  background: rgba(13, 17, 23, 0.98);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   padding: 0.5rem 0;
   position: sticky;
   top: 56px;
@@ -242,31 +102,23 @@
 }
 
 .mobileLink {
-  padding: 0.85rem 1.5rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: rgba(255,255,255,0.6);
+  padding: 0.85rem 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
   cursor: pointer;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: color 0.2s ease;
 }
 
 .mobileLink:last-of-type { border-bottom: none; }
 
-.mobileCta {
-  display: block;
-  margin: 0.75rem 1.5rem;
-  padding: 10px 18px;
-  text-align: center;
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 6px;
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+.mobileLink:hover { color: rgba(255, 255, 255, 0.85); }
+
+.mobileLinkActive {
+  color: #3b82f6 !important;
 }
 
 /* ─── Responsive breakpoint ──────────────────────────────────── */
@@ -276,6 +128,6 @@
 
 @media (max-width: 768px) {
   .links { display: none; }
-  .ctaDesktop { display: none; }
   .burger { display: flex; }
+  .nav { padding: 0 1.5rem; }
 }

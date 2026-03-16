@@ -21,8 +21,8 @@ const Header = (props) => {
   if (router.pathname === '/') {
     return (
       <Head>
-        <title>Leos Apps</title>
-        <meta name="description" content="Leos Apps" />
+        <title>Rasile Consulting</title>
+        <meta name="description" content="Rasile Consulting — end-to-end software delivery" />
         <link rel="icon" href="/logos/favicon.ico" />
       </Head>
     )
@@ -31,38 +31,15 @@ const Header = (props) => {
   return (
     <>
       <Head>
-        <title>Leos Apps</title>
-        <meta name="description" content="Leos Apps" />
+        <title>Rasile Consulting</title>
+        <meta name="description" content="Rasile Consulting — end-to-end software delivery" />
         <link rel="icon" href="/logos/favicon.ico" />
       </Head>
       {isDebug && <div style={{ backgroundColor: 'red', color: 'white', padding: '10px' }}>DEBUG MODE</div>}
 
-      <nav
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '0 2.5rem',
-          height: '56px',
-          background: '#111',
-          borderBottom: '1px solid rgba(255,255,255,0.07)',
-          position: 'sticky',
-          top: 0,
-          zIndex: 200,
-        }}
-      >
-        <span
-          onClick={() => router.push('/')}
-          style={{
-            fontWeight: 700,
-            fontSize: '0.95rem',
-            color: '#fff',
-            letterSpacing: '0.05em',
-            textTransform: 'uppercase',
-            cursor: 'pointer',
-          }}
-        >
-          Rasile
+      <nav className={styles.nav}>
+        <span className={styles.wordmark} onClick={() => router.push('/')}>
+          Rasile <span className={styles.wordmarkAccent}>Consulting</span>
         </span>
 
         <div className={styles.links}>
@@ -77,10 +54,6 @@ const Header = (props) => {
           ))}
         </div>
 
-        <a href="mailto:leonardo@rasile.co.uk" className={`${styles.cta} ${styles.ctaDesktop}`}>
-          Get in touch
-        </a>
-
         <button className={styles.burger} onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
           <span className={`${styles.burgerLine} ${menuOpen ? styles.burgerOpen1 : ''}`} />
           <span className={`${styles.burgerLine} ${menuOpen ? styles.burgerOpen2 : ''}`} />
@@ -94,12 +67,11 @@ const Header = (props) => {
             <span
               key={link.href}
               onClick={() => { router.push(link.href); setMenuOpen(false) }}
-              className={`${styles.mobileLink} ${router.pathname === link.href ? styles.linkActive : ''}`}
+              className={`${styles.mobileLink} ${router.pathname === link.href ? styles.mobileLinkActive : ''}`}
             >
               {link.label}
             </span>
           ))}
-          <a href="mailto:leonardo@rasile.co.uk" className={styles.mobileCta}>Get in touch</a>
         </div>
       )}
 
