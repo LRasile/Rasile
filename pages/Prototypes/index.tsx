@@ -11,6 +11,8 @@ const prototypes = [
   { href: 'Prototypes/ContractionTimer', icon: '👶', label: 'Contraction Timer', description: 'Time and track contractions during labour with duration and frequency' },
   { href: 'Prototypes/PhpMigration', icon: '🐘', label: 'PHP Gotchas', description: 'Common PHP pitfalls and migration gotchas for .NET developers' },
   { href: 'Prototypes/StoryGenerator', icon: '📖', label: 'Story Generator', description: 'Build a bedtime story one choice at a time — hero, world, quest and more' },
+  { href: 'Prototypes/Sourdough', icon: '🍞', label: 'Sourdough Guide', description: 'Complete guide to sourdough — starter care, feeding schedule, and baking a loaf' },
+  { href: 'Prototypes/VegPatch', icon: '🥦', label: 'Veg Patch', description: 'Plan and track your vegetable garden beds' },
 ]
 
 export default function Prototypes() {
