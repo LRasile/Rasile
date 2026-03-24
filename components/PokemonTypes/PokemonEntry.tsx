@@ -76,7 +76,7 @@ export default function PokemonEntry({ pokemon, typeEfficacy }: PokemonEntryProp
             height={64}
             loading="lazy"
             onLoad={() => setImgLoaded(true)}
-            style={{ imageRendering: 'pixelated', opacity: imgLoaded ? 1 : 0, transition: 'opacity 0.3s' }}
+            style={{ opacity: imgLoaded ? 1 : 0, transition: 'opacity 0.3s' }}
           />
         </div>
         <div>
