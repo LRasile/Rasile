@@ -153,7 +153,7 @@ export default function StoryGenerator() {
     <div className="panel" style={{ margin: '1rem' }}>
       <div style={{ marginBottom: '2rem' }}>
         <h1 style={{ marginBottom: '0.25rem' }}>Story Generator</h1>
-        <p style={{ color: '#a0aec0', margin: 0 }}>Make your choices, then bring the story to life.</p>
+        <p style={{ color: 'rgba(15,23,42,0.5)', margin: 0 }}>Make your choices, then bring the story to life.</p>
       </div>
 
       {/* Category sections — hidden once story is generated */}
@@ -162,7 +162,7 @@ export default function StoryGenerator() {
           {categories.map((cat) => (
             <div key={cat.id} style={{ marginBottom: '1.75rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                <h5 style={{ margin: 0, color: '#e2e8f0' }}>{cat.label}</h5>
+                <h5 style={{ margin: 0, color: '#0f172a' }}>{cat.label}</h5>
                 {picks[cat.id] && (
                   <span
                     style={{
@@ -193,11 +193,11 @@ export default function StoryGenerator() {
                         width: 100,
                         padding: '0.75rem 0.5rem',
                         borderRadius: '8px',
-                        border: `1px solid ${isSelected ? 'rgba(99,179,237,0.7)' : 'rgba(255,255,255,0.12)'}`,
-                        background: isSelected ? 'rgba(99,179,237,0.12)' : 'rgba(255,255,255,0.04)',
+                        border: `1px solid ${isSelected ? 'rgba(59,130,246,0.5)' : 'rgba(15,23,42,0.15)'}`,
+                        background: isSelected ? 'rgba(59,130,246,0.1)' : 'rgba(15,23,42,0.03)',
                         cursor: 'pointer',
                         transition: 'all 0.15s ease',
-                        color: isSelected ? '#63b3ed' : 'rgba(255,255,255,0.8)',
+                        color: isSelected ? '#3b82f6' : 'rgba(15,23,42,0.7)',
                       }}
                     >
                       <span style={{ fontSize: '2rem', lineHeight: 1 }}>{opt.emoji}</span>
@@ -217,11 +217,11 @@ export default function StoryGenerator() {
           className="tile"
           style={{
             marginTop: '1rem',
-            borderColor: allPicked ? 'rgba(99,179,237,0.4)' : 'rgba(255,255,255,0.1)',
+            borderColor: allPicked ? 'rgba(59,130,246,0.4)' : 'rgba(15,23,42,0.08)',
             transition: 'border-color 0.3s ease',
           }}
         >
-          <h5 style={{ marginBottom: '0.75rem', color: '#e2e8f0' }}>
+          <h5 style={{ marginBottom: '0.75rem', color: '#0f172a' }}>
             Your Story &nbsp;
             <span style={{ fontSize: '0.78rem', color: '#718096', fontWeight: 400 }}>
               {pickedCount}/{categories.length} choices made
@@ -241,7 +241,7 @@ export default function StoryGenerator() {
                     borderRadius: '6px',
                     padding: '0.25rem 0.65rem',
                     fontSize: '0.85rem',
-                    color: '#90cdf4',
+                    color: '#2563eb',
                   }}
                 >
                   {part}
@@ -259,9 +259,9 @@ export default function StoryGenerator() {
               gap: '0.5rem',
               padding: '0.6rem 1.4rem',
               borderRadius: '6px',
-              border: `1px solid ${allPicked ? 'rgba(99,179,237,0.7)' : 'rgba(255,255,255,0.1)'}`,
-              background: allPicked ? 'rgba(99,179,237,0.2)' : 'rgba(255,255,255,0.03)',
-              color: allPicked ? '#63b3ed' : '#4a5568',
+              border: `1px solid ${allPicked ? 'rgba(59,130,246,0.7)' : 'rgba(15,23,42,0.1)'}`,
+              background: allPicked ? 'rgba(59,130,246,0.1)' : 'rgba(15,23,42,0.03)',
+              color: allPicked ? '#3b82f6' : '#94a3b8',
               fontWeight: 700,
               fontSize: '0.95rem',
               cursor: allPicked && !loading ? 'pointer' : 'not-allowed',
@@ -285,8 +285,8 @@ export default function StoryGenerator() {
               width: 36,
               height: 36,
               borderRadius: '50%',
-              border: '3px solid rgba(255,255,255,0.1)',
-              borderTop: '3px solid #63b3ed',
+              border: '3px solid rgba(15,23,42,0.1)',
+              borderTop: '3px solid #3b82f6',
               animation: 'spin 0.8s linear infinite',
               margin: '0 auto 1rem',
             }}
@@ -309,7 +309,7 @@ export default function StoryGenerator() {
                   borderRadius: '6px',
                   padding: '0.2rem 0.55rem',
                   fontSize: '0.78rem',
-                  color: '#90cdf4',
+                  color: '#2563eb',
                 }}
               >
                 {part}
@@ -323,7 +323,7 @@ export default function StoryGenerator() {
             style={{
               lineHeight: 1.85,
               fontSize: '1rem',
-              color: 'rgba(255,255,255,0.88)',
+              color: 'rgba(15,23,42,0.88)',
               whiteSpace: 'pre-wrap',
               borderColor: 'rgba(99,179,237,0.2)',
             }}
@@ -341,9 +341,9 @@ export default function StoryGenerator() {
                 gap: '0.4rem',
                 padding: '0.5rem 1.1rem',
                 borderRadius: '6px',
-                border: '1px solid rgba(255,255,255,0.15)',
-                background: 'rgba(255,255,255,0.05)',
-                color: 'rgba(255,255,255,0.8)',
+                border: '1px solid rgba(15,23,42,0.15)',
+                background: 'rgba(15,23,42,0.04)',
+                color: 'rgba(15,23,42,0.7)',
                 fontWeight: 600,
                 fontSize: '0.88rem',
                 cursor: 'pointer',
@@ -359,9 +359,9 @@ export default function StoryGenerator() {
                 gap: '0.4rem',
                 padding: '0.5rem 1.1rem',
                 borderRadius: '6px',
-                border: '1px solid rgba(99,179,237,0.5)',
-                background: 'rgba(99,179,237,0.1)',
-                color: '#63b3ed',
+                border: '1px solid rgba(59,130,246,0.5)',
+                background: 'rgba(59,130,246,0.08)',
+                color: '#3b82f6',
                 fontWeight: 600,
                 fontSize: '0.88rem',
                 cursor: 'pointer',

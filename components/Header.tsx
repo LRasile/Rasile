@@ -3,7 +3,9 @@ import { BuyMeACoffee } from './BuyMeACoffee'
 import { useRouter } from 'next/router'
 import ScrollToTopButton from './ScrollToTopButton'
 import styles from '../styles/Header.module.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useTheme } from 'next-themes'
+import { FiSun, FiMoon } from 'react-icons/fi'
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -16,16 +18,9 @@ const navLinks = [
 const Header = (props) => {
   const router = useRouter()
   const [menuOpen, setMenuOpen] = useState(false)
-
-  if (router.pathname === '/') {
-    return (
-      <Head>
-        <title>Rasile Consulting</title>
-        <meta name="description" content="Rasile Consulting — end-to-end software delivery" />
-        <link rel="icon" href="/logos/favicon.ico" />
-      </Head>
-    )
-  }
+  const { resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
 
   return (
     <>
@@ -52,11 +47,23 @@ const Header = (props) => {
           ))}
         </div>
 
-        <button className={styles.burger} onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
-          <span className={`${styles.burgerLine} ${menuOpen ? styles.burgerOpen1 : ''}`} />
-          <span className={`${styles.burgerLine} ${menuOpen ? styles.burgerOpen2 : ''}`} />
-          <span className={`${styles.burgerLine} ${menuOpen ? styles.burgerOpen3 : ''}`} />
-        </button>
+        <div className={styles.navRight}>
+          {mounted && (
+            <button
+              className={styles.themeToggle}
+              onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+              aria-label="Toggle theme"
+            >
+              {resolvedTheme === 'dark' ? <FiSun size={16} /> : <FiMoon size={16} />}
+            </button>
+          )}
+
+          <button className={styles.burger} onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+            <span className={`${styles.burgerLine} ${menuOpen ? styles.burgerOpen1 : ''}`} />
+            <span className={`${styles.burgerLine} ${menuOpen ? styles.burgerOpen2 : ''}`} />
+            <span className={`${styles.burgerLine} ${menuOpen ? styles.burgerOpen3 : ''}`} />
+          </button>
+        </div>
       </nav>
 
       {menuOpen && (

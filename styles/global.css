@@ -11,9 +11,9 @@
 html {
   min-height: 100%;
   background:
-    radial-gradient(ellipse 60% 50% at 70% 40%, rgba(37, 99, 235, 0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(59, 130, 246, 0.07) 0%, transparent 70%),
-    linear-gradient(135deg, #0d1117, #161b27, #0d1928, #0f1623, #0d1117);
+    radial-gradient(ellipse 60% 50% at 70% 40%, rgba(37, 99, 235, 0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(59, 130, 246, 0.04) 0%, transparent 70%),
+    linear-gradient(135deg, #f8faff, #eef2ff, #f0f4ff, #f5f8ff, #f8faff);
   background-size: 100% 100%, 100% 100%, 400% 400%;
   background-attachment: fixed;
   animation: bgDrift 25s ease infinite;
@@ -21,13 +21,13 @@ html {
 
 body {
   background: transparent;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(15, 23, 42, 0.9);
 }
 
 input {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.9);
-  border: 1px solid #777;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgba(15, 23, 42, 0.9);
+  border: 1px solid #cbd5e1;
   border-radius: 4px;
   outline: transparent solid 2px;
   border-width: 1px;
@@ -143,7 +143,7 @@ h2 {
   font-weight: 800 !important;
   letter-spacing: -0.02em !important;
   line-height: 1.05 !important;
-  color: #fff !important;
+  color: #0f172a !important;
   margin-bottom: 1.5rem !important;
 }
 
@@ -157,7 +157,7 @@ h2 {
 .homeTagline {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(15, 23, 42, 0.5);
   max-width: 420px;
   margin-bottom: 0;
 }
@@ -169,7 +169,7 @@ h2 {
   padding: 4rem 8vw 4rem 3rem;
   position: relative;
   z-index: 1;
-  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  border-left: 1px solid rgba(15, 23, 42, 0.08);
 }
 
 .homeRightLabel {
@@ -177,7 +177,7 @@ h2 {
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(15, 23, 42, 0.35);
   margin-bottom: 2rem;
 }
 
@@ -197,12 +197,12 @@ h2 {
   font-size: 1.15rem;
   font-weight: 600;
   letter-spacing: 0.01em;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(15, 23, 42, 0.75);
   cursor: pointer;
   list-style-type: none;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.5);
   transition: all 0.25s ease;
 }
 
@@ -216,9 +216,9 @@ h2 {
 }
 
 .homeMenuItem:hover {
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(59, 130, 246, 0.08);
   border-color: rgba(59, 130, 246, 0.3);
-  color: #fff;
+  color: #0f172a;
   transform: translateX(4px);
 }
 
@@ -246,7 +246,7 @@ h2 {
   .homeRight {
     padding: 1.5rem 1.5rem 4rem;
     border-left: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
   }
 }
 
@@ -284,14 +284,14 @@ h2 {
 .pageSubtitle {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(15, 23, 42, 0.5);
   max-width: 620px;
   margin-bottom: 0;
 }
 
 .pageDivider {
   height: 1px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(15, 23, 42, 0.08);
   margin-bottom: 4rem;
 }
 
@@ -335,15 +335,15 @@ h2 {
 .tile {
   border-radius: 8px;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.06);
   transition: background 0.25s ease, box-shadow 0.25s ease;
   height: 100%;
 }
 
 .tile:hover {
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12), 0 2px 6px rgba(15, 23, 42, 0.08);
 }
 
 @media (max-width: 768px) {
@@ -368,8 +368,8 @@ h2 {
 .prototype-tile {
   text-align: center;
   cursor: pointer;
-  background: rgba(150, 150, 150, 0.1);
-  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 10px;
   min-height: 200px;
   min-width: 200px;
@@ -380,7 +380,7 @@ h2 {
 
 .tileDescription {
   font-size: 0.8rem;
-  color: #a0aec0;
+  color: #64748b;
   padding: 0 12px 12px;
   line-height: 1.4;
 }
@@ -471,8 +471,8 @@ h2 {
 .flex-item {
   margin: 10px;
   padding: 10px;
-  background: rgba(150, 150, 150, 0.1);
-  border: 0px solid rgba(150, 150, 150, 0.8);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(15, 23, 42, 0.08);
   flex-grow: 1;
   flex-basis: 0;
   flex-shrink: 0;
@@ -483,7 +483,7 @@ h2 {
 .flex-item-type {
   margin: 5px;
   padding: 5px;
-  background: rgba(150, 150, 150, 0.1);
+  background: rgba(255, 255, 255, 0.6);
   flex-grow: 1;
   flex-basis: 0;
   flex-shrink: 0;
@@ -506,10 +506,10 @@ h2 {
   outline: 1px solid;
 }
 .pokemon-link {
-  color: #fff;
+  color: #0f172a;
 }
 .pokemon-link:hover {
-  color: #eee;
+  color: #1e3a5f;
 }
 
 .pokemonTypeIcon {
@@ -636,8 +636,8 @@ h2 {
 .champRow {
   display: relative;
   cursor: pointer;
-  background: rgba(150, 150, 150, 0.1);
-  border: 0px solid rgba(150, 150, 150, 0.9);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(15, 23, 42, 0.08);
   margin-top: 10px;
   padding: 0px;
   border-radius: 6px;
@@ -742,7 +742,7 @@ h2 {
   font-variant-numeric: tabular-nums;
 }
 .colorTable tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.03);
 }
 
 .colorTable td,
@@ -751,17 +751,17 @@ h2 {
   line-height: 1.6;
 }
 .colorTable th {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.1);
 }
 
 .colorTableCard {
   max-width: 1000px;
   margin: 1.5rem auto;
   padding: 1rem;
-  background: rgba(150, 150, 150, 0.08);
-  border: 0px solid rgba(150, 150, 150, 0.4);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
   backdrop-filter: blur(6px);
 }
 
@@ -775,7 +775,7 @@ h2 {
   position: sticky;
   top: 0;
   z-index: 1;
-  background: #666;
+  background: #e2e8f0;
   backdrop-filter: blur(4px);
 }
 
@@ -833,18 +833,126 @@ h2 {
   width: 1.8rem;
   height: 1.8rem;
   border-radius: 6px;
-  border: 1px solid rgba(150, 150, 150, 0.4);
-  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  background: rgba(255, 255, 255, 0.6);
   color: inherit;
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .copyBtn:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .copyBtn.copied {
   background: rgba(100, 240, 180, 0.2);
   border-color: rgba(100, 240, 180, 0.6);
 }
+
+/*#region Dark mode overrides */
+
+html.dark {
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 40%, rgba(37, 99, 235, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 70%),
+    linear-gradient(135deg, #0f172a, #111827, #0f172a, #131e2f, #0f172a);
+  background-size: 100% 100%, 100% 100%, 400% 400%;
+  background-attachment: fixed;
+  animation: bgDrift 25s ease infinite;
+}
+
+html.dark body {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+html.dark input {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Page text */
+html.dark .pageSubtitle { color: rgba(255, 255, 255, 0.5) !important; }
+html.dark .homeTagline { color: rgba(255, 255, 255, 0.5) !important; }
+html.dark .homeRightLabel { color: rgba(255, 255, 255, 0.35) !important; }
+html.dark .homeLeft h1 { color: #fff !important; }
+
+/* Tiles & panels */
+html.dark .tile {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+html.dark .tile:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Inline-styled text inside tiles (About, Services, Projects) */
+html.dark .tile h2 { color: rgba(255, 255, 255, 0.9) !important; }
+html.dark .tile h4 { color: rgba(255, 255, 255, 0.9) !important; }
+html.dark .tile h5 { color: rgba(255, 255, 255, 0.9) !important; }
+html.dark .tile p { color: rgba(255, 255, 255, 0.5) !important; }
+
+/* Home menu items */
+html.dark .homeMenuItem {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+}
+html.dark .homeMenuItem:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #fff;
+}
+
+/* Prototype tiles */
+html.dark .prototype-tile {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+html.dark .prototype-tile:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+/* Jungle clears */
+html.dark .champRow {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+html.dark .champRow:hover { background: rgba(100, 180, 240, 0.12); }
+
+/* Flex items (Pokemon) */
+html.dark .flex-item {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+html.dark .flex-item-type { background: rgba(255, 255, 255, 0.04); }
+
+/* Color table */
+html.dark .colorTableCard {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+html.dark .colorTable tr:nth-child(even) { background: rgba(255, 255, 255, 0.03); }
+html.dark .colorTable th { border-bottom-color: rgba(255, 255, 255, 0.1); }
+html.dark .colorTable thead th { background: rgba(255, 255, 255, 0.08); }
+html.dark .colorRow:hover { background: rgba(100, 180, 240, 0.08); }
+html.dark .copyBtn {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+html.dark .copyBtn:hover { background: rgba(255, 255, 255, 0.1); }
+
+/* Page divider */
+html.dark .pageDivider { background: rgba(255, 255, 255, 0.08); }
+
+/* Home border */
+html.dark .homeRight { border-left-color: rgba(255, 255, 255, 0.08); }
+html.dark .homeRight { border-top-color: rgba(255, 255, 255, 0.08); }
+
+/* Founder bio text (About page) */
+html.dark .pageWrapper > div p[style] { color: rgba(255, 255, 255, 0.6) !important; }
+
+/*#endregion */
