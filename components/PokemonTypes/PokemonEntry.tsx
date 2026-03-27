@@ -1,13 +1,21 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { baseTypeArray, GetUrlName as GetUrlName, Pokemon, PokemonTypeEfficacy } from '../../lib/PokemonService'
 
 export interface PokemonEntryProps {
   pokemon: Pokemon
   typeEfficacy: PokemonTypeEfficacy[]
+  eager?: boolean
 }
 
-export default function PokemonEntry({ pokemon, typeEfficacy }: PokemonEntryProps) {
+export default function PokemonEntry({ pokemon, typeEfficacy, eager }: PokemonEntryProps) {
   const [imgLoaded, setImgLoaded] = useState(false)
+  const imgRef = useRef(null)
+
+  useEffect(() => {
+    if (imgRef.current?.complete) {
+      setImgLoaded(true)
+    }
+  }, [])
   let pokemonEfficacyArray = []
 
   baseTypeArray.map((type) => {
@@ -70,11 +78,12 @@ export default function PokemonEntry({ pokemon, typeEfficacy }: PokemonEntryProp
             </div>
           )}
           <img
+            ref={imgRef}
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
             alt=""
             width={64}
             height={64}
-            loading="lazy"
+            loading={eager ? 'eager' : 'lazy'}
             onLoad={() => setImgLoaded(true)}
             style={{ opacity: imgLoaded ? 1 : 0, transition: 'opacity 0.3s' }}
           />

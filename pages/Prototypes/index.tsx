@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router'
 
 const prototypes = [
-  { href: 'Prototypes/JungleClears', icon: '🌲', label: 'Jungle Clears', description: 'League of Legends jungle route planner pulled live from Google Sheets' },
   { href: 'Prototypes/PokemonEffectiveness', icon: null, label: 'Pokemon Effectiveness', description: 'Look up type matchups and damage multipliers for any Pokémon' },
+  { href: 'Prototypes/JungleClears', icon: '🌲', label: 'Jungle Clears', description: 'League of Legends jungle route planner pulled live from Google Sheets' },
   { href: 'Prototypes/LoopHeroSolver', icon: '🔁', label: 'Loop Hero', description: 'Tile placement helper and strategy guide for Loop Hero runs' },
   { href: 'Prototypes/CardsForBeats', icon: '🥁', label: 'Cards For Beats', description: 'Card-based game for generating beat patterns and rhythm ideas' },
   { href: 'Prototypes/Menu', icon: '🍝', label: 'Menu', description: 'Weekly meal planner and recipe browser for home cooking' },

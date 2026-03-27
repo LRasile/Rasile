@@ -9,6 +9,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
   const [data, setData] = useState(pokedex)
   const originalData = pokedex
   const [search, setSearch] = useState('')
+  const [showTypes, setShowTypes] = useState(false)
   const inputRef = useRef(null)
 
   useEffect(() => {
@@ -54,30 +55,42 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
     setSearch(event.target.value)
   }
 
+  const displayData = search ? data.slice(0, 150) : (pokedex ? pokedex.slice(0, 20) : [])
+
   return (
     <div className="panel" style={{ margin: '1rem' }}>
       <div className="col-12 p-md-2">
-        <h1 style={{ fontSize: '2.25rem' }}>Pokémon Search</h1>
-        <div style={{ margin: '1rem 0rem 0rem', textAlign: 'center' }}>
-          {baseTypeArray.map((t) => (
-            <div
-              key={t.Name}
-              style={{
-                padding: 0,
-                marginBottom: '.4rem',
-                display: 'inline-block',
-              }}
-            >
-              <button
-                onClick={() => setSearch(t.Search)}
-                className={`pokemonType${t.Name} pokemonTypeIcon`}
-                title={t.Name}
-              >
-                <PokemonType typeName={t.Name.toLocaleLowerCase()} />
-              </button>
-            </div>
-          ))}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
+          <h2 className="pokemon-title" style={{ margin: 0 }}>Pokémon Search</h2>
+          <button
+            onClick={() => setShowTypes((s) => !s)}
+            style={{ background: 'none', border: '1px solid #555', borderRadius: 6, padding: '0.3rem 0.75rem', color: '#ccc', cursor: 'pointer', fontSize: '0.85rem', whiteSpace: 'nowrap', margin: '0.5rem 0' }}
+          >
+            {showTypes ? 'Hide types' : 'Filter by type'}
+          </button>
         </div>
+        {showTypes && (
+          <div style={{ margin: '1rem 0rem 0rem', textAlign: 'center' }}>
+            {baseTypeArray.map((t) => (
+              <div
+                key={t.Name}
+                style={{
+                  padding: 0,
+                  marginBottom: '.4rem',
+                  display: 'inline-block',
+                }}
+              >
+                <button
+                  onClick={() => setSearch(t.Search)}
+                  className={`pokemonType${t.Name} pokemonTypeIcon`}
+                  title={t.Name}
+                >
+                  <PokemonType typeName={t.Name.toLocaleLowerCase()} />
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
         <div style={{ position: 'relative' }}>
           <FaSearch style={{ position: 'absolute', left: '0.5rem', top: '50%', transform: 'translateY(-50%)', fontSize: '1.5em', color: '#999' }} />
           <input
@@ -103,10 +116,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
         </div>
       </div>
       <div className="col-12 m-0 p-0">
-        {data &&
-          data
-            .slice(0, 150)
-            .map((pokemon) => <PokemonEntry pokemon={pokemon} typeEfficacy={typeEfficacy} key={pokemon.id} />)}
+        {displayData.map((pokemon) => <PokemonEntry pokemon={pokemon} typeEfficacy={typeEfficacy} key={pokemon.id} eager={!search} />)}
       </div>
     </div>
   )
@@ -154,6 +164,7 @@ export async function getStaticProps() {
       pokedex: parsePokemonGraphQL(result.data.pokemon_v2_pokemon),
       typeEfficacy: parseTypeEfficacy(result.data.pokemon_v2_typeefficacy),
     },
+    revalidate: 86400,
   }
 }
 
