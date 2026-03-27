@@ -22,8 +22,8 @@ export default function About() {
             { title: 'React & TypeScript', body: 'Modern, performant frontends and interactive web applications.' },
           ].map((item) => (
             <div key={item.title} className="tile">
-              <h2 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.75rem', color: '#fff' }}>{item.title}</h2>
-              <p style={{ fontSize: '0.9rem', lineHeight: 1.7, color: 'rgba(255,255,255,0.5)', margin: 0 }}>{item.body}</p>
+              <h2 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.75rem', color: '#0f172a' }}>{item.title}</h2>
+              <p style={{ fontSize: '0.9rem', lineHeight: 1.7, color: 'rgba(15,23,42,0.5)', margin: 0 }}>{item.body}</p>
             </div>
           ))}
         </div>
@@ -42,11 +42,11 @@ export default function About() {
           <div style={{ flex: 1, minWidth: '260px' }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.25rem' }}>Leonardo Rasile</h2>
             <p className="pageEyebrow" style={{ marginBottom: '1.5rem' }}>Founder & Lead Engineer</p>
-            <p style={{ fontSize: '0.95rem', lineHeight: 1.8, color: 'rgba(255,255,255,0.6)', marginBottom: '1rem' }}>
+            <p style={{ fontSize: '0.95rem', lineHeight: 1.8, color: 'rgba(15,23,42,0.6)', marginBottom: '1rem' }}>
               Leonardo has spent his career building software for organisations that demand reliability — from
               cloud-native platforms on Azure to high-performance APIs and data-driven frontends.
             </p>
-            <p style={{ fontSize: '0.95rem', lineHeight: 1.8, color: 'rgba(255,255,255,0.6)', marginBottom: '2rem' }}>
+            <p style={{ fontSize: '0.95rem', lineHeight: 1.8, color: 'rgba(15,23,42,0.6)', marginBottom: '2rem' }}>
               He founded Rasile Consulting to bring senior-level engineering expertise directly to clients, without
               the overhead and slowness of large agencies. The focus is always on pragmatic, well-crafted solutions
               that teams can actually own and maintain.

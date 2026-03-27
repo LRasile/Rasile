@@ -56,7 +56,7 @@ export default function Projects() {
                 <h4 style={{ margin: 0 }}>{p.title}</h4>
                 <span style={{ color: statusColour(p.status), fontSize: '0.82rem', fontWeight: 600 }}>● {p.status}</span>
               </div>
-              <p style={{ color: 'rgba(255,255,255,0.5)', margin: 0, fontSize: '0.95rem' }}>{p.description}</p>
+              <p style={{ color: 'rgba(15,23,42,0.5)', margin: 0, fontSize: '0.95rem' }}>{p.description}</p>
               <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', marginTop: 'auto' }}>
                 {p.tags.map((t) => (
                   <span key={t} style={tagStyle}>{t}</span>
@@ -72,7 +72,7 @@ export default function Projects() {
         ))}
 
         <div className="col-lg-6">
-          <div className="tile" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '0.5rem', color: 'rgba(255,255,255,0.25)', textAlign: 'center' }}>
+          <div className="tile" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '0.5rem', color: 'rgba(15,23,42,0.35)', textAlign: 'center' }}>
             <span style={{ fontSize: '2rem' }}>🔒</span>
             <p style={{ margin: 0 }}>Client work available on request</p>
             <a href="mailto:leonardo@rasile.co.uk" style={{ color: '#3b82f6', fontSize: '0.88rem' }}>Get in touch →</a>

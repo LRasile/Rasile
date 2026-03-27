@@ -49,7 +49,7 @@ export default function Services() {
             <div className="tile">
               <div style={{ fontSize: '1.75rem', marginBottom: '0.75rem' }}>{s.icon}</div>
               <h5 style={{ marginBottom: '0.4rem' }}>{s.title}</h5>
-              <p style={{ color: 'rgba(255,255,255,0.5)', margin: 0, fontSize: '0.9rem' }}>{s.description}</p>
+              <p style={{ color: 'rgba(15,23,42,0.5)', margin: 0, fontSize: '0.9rem' }}>{s.description}</p>
             </div>
           </div>
         ))}

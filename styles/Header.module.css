@@ -5,10 +5,10 @@
   justify-content: space-between;
   padding: 0 2.5rem;
   height: 56px;
-  background: rgba(13, 17, 23, 0.92);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
   position: sticky;
   top: 0;
   z-index: 200;
@@ -20,7 +20,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #fff;
+  color: #0f172a;
   cursor: pointer;
   user-select: none;
   white-space: nowrap;
@@ -47,7 +47,7 @@
   cursor: pointer;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(15, 23, 42, 0.45);
   padding: 6px 14px;
   border-radius: 6px;
   transition: color 0.2s ease, background 0.2s ease;
@@ -55,15 +55,42 @@
 }
 
 .link:hover {
-  color: rgba(255, 255, 255, 0.8);
-  background: rgba(255, 255, 255, 0.05);
+  color: rgba(15, 23, 42, 0.85);
+  background: rgba(15, 23, 42, 0.05);
 }
 
 .linkActive {
   color: #3b82f6 !important;
 }
 
-/* ─── Burger button (mobile only) ───────────────────────────── */
+/* ─── Right-side controls (toggle + burger) ──────────────────── */
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ─── Theme toggle ───────────────────────────────────────────── */
+.themeToggle {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 6px;
+  cursor: pointer;
+  color: rgba(15, 23, 42, 0.5);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.themeToggle:hover {
+  background: rgba(15, 23, 42, 0.05);
+  color: rgba(15, 23, 42, 0.8);
+}
+
+/* ─── Burger button ──────────────────────────────────────────── */
 .burger {
   display: none;
   flex-direction: column;
@@ -73,14 +100,14 @@
   border: none;
   cursor: pointer;
   padding: 4px;
-  color: #fff;
+  color: #0f172a;
 }
 
 .burgerLine {
   display: block;
   width: 22px;
   height: 2px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(15, 23, 42, 0.6);
   border-radius: 2px;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -93,8 +120,8 @@
 .mobileMenu {
   display: flex;
   flex-direction: column;
-  background: rgba(13, 17, 23, 0.98);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
   padding: 0.5rem 0;
   position: sticky;
   top: 56px;
@@ -105,20 +132,52 @@
   padding: 0.85rem 2rem;
   font-size: 0.75rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(15, 23, 42, 0.5);
   cursor: pointer;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
   transition: color 0.2s ease;
 }
 
 .mobileLink:last-of-type { border-bottom: none; }
 
-.mobileLink:hover { color: rgba(255, 255, 255, 0.85); }
+.mobileLink:hover { color: rgba(15, 23, 42, 0.9); }
 
 .mobileLinkActive {
   color: #3b82f6 !important;
+}
+
+/* ─── Dark mode ──────────────────────────────────────────────── */
+:global(html.dark) .nav {
+  background: rgba(15, 23, 42, 0.92);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+:global(html.dark) .wordmark { color: #fff; }
+
+:global(html.dark) .link { color: rgba(255, 255, 255, 0.45); }
+:global(html.dark) .link:hover {
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+:global(html.dark) .burgerLine { background: rgba(255, 255, 255, 0.7); }
+
+:global(html.dark) .mobileMenu {
+  background: rgba(15, 23, 42, 0.97);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+:global(html.dark) .mobileLink { color: rgba(255, 255, 255, 0.5); border-bottom-color: rgba(255, 255, 255, 0.06); }
+:global(html.dark) .mobileLink:hover { color: rgba(255, 255, 255, 0.9); }
+
+:global(html.dark) .themeToggle {
+  border-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.5);
+}
+:global(html.dark) .themeToggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* ─── Responsive breakpoint ──────────────────────────────────── */
