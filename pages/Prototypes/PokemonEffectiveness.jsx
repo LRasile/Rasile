@@ -64,7 +64,8 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
           <h2 className="pokemon-title" style={{ margin: 0 }}>Pokémon Search</h2>
           <button
             onClick={() => setShowTypes((s) => !s)}
-            style={{ background: 'none', border: '1px solid #555', borderRadius: 6, padding: '0.3rem 0.75rem', color: '#ccc', cursor: 'pointer', fontSize: '0.85rem', whiteSpace: 'nowrap', margin: '0.5rem 0' }}
+            className="filter-type-btn"
+            style={{ background: 'none', border: '1px solid #555', borderRadius: 6, padding: '0.3rem 0.75rem', cursor: 'pointer', fontSize: '0.85rem', whiteSpace: 'nowrap', margin: '0.5rem 0' }}
           >
             {showTypes ? 'Hide types' : 'Filter by type'}
           </button>

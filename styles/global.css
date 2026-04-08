@@ -506,10 +506,11 @@ h2 {
   outline: 1px solid;
 }
 .pokemon-link {
-  color: #0f172a;
+  color: #222;
 }
 .pokemon-link:hover {
-  color: #1e3a5f;
+  color: #555;
+  text-decoration: none;
 }
 
 .pokemonTypeIcon {
@@ -928,6 +929,9 @@ html.dark .flex-item {
   border-color: rgba(255, 255, 255, 0.08);
 }
 html.dark .flex-item-type { background: rgba(255, 255, 255, 0.04); }
+html.dark .pokemon-link { color: rgba(255, 255, 255, 0.5); }
+html.dark .pokemon-link:hover { color: rgba(255, 255, 255, 0.7); }
+html.dark .filter-type-btn { color: rgba(255, 255, 255, 0.8) !important; border-color: rgba(255, 255, 255, 0.25) !important; }
 
 /* Color table */
 html.dark .colorTableCard {
