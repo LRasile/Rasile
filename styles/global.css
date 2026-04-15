@@ -932,6 +932,86 @@ html.dark .flex-item-type { background: rgba(255, 255, 255, 0.04); }
 html.dark .pokemon-link { color: rgba(255, 255, 255, 0.5); }
 html.dark .pokemon-link:hover { color: rgba(255, 255, 255, 0.7); }
 html.dark .filter-type-btn { color: rgba(255, 255, 255, 0.8) !important; border-color: rgba(255, 255, 255, 0.25) !important; }
+.pokemon-dropdown-item:hover { background: rgba(0, 0, 0, 0.06); }
+html.dark .pokemon-dropdown-item:hover { background: rgba(255, 255, 255, 0.08); }
+
+/* Champions Team Builder */
+.ctb-card {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.ctb-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  color: inherit;
+  font-size: 0.9rem;
+}
+.ctb-select {
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  color: inherit;
+}
+.ctb-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  z-index: 20;
+  max-height: 240px;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.ctb-speed-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.82rem;
+}
+.ctb-analysis {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+}
+html.dark .ctb-card {
+  border-color: #2d3748;
+  background: #1a202c;
+  box-shadow: none;
+}
+html.dark .ctb-input {
+  background: #2d3748;
+  border-color: #4a5568;
+}
+html.dark .ctb-select {
+  background: #2d3748;
+  border-color: #4a5568;
+}
+html.dark .ctb-dropdown {
+  background: #2d3748;
+  border-color: #4a5568;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+html.dark .ctb-speed-pill {
+  background: #2d3748;
+}
+html.dark .ctb-analysis {
+  border-color: #2d3748;
+  background: #1a202c;
+}
 
 /* Color table */
 html.dark .colorTableCard {
