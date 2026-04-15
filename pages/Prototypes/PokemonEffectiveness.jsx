@@ -1,15 +1,16 @@
 import { FaSearch, FaTimes } from 'react-icons/fa'
 import React, { useEffect, useRef, useState } from 'react'
 import { ApolloClient, HttpLink, InMemoryCache, gql } from '@apollo/client'
-import { parsePokemonGraphQL, parseTypeEfficacy, Pokemon, baseTypeArray } from '../../lib/PokemonService'
+import { parsePokemonGraphQL, parseTypeEfficacy, Pokemon, baseTypeArray, isChampionsPokemon, getPokemonBuild } from '../../lib/PokemonService'
 import PokemonEntry from '../../components/PokemonTypes/PokemonEntry'
 import PokemonType from '../../components/PokemonTypes/PokemonTypes'
 
-export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
+export default function PokemonEffectiveness({ pokedex, typeEfficacy, pokemonBuilds }) {
   const [data, setData] = useState(pokedex)
   const originalData = pokedex
   const [search, setSearch] = useState('')
   const [showTypes, setShowTypes] = useState(false)
+  const [championsOnly, setChampionsOnly] = useState(true)
   const inputRef = useRef(null)
 
   useEffect(() => {
@@ -55,20 +56,46 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
     setSearch(event.target.value)
   }
 
-  const displayData = search ? data.slice(0, 150) : (pokedex ? pokedex.slice(0, 20) : [])
+  const filteredByChampions = championsOnly ? (search ? data : pokedex ?? []).filter((p) => isChampionsPokemon(p.name)) : null
+  const displayData = filteredByChampions
+    ? filteredByChampions.slice(0, 150)
+    : search
+    ? data.slice(0, 150)
+    : pokedex
+    ? pokedex.slice(0, 20)
+    : []
 
   return (
     <div className="panel" style={{ margin: '1rem' }}>
-      <div className="col-12 p-md-2">
+      <div className="col-12 p-md-2" style={{ width: '100%', boxSizing: 'border-box' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
           <h2 className="pokemon-title" style={{ margin: 0 }}>Pokémon Search</h2>
-          <button
-            onClick={() => setShowTypes((s) => !s)}
-            className="filter-type-btn"
-            style={{ background: 'none', border: '1px solid #555', borderRadius: 6, padding: '0.3rem 0.75rem', cursor: 'pointer', fontSize: '0.85rem', whiteSpace: 'nowrap', margin: '0.5rem 0' }}
-          >
-            {showTypes ? 'Hide types' : 'Filter by type'}
-          </button>
+          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+            <button
+              onClick={() => setShowTypes((s) => !s)}
+              className="filter-type-btn"
+              style={{ background: 'none', border: '1px solid #555', borderRadius: 6, padding: '0.3rem 0.75rem', cursor: 'pointer', fontSize: '0.85rem', whiteSpace: 'nowrap', margin: '0.5rem 0' }}
+            >
+              {showTypes ? 'Hide types' : 'Filter by type'}
+            </button>
+            <button
+              onClick={() => setChampionsOnly((s) => !s)}
+              style={{
+                background: championsOnly ? '#4a5568' : 'none',
+                border: '1px solid #555',
+                borderRadius: 6,
+                padding: '0.3rem 0.75rem',
+                cursor: 'pointer',
+                fontSize: '0.85rem',
+                whiteSpace: 'nowrap',
+                margin: '0.5rem 0',
+                color: championsOnly ? '#fff' : 'inherit',
+                fontWeight: championsOnly ? 'bold' : 'normal',
+              }}
+            >
+              {championsOnly ? 'Champions ✓' : 'Champions only'}
+            </button>
+          </div>
         </div>
         {showTypes && (
           <div style={{ margin: '1rem 0rem 0rem', textAlign: 'center' }}>
@@ -92,7 +119,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
             ))}
           </div>
         )}
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative', width: '100%', boxSizing: 'border-box' }}>
           <FaSearch style={{ position: 'absolute', left: '0.5rem', top: '50%', transform: 'translateY(-50%)', fontSize: '1.5em', color: '#999' }} />
           <input
             placeholder="Name or number, Rhydon or 112 or >906"
@@ -117,13 +144,28 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy }) {
         </div>
       </div>
       <div className="col-12 m-0 p-0">
-        {displayData.map((pokemon) => <PokemonEntry pokemon={pokemon} typeEfficacy={typeEfficacy} key={pokemon.id} eager={!search} />)}
+        {displayData.map((pokemon) => (
+          <PokemonEntry
+            pokemon={pokemon}
+            typeEfficacy={typeEfficacy}
+            build={getPokemonBuild(pokemon.name, pokemonBuilds)}
+            key={pokemon.id}
+            eager={!search}
+          />
+        ))}
       </div>
     </div>
   )
 }
 
 export async function getStaticProps() {
+  // eslint-disable-next-line no-undef
+  const fs = require('fs')
+  // eslint-disable-next-line no-undef
+  const path = require('path')
+  const buildsPath = path.join(process.cwd(), 'public', 'json', 'PokemonBuilds.json')
+  const pokemonBuilds = JSON.parse(fs.readFileSync(buildsPath, 'utf8'))
+
   const client = new ApolloClient({
     link: new HttpLink({ uri: 'https://beta.pokeapi.co/graphql/v1beta' }),
     cache: new InMemoryCache(),
@@ -143,6 +185,26 @@ export async function getStaticProps() {
                 name
               }
             }
+          }
+          pokemon_v2_pokemonabilities {
+            is_hidden
+            pokemon_v2_ability {
+              name
+              pokemon_v2_abilitynames(where: { language_id: { _eq: 9 } }) {
+                name
+              }
+              pokemon_v2_abilityflavortexts(
+                where: { language_id: { _eq: 9 } }
+                order_by: { version_group_id: desc }
+                limit: 1
+              ) {
+                flavor_text
+              }
+            }
+          }
+          pokemon_v2_pokemonstats {
+            base_stat
+            stat_id
           }
         }
         pokemon_v2_typeefficacy {
@@ -164,8 +226,9 @@ export async function getStaticProps() {
     props: {
       pokedex: parsePokemonGraphQL(result.data.pokemon_v2_pokemon),
       typeEfficacy: parseTypeEfficacy(result.data.pokemon_v2_typeefficacy),
+      pokemonBuilds,
     },
-    revalidate: 86400,
+    revalidate: 2592000,
   }
 }
 

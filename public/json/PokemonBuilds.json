@@ -1,0 +1,452 @@
+{
+  "incineroar": {
+    "moves": [
+      "Fake Out",
+      "Parting Shot",
+      "Flare Blitz",
+      "Throat Chop",
+      "Darkest Lariat",
+      "Protect"
+    ],
+    "items": [
+      "Sitrus Berry",
+      "Chople Berry"
+    ],
+    "ability": "Intimidate"
+  },
+  "sneasler": {
+    "moves": [
+      "Close Combat",
+      "Dire Claw",
+      "Fake Out",
+      "Protect",
+      "Coaching",
+      "Rock Tomb"
+    ],
+    "items": [
+      "White Herb",
+      "Focus Sash"
+    ],
+    "ability": "Unburden"
+  },
+  "garchomp": {
+    "moves": [
+      "Earthquake",
+      "Dragon Claw",
+      "Rock Slide",
+      "Protect",
+      "Stomping Tantrum",
+      "Swords Dance"
+    ],
+    "items": [
+      "Choice Scarf",
+      "White Herb"
+    ],
+    "ability": "Rough Skin"
+  },
+  "sinistcha": {
+    "moves": [
+      "Matcha Gotcha",
+      "Rage Powder",
+      "Trick Room",
+      "Life Dew",
+      "Strength Sap",
+      "Protect"
+    ],
+    "items": [
+      "Sitrus Berry",
+      "Leftovers"
+    ],
+    "ability": "Hospitality"
+  },
+  "kingambit": {
+    "moves": [
+      "Sucker Punch",
+      "Protect",
+      "Kowtow Cleave",
+      "Iron Head",
+      "Swords Dance",
+      "Low Kick"
+    ],
+    "items": [
+      "Black Glasses",
+      "Chople Berry"
+    ],
+    "ability": "Defiant"
+  },
+  "basculegion": {
+    "moves": [
+      "Last Respects",
+      "Wave Crash",
+      "Aqua Jet",
+      "Flip Turn",
+      "Protect",
+      "Liquidation"
+    ],
+    "items": [
+      "Choice Scarf",
+      "Mystic Water"
+    ],
+    "ability": "Adaptability"
+  },
+  "whimsicott": {
+    "moves": [
+      "Tailwind",
+      "Moonblast",
+      "Encore",
+      "Protect",
+      "Sunny Day",
+      "Fake Tears"
+    ],
+    "items": [
+      "Focus Sash",
+      "Mental Herb"
+    ],
+    "ability": "Prankster"
+  },
+  "charizard": {
+    "moves": [
+      "Protect",
+      "Heat Wave",
+      "Solar Beam",
+      "Weather Ball",
+      "Overheat",
+      "Air Slash"
+    ],
+    "items": [
+      "Charizardite Y",
+      "Charizardite X"
+    ],
+    "ability": "Blaze"
+  },
+  "floette-eternal-flower": {
+    "moves": [
+      "Protect",
+      "Calm Mind",
+      "Dazzling Gleam",
+      "Moonblast",
+      "Draining Kiss",
+      "Light of Ruin"
+    ],
+    "items": [
+      "Floettite",
+      "Choice Scarf"
+    ],
+    "ability": "Flower Veil"
+  },
+  "pelipper": {
+    "moves": [
+      "Hurricane",
+      "Weather Ball",
+      "Tailwind",
+      "Protect",
+      "Wide Guard",
+      "Muddy Water"
+    ],
+    "items": [
+      "Focus Sash",
+      "Choice Scarf"
+    ],
+    "ability": "Drizzle"
+  },
+  "rotom-wash-rotom": {
+    "moves": [
+      "Hydro Pump",
+      "Thunderbolt",
+      "Protect",
+      "Will-O-Wisp",
+      "Volt Switch",
+      "Electroweb"
+    ],
+    "items": [
+      "Sitrus Berry",
+      "Leftovers"
+    ],
+    "ability": "Levitate"
+  },
+  "tyranitar": {
+    "moves": [
+      "Rock Slide",
+      "Protect",
+      "Knock Off",
+      "Low Kick",
+      "Dragon Dance",
+      "Crunch"
+    ],
+    "items": [
+      "Tyranitarite",
+      "Choice Scarf"
+    ],
+    "ability": "Sand Stream"
+  },
+  "dragonite": {
+    "moves": [
+      "Protect",
+      "Hurricane",
+      "Draco Meteor",
+      "Extreme Speed",
+      "Tailwind",
+      "Dragon Pulse"
+    ],
+    "items": [
+      "Dragoninite",
+      "Lum Berry"
+    ],
+    "ability": "Multiscale"
+  },
+  "archaludon": {
+    "moves": [
+      "Electro Shot",
+      "Flash Cannon",
+      "Protect",
+      "Draco Meteor",
+      "Dragon Pulse",
+      "Aura Sphere"
+    ],
+    "items": [
+      "Leftovers",
+      "Magnet"
+    ],
+    "ability": "Stamina"
+  },
+  "gengar": {
+    "moves": [
+      "Shadow Ball",
+      "Protect",
+      "Sludge Bomb",
+      "Perish Song",
+      "Disable",
+      "Substitute"
+    ],
+    "items": [
+      "Gengarite",
+      "Focus Sash"
+    ],
+    "ability": "Cursed Body"
+  },
+  "farigiraf": {
+    "moves": [
+      "Trick Room",
+      "Hyper Voice",
+      "Psychic",
+      "Helping Hand",
+      "Protect",
+      "Imprison"
+    ],
+    "items": [
+      "Sitrus Berry",
+      "Mental Herb"
+    ],
+    "ability": "Armor Tail"
+  },
+  "venusaur": {
+    "moves": [
+      "Sludge Bomb",
+      "Protect",
+      "Sleep Powder",
+      "Leaf Storm",
+      "Energy Ball",
+      "Earth Power"
+    ],
+    "items": [
+      "Focus Sash",
+      "Venusaurite"
+    ],
+    "ability": "Chlorophyll"
+  },
+  "aerodactyl": {
+    "moves": [
+      "Rock Slide",
+      "Protect",
+      "Dual Wingbeat",
+      "Tailwind",
+      "Wide Guard",
+      "Iron Head"
+    ],
+    "items": [
+      "Focus Sash",
+      "Aerodactylite"
+    ],
+    "ability": "Unnerve"
+  },
+  "maushold": {
+    "moves": [
+      "Follow Me",
+      "Protect",
+      "Super Fang",
+      "Taunt",
+      "Helping Hand",
+      "Encore"
+    ],
+    "items": [
+      "Chople Berry",
+      "Focus Sash"
+    ],
+    "ability": "Friend Guard"
+  },
+  "froslass": {
+    "moves": [
+      "Blizzard",
+      "Protect",
+      "Shadow Ball",
+      "Aurora Veil",
+      "Nasty Plot",
+      "Thunderbolt"
+    ],
+    "items": [
+      "Froslassite",
+      "Focus Sash"
+    ],
+    "ability": "Snow Cloak"
+  },
+  "milotic": {
+    "moves": [
+      "Scald",
+      "Protect",
+      "Icy Wind",
+      "Ice Beam",
+      "Recover",
+      "Life Dew"
+    ],
+    "items": [
+      "Leftovers",
+      "Sitrus Berry"
+    ],
+    "ability": "Competitive"
+  },
+  "excadrill": {
+    "moves": [
+      "Protect",
+      "Iron Head",
+      "High Horsepower",
+      "Rock Slide",
+      "Earthquake",
+      "Swords Dance"
+    ],
+    "items": [
+      "Focus Sash",
+      "Excadrite"
+    ],
+    "ability": "Sand Rush"
+  },
+  "gardevoir": {
+    "moves": [
+      "Protect",
+      "Hyper Voice",
+      "Psychic",
+      "Moonblast",
+      "Psyshock",
+      "Trick Room"
+    ],
+    "items": [
+      "Gardevoirite",
+      "Choice Scarf"
+    ],
+    "ability": "Telepathy"
+  },
+  "corviknight": {
+    "moves": [
+      "Brave Bird",
+      "Tailwind",
+      "Body Press",
+      "Roost",
+      "Bulk Up",
+      "Iron Head"
+    ],
+    "items": [
+      "Leftovers",
+      "Occa Berry"
+    ],
+    "ability": "Mirror Armor"
+  },
+  "talonflame": {
+    "moves": [
+      "Tailwind",
+      "Protect",
+      "Flare Blitz",
+      "Brave Bird",
+      "Will-O-Wisp",
+      "Dual Wingbeat"
+    ],
+    "items": [
+      "Sharp Beak",
+      "Focus Sash"
+    ],
+    "ability": "Gale Wings"
+  },
+  "kommo-o": {
+    "moves": [
+      "Protect",
+      "Clanging Scales",
+      "Clangorous Soul",
+      "Aura Sphere",
+      "Body Press",
+      "Iron Defense"
+    ],
+    "items": [
+      "Leftovers",
+      "Dragon Fang"
+    ],
+    "ability": "Soundproof"
+  },
+  "primarina": {
+    "moves": [
+      "Hyper Voice",
+      "Moonblast",
+      "Protect",
+      "Calm Mind",
+      "Haze",
+      "Dazzling Gleam"
+    ],
+    "items": [
+      "Leftovers",
+      "Mystic Water"
+    ],
+    "ability": "Liquid Voice"
+  },
+  "delphox": {
+    "moves": [
+      "Heat Wave",
+      "Protect",
+      "Psychic",
+      "Substitute",
+      "Encore",
+      "Nasty Plot"
+    ],
+    "items": [
+      "Delphoxite",
+      "Sitrus Berry"
+    ],
+    "ability": "Blaze"
+  },
+  "palafin": {
+    "moves": [
+      "Jet Punch",
+      "Wave Crash",
+      "Protect",
+      "Close Combat",
+      "Flip Turn",
+      "Ice Punch"
+    ],
+    "items": [
+      "Mystic Water",
+      "Choice Scarf"
+    ],
+    "ability": "Zero to Hero"
+  },
+  "torkoal": {
+    "moves": [
+      "Eruption",
+      "Protect",
+      "Heat Wave",
+      "Earth Power",
+      "Weather Ball",
+      "Solar Beam"
+    ],
+    "items": [
+      "Charcoal",
+      "Leftovers"
+    ],
+    "ability": "Drought"
+  }
+}
