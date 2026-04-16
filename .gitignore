@@ -303,3 +303,7 @@ yarn-error.log*
 .claude/
 CLAUDE.md
 
+# Playwright
+playwright-report/
+test-results/
+
