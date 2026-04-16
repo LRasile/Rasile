@@ -299,3 +299,12 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Claude Code
+.claude/
+CLAUDE.md
+
+# Playwright
+playwright-report/
+test-results/
+
+package-lock.json

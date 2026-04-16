@@ -935,6 +935,43 @@ html.dark .filter-type-btn { color: rgba(255, 255, 255, 0.8) !important; border-
 .pokemon-dropdown-item:hover { background: rgba(0, 0, 0, 0.06); }
 html.dark .pokemon-dropdown-item:hover { background: rgba(255, 255, 255, 0.08); }
 
+.tag-input-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  background: rgba(255, 255, 255, 0.8);
+  cursor: text;
+  min-height: 2.8rem;
+}
+html.dark .tag-input-box {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.pokemon-dropdown-box {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-height: 240px;
+  overflow-y: auto;
+  margin-top: 2px;
+}
+html.dark .pokemon-dropdown-box {
+  background: #2d3748;
+  border-color: #4a5568;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
 /* Champions Team Builder */
 .ctb-card {
   border: 1px solid rgba(0, 0, 0, 0.1);

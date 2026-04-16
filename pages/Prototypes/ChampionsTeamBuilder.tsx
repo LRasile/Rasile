@@ -846,7 +846,7 @@ export async function getStaticProps() {
     cache: new InMemoryCache(),
   })
 
-  const championNameList = [...CHAMPIONS_NAMES]
+  const championNameList = Array.from(CHAMPIONS_NAMES)
 
   const result = await client.query({
     query: gql`
@@ -882,11 +882,11 @@ export async function getStaticProps() {
     variables: { names: championNameList },
   })
 
-  const champions: ChampionPokemon[] = result.data.pokemon_v2_pokemon
+  const champions: ChampionPokemon[] = (result.data as any).pokemon_v2_pokemon
     .filter((p) => isChampionsPokemon(p.name) && !p.name.includes('mega'))
     .map((p) => {
       const uniqueMoveKeys = new Set<string>(p.pokemon_v2_pokemonmoves.map((m) => m.pokemon_v2_move.name))
-      const learnableMoves = [...uniqueMoveKeys]
+      const learnableMoves = Array.from(uniqueMoveKeys)
         .map((key) => MOVE_POKEAPI_MAP.get(key))
         .filter((n): n is string => n !== undefined)
         .sort()
@@ -903,7 +903,7 @@ export async function getStaticProps() {
   return {
     props: {
       champions,
-      typeEfficacy: parseTypeEfficacy(result.data.pokemon_v2_typeefficacy),
+      typeEfficacy: parseTypeEfficacy((result.data as any).pokemon_v2_typeefficacy),
     },
     revalidate: 86400,
   }

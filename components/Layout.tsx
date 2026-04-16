@@ -10,7 +10,7 @@ export default function Layout({ children }) {
     <>
       {isDebug && <div style={{ backgroundColor: 'red', color: 'white', padding: '10px' }}>DEBUG MODE</div>}
       <Header />
-      <div className="container p-0">
+      <div className="container-fluid p-0">
         <main className={styles.main}>{children}</main>
         <Footer />
       </div>
