@@ -89,7 +89,7 @@ export const CHAMPIONS_NAMES = new Set([
   'crabominable', 'lycanroc', 'toxapex', 'mudsdale', 'araquanid', 'salazzle', 'tsareena',
   'oranguru', 'passimian', 'mimikyu', 'drampa', 'kommo-o', 'corviknight', 'flapple', 'appletun',
   'sandaconda', 'polteageist', 'hatterene', 'mr-rime', 'runerigus', 'alcremie', 'morpeko',
-  'dragapult', 'wyrdeer', 'kleavor', 'basculegion', 'sneasler', 'meowscarada', 'skeledirge',
+  'dragapult', 'wyrdeer', 'kleavor', 'basculegion', 'basculegion-male', 'basculegion-female', 'sneasler', 'meowscarada', 'skeledirge',
   'quaquaval', 'maushold', 'garganacl', 'armarouge', 'ceruledge', 'bellibolt', 'scovillain',
   'espathra', 'tinkaton', 'palafin', 'orthworm', 'glimmora', 'farigiraf', 'kingambit',
   'sinistcha', 'archaludon', 'hydrapple',
@@ -115,6 +115,17 @@ export function GetUrlName(pokemon: Pokemon) {
 
 export function capitalizedString(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+export function formatPokemonName(name: string): string {
+  const parts = name.split('-')
+  const megaIndex = parts.indexOf('mega')
+  if (megaIndex !== -1) {
+    const base = parts.slice(0, megaIndex).map(capitalizedString).join(' ')
+    const suffix = parts.slice(megaIndex + 1).map((s) => s.toUpperCase()).join(' ')
+    return `Mega ${base}${suffix ? ' ' + suffix : ''}`
+  }
+  return parts.map(capitalizedString).join(' ')
 }
 
 export interface PokemonTypeEfficacy {

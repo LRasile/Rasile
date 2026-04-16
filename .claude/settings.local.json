@@ -21,7 +21,12 @@
       "Bash(cd \"Z:/Code/Rasile\" && node scripts/debug-page.js 2>&1)",
       "Bash(cd \"Z:\\\\Code\\\\Rasile\" && npx playwright test --reporter=list 2>&1)",
       "Bash(cd \"Z:/Code/Rasile\" && npx tsc --noEmit --skipLibCheck 2>&1 | grep -E \"\\(PokemonEntry|PokemonEffectiveness|PokemonService\\)\" | head -20)",
-      "mcp__ide__getDiagnostics"
+      "mcp__ide__getDiagnostics",
+      "Edit(Z:\\Code\\Rasile\\**)",
+      "Write(Z:\\Code\\Rasile\\**)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(grep:*)"
     ]
   }
 }
