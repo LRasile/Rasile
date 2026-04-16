@@ -209,7 +209,9 @@ export async function getStaticProps() {
     cache: new InMemoryCache(),
   })
 
-  const championNameList = Array.from(CHAMPIONS_NAMES)
+  const baseNames = Array.from(CHAMPIONS_NAMES)
+  const megaVariants = baseNames.flatMap((n) => [`${n}-mega`, `${n}-mega-x`, `${n}-mega-y`])
+  const championNameList = [...baseNames, ...megaVariants]
 
   // https://beta.pokeapi.co/graphql/console/
   const result = await client.query({
