@@ -496,7 +496,7 @@ interface ChampionPokemon {
   name: string
   types: string[]
   speed: number
-  learnableMoves: string[]
+  learnableMoveIndices: number[]
 }
 
 interface TeamSlot {
@@ -700,8 +700,8 @@ export default function ChampionsTeamBuilder({
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.35rem' }}>
                       {slot.moves.map((move, mIdx) => {
                         const moveData = MOVES.find((m) => m.name === move)
-                        const learnableMoveData = slot.pokemon.learnableMoves
-                          .map((name) => MOVES.find((m) => m.name === name))
+                        const learnableMoveData = slot.pokemon.learnableMoveIndices
+                          .map((idx) => MOVES[idx])
                           .filter((m): m is typeof MOVES[0] => m !== undefined)
                         return (
                           <div key={mIdx} style={{ position: 'relative' }}>
@@ -886,16 +886,18 @@ export async function getStaticProps() {
     .filter((p) => isChampionsPokemon(p.name) && !p.name.includes('mega'))
     .map((p) => {
       const uniqueMoveKeys = new Set<string>(p.pokemon_v2_pokemonmoves.map((m) => m.pokemon_v2_move.name))
-      const learnableMoves = Array.from(uniqueMoveKeys)
+      const learnableMoveIndices = Array.from(uniqueMoveKeys)
         .map((key) => MOVE_POKEAPI_MAP.get(key))
         .filter((n): n is string => n !== undefined)
-        .sort()
+        .map((name) => MOVES.findIndex((m) => m.name === name))
+        .filter((i) => i !== -1)
+        .sort((a, b) => a - b)
       return {
         id: p.id,
         name: p.name,
         types: p.pokemon_v2_pokemontypes.map((t) => t.pokemon_v2_type.pokemon_v2_typenames[0]?.name ?? ''),
         speed: p.pokemon_v2_pokemonstats[0]?.base_stat ?? 0,
-        learnableMoves,
+        learnableMoveIndices,
       }
     })
     .sort((a, b) => a.id - b.id)

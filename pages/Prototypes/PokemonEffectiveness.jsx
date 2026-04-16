@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { ApolloClient, HttpLink, InMemoryCache, gql } from '@apollo/client'
-import { parsePokemonGraphQL, parseTypeEfficacy, baseTypeArray, isChampionsPokemon, getPokemonBuild, formatPokemonName } from '../../lib/PokemonService'
+import { parsePokemonGraphQL, parseTypeEfficacy, baseTypeArray, isChampionsPokemon, getPokemonBuild, formatPokemonName, CHAMPIONS_NAMES } from '../../lib/PokemonService'
 import PokemonEntry from '../../components/PokemonTypes/PokemonEntry'
 import PokemonType from '../../components/PokemonTypes/PokemonTypes'
 
@@ -209,11 +209,13 @@ export async function getStaticProps() {
     cache: new InMemoryCache(),
   })
 
+  const championNameList = Array.from(CHAMPIONS_NAMES)
+
   // https://beta.pokeapi.co/graphql/console/
   const result = await client.query({
     query: gql`
-      query samplePokeAPIquery {
-        pokemon_v2_pokemon {
+      query samplePokeAPIquery($names: [String!]!) {
+        pokemon_v2_pokemon(where: { name: { _in: $names } }) {
           id
           name
           pokemon_v2_pokemontypes {
@@ -258,11 +260,12 @@ export async function getStaticProps() {
         }
       }
     `,
+    variables: { names: championNameList },
   })
 
   return {
     props: {
-      pokedex: parsePokemonGraphQL(result.data.pokemon_v2_pokemon),
+      pokedex: parsePokemonGraphQL(result.data.pokemon_v2_pokemon).sort((a, b) => a.id - b.id),
       typeEfficacy: parseTypeEfficacy(result.data.pokemon_v2_typeefficacy),
       pokemonBuilds,
     },
