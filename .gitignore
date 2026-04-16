@@ -307,3 +307,4 @@ CLAUDE.md
 playwright-report/
 test-results/
 
+package-lock.json
