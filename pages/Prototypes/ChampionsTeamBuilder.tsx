@@ -846,7 +846,7 @@ export async function getStaticProps() {
     cache: new InMemoryCache(),
   })
 
-  const championNameList = [...CHAMPIONS_NAMES]
+  const championNameList = Array.from(CHAMPIONS_NAMES)
 
   const result = await client.query({
     query: gql`
