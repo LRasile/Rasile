@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import Head from 'next/head'
 
 const crops: Record<string, { emoji: string; name: string; color: string; bg: string; desc: string; tip: string }> = {
   tomatoes:      { emoji: '🍅', name: 'Tomatoes',       color: '#ff8a65', bg: '#2a1810', desc: 'Cordon, on bamboo runners',       tip: 'Pinch out side shoots weekly!' },
@@ -67,13 +66,6 @@ export default function VegPatch() {
 
   return (
     <>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-
       <div
         style={{
           display: 'flex',

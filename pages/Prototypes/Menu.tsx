@@ -1,5 +1,5 @@
 import { FaSearch } from 'react-icons/fa'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import RecipeCard from '../../components/Menu/RecipeCard'
 import { Recipe } from '../../lib/Recipe'
 
@@ -11,22 +11,20 @@ export interface MenuProps {
 export default function Menu({ recipes }: MenuProps) {
   const sortRecipeFunction = (a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0)
 
-  const [data, setData] = useState<Recipe[]>(recipes.sort(sortRecipeFunction))
-  const originalData: Recipe[] = recipes.sort(sortRecipeFunction)
+  const originalData = useMemo(() => [...recipes].sort(sortRecipeFunction), [recipes])
+  const [data, setData] = useState<Recipe[]>(originalData)
 
   const [search, setSearch] = useState('')
 
   useEffect(() => {
-    if (originalData) {
-      setData(
-        originalData.filter(
-          (item) =>
-            item.name.toLowerCase().search(search.toLowerCase()) != -1 ||
-            item.category.toLowerCase().search(search.toLowerCase()) != -1
-        )
+    setData(
+      originalData.filter(
+        (item) =>
+          item.name.toLowerCase().search(search.toLowerCase()) != -1 ||
+          item.category.toLowerCase().search(search.toLowerCase()) != -1
       )
-    }
-  }, [search])
+    )
+  }, [search, originalData])
 
   function handleChange(event) {
     setSearch(event.target.value)
@@ -45,7 +43,7 @@ export default function Menu({ recipes }: MenuProps) {
           <FaSearch style={{ position: 'absolute', right: '0.5rem', top: '50%', transform: 'translateY(-50%)', fontSize: '1.5em', color: '#999' }} />
         </div>
       </div>
-      <div className="col-12 m-0 p-0 row">{data && data.map((recipe) => <RecipeCard recipe={recipe} />)}</div>
+      <div className="col-12 m-0 p-0 row">{data && data.map((recipe) => <RecipeCard key={recipe.name} recipe={recipe} />)}</div>
     </div>
   )
 }

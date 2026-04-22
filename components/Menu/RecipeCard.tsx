@@ -9,17 +9,17 @@ export default function RecipeCard(props: RecipeCardProps) {
   const recipe = props.recipe
   const [isOpen, setIsOpen] = useState<Boolean>(false)
 
-  function Difficulty({ difficulty }): JSX.Element {
+  function Difficulty({ difficulty }) {
     return (
       <span title="Difficulty" style={{ fontSize: '1.5rem' }}>
-        {[...Array(difficulty)].map(() => {
-          return <span>🔪</span>
+        {[...Array(difficulty)].map((_, i) => {
+          return <span key={i}>🔪</span>
         })}
       </span>
     )
   }
 
-  function Category({ category }): JSX.Element {
+  function Category({ category }) {
     return (
       <span title={category} style={{ fontSize: '1.5rem' }}>
         {category == 'Pasta' && <span>🍝</span>}
@@ -33,7 +33,7 @@ export default function RecipeCard(props: RecipeCardProps) {
     )
   }
 
-  function RecipeContent({ recipe }): JSX.Element {
+  function RecipeContent(_props) {
     return (
       <div className="col-12" style={{ fontSize: '1' }}>
         Content
