@@ -91,7 +91,7 @@ export const CHAMPIONS_NAMES = new Set([
   'sandaconda', 'polteageist', 'hatterene', 'mr-rime', 'runerigus', 'alcremie', 'morpeko',
   'dragapult', 'wyrdeer', 'kleavor', 'basculegion', 'basculegion-male', 'basculegion-female', 'sneasler', 'meowscarada', 'skeledirge',
   'quaquaval', 'maushold', 'garganacl', 'armarouge', 'ceruledge', 'bellibolt', 'scovillain',
-  'espathra', 'tinkaton', 'palafin', 'orthworm', 'glimmora', 'farigiraf', 'kingambit',
+  'espathra', 'tinkaton', 'palafin', 'palafin-zero', 'palafin-hero', 'orthworm', 'glimmora', 'farigiraf', 'kingambit',
   'sinistcha', 'archaludon', 'hydrapple',
 ])
 
