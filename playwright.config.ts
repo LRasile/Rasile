@@ -15,6 +15,11 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
     {
+      name: 'pokemon',
+      testMatch: 'tests/pokemon.spec.ts',
+      use: { ...devices['Desktop Chrome'] },
+    },
+    {
       name: 'performance',
       testMatch: 'tests/performance.spec.ts',
       dependencies: ['pages'],

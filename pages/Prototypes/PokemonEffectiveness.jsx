@@ -34,7 +34,8 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy, pokemonBui
         if (tags.includes(p.name)) return false
         if (championsOnly && !isChampionsPokemon(p.name)) return false
         const lc = inputText.toLowerCase()
-        return p.name.includes(lc) || formatPokemonName(p.name).toLowerCase().includes(lc)
+        const idQuery = inputText.replace(/^#/, '').replace(/^0+/, '') || '0'
+        return p.name.includes(lc) || formatPokemonName(p.name).toLowerCase().includes(lc) || String(p.id).startsWith(idQuery)
       })
       .slice(0, 8)
     : []
@@ -196,6 +197,40 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy, pokemonBui
   )
 }
 
+// Champions megas introduced in Pokémon Champions — not yet in the GraphQL beta, fetched from REST
+const CHAMPIONS_NEW_MEGAS = [
+  'clefable-mega', 'victreebel-mega', 'starmie-mega', 'dragonite-mega',
+  'meganium-mega', 'feraligatr-mega', 'skarmory-mega', 'chimecho-mega',
+  'froslass-mega', 'emboar-mega', 'excadrill-mega', 'chandelure-mega',
+  'golurk-mega', 'chesnaught-mega', 'delphox-mega', 'greninja-mega',
+  'floette-mega', 'meowstic-mega', 'hawlucha-mega', 'crabominable-mega',
+  'drampa-mega', 'scovillain-mega', 'glimmora-mega',
+]
+
+function parseRestPokemon(data) {
+  const statNameMap = {
+    'hp': 'hp', 'attack': 'attack', 'defense': 'defense',
+    'special-attack': 'specialAttack', 'special-defense': 'specialDefense', 'speed': 'speed',
+  }
+  const stats = { hp: 0, attack: 0, defense: 0, specialAttack: 0, specialDefense: 0, speed: 0 }
+  data.stats.forEach((s) => {
+    const key = statNameMap[s.stat.name]
+    if (key) stats[key] = s.base_stat
+  })
+  const cap = (str) => str.charAt(0).toUpperCase() + str.slice(1)
+  return {
+    id: data.id,
+    name: data.name,
+    types: data.types.map((t) => cap(t.type.name)),
+    abilities: data.abilities.map((a) => ({
+      name: a.ability.name.split('-').map(cap).join(' '),
+      isHidden: a.is_hidden,
+      flavorText: '',
+    })),
+    stats,
+  }
+}
+
 export async function getStaticProps() {
   // eslint-disable-next-line no-undef
   const fs = require('fs')
@@ -209,15 +244,11 @@ export async function getStaticProps() {
     cache: new InMemoryCache(),
   })
 
-  const baseNames = Array.from(CHAMPIONS_NAMES)
-  const megaVariants = baseNames.flatMap((n) => [`${n}-mega`, `${n}-mega-x`, `${n}-mega-y`])
-  const championNameList = [...baseNames, ...megaVariants]
-
   // https://beta.pokeapi.co/graphql/console/
   const result = await client.query({
     query: gql`
-      query samplePokeAPIquery($names: [String!]!) {
-        pokemon_v2_pokemon(where: { name: { _in: $names } }) {
+      query samplePokeAPIquery {
+        pokemon_v2_pokemon {
           id
           name
           pokemon_v2_pokemontypes {
@@ -262,12 +293,31 @@ export async function getStaticProps() {
         }
       }
     `,
-    variables: { names: championNameList },
+  })
+
+  // Fetch new Champions megas from REST API — not yet in the GraphQL beta
+  const newMegas = await Promise.all(
+    CHAMPIONS_NEW_MEGAS.map((name) =>
+      fetch(`https://pokeapi.co/api/v2/pokemon/${name}`).then((r) => r.json()).then(parseRestPokemon)
+    )
+  )
+
+  // Sort by ID so lowest-ID entry (base form) is always kept when deduplicating
+  const allPokemon = [...parsePokemonGraphQL(result.data.pokemon_v2_pokemon), ...newMegas].sort((a, b) => a.id - b.id)
+
+  // Deduplicate forms with identical stats+types — keeps genuine variants (e.g. Palafin-Hero,
+  // Basculegion-Female) while discarding cosmetic-only forms (e.g. Pikachu cap variants)
+  const seen = new Set()
+  const pokedex = allPokemon.filter((p) => {
+    const key = [...p.types, p.stats.hp, p.stats.attack, p.stats.defense, p.stats.specialAttack, p.stats.specialDefense, p.stats.speed].join('-')
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
   })
 
   return {
     props: {
-      pokedex: parsePokemonGraphQL(result.data.pokemon_v2_pokemon).sort((a, b) => a.id - b.id),
+      pokedex,
       typeEfficacy: parseTypeEfficacy(result.data.pokemon_v2_typeefficacy),
       pokemonBuilds,
     },
