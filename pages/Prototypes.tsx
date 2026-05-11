@@ -25,8 +25,8 @@ const ChampionsLogo = () => (
 )
 
 const prototypes = [
-  { href: '/Prototypes/PokemonEffectiveness', icon: null, label: 'Pokemon Effectiveness', description: 'Look up type matchups and damage multipliers for any Pokémon' },
-  { href: '/Prototypes/ChampionsTeamBuilder', icon: <ChampionsLogo />, label: 'Champions Team Builder', description: 'Build a Pokémon Champions team — assign items and moves, analyse weaknesses and speeds' },
+  { href: '/Prototypes/PokemonEffectiveness', icon: null, label: 'Pokemon Effectiveness', description: 'Look up type match ups and damage multipliers for any Pokémon' },  
+  { href: '/Prototypes/LRLoading', icon: '🌈', label: 'Logo Loader', description: 'Animated rainbow gradient loading indicator using the Rasile logo' },
   { href: '/Prototypes/JungleClears', icon: '🌲', label: 'Jungle Clears', description: 'League of Legends jungle route planner pulled live from Google Sheets' },
   { href: '/Prototypes/LoopHeroSolver', icon: '🔁', label: 'Loop Hero', description: 'Tile placement helper and strategy guide for Loop Hero runs' },
   { href: '/Prototypes/CardsForBeats', icon: '🥁', label: 'Cards For Beats', description: 'Card-based game for generating beat patterns and rhythm ideas' },
@@ -34,10 +34,10 @@ const prototypes = [
   { href: '/Prototypes/Timezones', icon: '⏰', label: 'Timezones', description: 'Compare current times across multiple cities at a glance' },
   { href: '/Prototypes/HtmlColors', icon: '🎨', label: 'HTML Colors', description: 'Browse and search all named HTML/CSS colours with hex values' },
   { href: '/Prototypes/ContractionTimer', icon: '👶', label: 'Contraction Timer', description: 'Time and track contractions during labour with duration and frequency' },
-  { href: '/Prototypes/PhpMigration', icon: '🐘', label: 'PHP Gotchas', description: 'Common PHP pitfalls and migration gotchas for .NET developers' },
   { href: '/Prototypes/StoryGenerator', icon: '📖', label: 'Story Generator', description: 'Build a bedtime story one choice at a time — hero, world, quest and more' },
   { href: '/Prototypes/Sourdough', icon: '🍞', label: 'Sourdough Guide', description: 'Complete guide to sourdough — starter care, feeding schedule, and baking a loaf' },
   { href: '/Prototypes/VegPatch', icon: '🥦', label: 'Veg Patch', description: 'Plan and track your vegetable garden beds' },
+  { href: '/Prototypes/PhpMigration', icon: '🐘', label: 'PHP Gotchas', description: 'Common PHP pitfalls and migration gotchas for .NET developers' },
 ]
 
 export default function Prototypes() {
