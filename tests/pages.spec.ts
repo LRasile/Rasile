@@ -38,9 +38,9 @@ test('prototypes index renders', async ({ page }) => {
 
 // --- Prototypes ---
 
-test('Pokemon Effectiveness renders', async ({ page }) => {
-  await page.goto('/Prototypes/PokemonEffectiveness', { timeout: 60000 })
-  await expect(page.locator('text=Pokémon Search')).toBeVisible({ timeout: 30000 })
+test('Pokédex renders', async ({ page }) => {
+  await page.goto('/Prototypes/Pokedex', { timeout: 60000 })
+  await expect(page.locator('text=Pokédex')).toBeVisible({ timeout: 30000 })
 })
 
 test('Jungle Clears renders', async ({ page }) => {

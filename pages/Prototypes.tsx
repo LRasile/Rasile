@@ -25,7 +25,7 @@ const ChampionsLogo = () => (
 )
 
 const prototypes = [
-  { href: '/Prototypes/PokemonEffectiveness', icon: null, label: 'Pokemon Effectiveness', description: 'Look up type match ups and damage multipliers for any Pokémon' },  
+  { href: '/Prototypes/Pokedex', icon: null, label: 'Pokédex', description: 'Look up type match ups and damage multipliers for any Pokémon' },  
   { href: '/Prototypes/LRLoading', icon: '🌈', label: 'Logo Loader', description: 'Animated rainbow gradient loading indicator using the Rasile logo' },
   { href: '/Prototypes/JungleClears', icon: '🌲', label: 'Jungle Clears', description: 'League of Legends jungle route planner pulled live from Google Sheets' },
   { href: '/Prototypes/LoopHeroSolver', icon: '🔁', label: 'Loop Hero', description: 'Tile placement helper and strategy guide for Loop Hero runs' },

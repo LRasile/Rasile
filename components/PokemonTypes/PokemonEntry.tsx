@@ -3,6 +3,7 @@ import { GiSwordman } from 'react-icons/gi'
 import {
   baseTypeArray,
   GetUrlName as GetUrlName,
+  getChampionsSprite,
   Pokemon,
   PokemonBuild,
   PokemonTypeEfficacy,
@@ -70,7 +71,7 @@ export default function PokemonEntry({ pokemon, typeEfficacy, build, eager }: Po
           position: 'relative',
         }}
       >
-        <div style={{ width: 64, height: 64, position: 'relative' }}>
+        <div style={{ width: 48, height: 48, position: 'relative' }}>
           {!imgLoaded && (
             <div
               style={{
@@ -95,10 +96,10 @@ export default function PokemonEntry({ pokemon, typeEfficacy, build, eager }: Po
           )}
           <img
             ref={imgRef}
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
+            src={getChampionsSprite(pokemon.name, pokemon.id)}
             alt=""
-            width={64}
-            height={64}
+            width={48}
+            height={48}
             loading={eager ? 'eager' : 'lazy'}
             onLoad={() => setImgLoaded(true)}
             style={{ opacity: imgLoaded ? 1 : 0, transition: 'opacity 0.3s' }}

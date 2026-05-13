@@ -53,7 +53,7 @@ pages/
   Blog.tsx                     # Blog listing
   Blog/                        # Individual blog posts
   Prototypes/                  # Interactive tools
-    PokemonEffectiveness.jsx   # Type calculator (GraphQL / PokéAPI)
+    Pokedex.jsx                # Type calculator (GraphQL / PokéAPI)
     JungleClears.tsx           # LoL jungle route planner (Google Sheets)
     Menu.tsx                   # Recipe tool
     ...
