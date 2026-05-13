@@ -97,7 +97,7 @@ test.describe('Pokémon Effectiveness — search', () => {
 
       // Wait for the image to finish loading (naturalWidth > 0 means it loaded successfully)
       await expect.poll(
-        () => img.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0),
+        () => img.evaluate((el) => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0),
         { message: `Image for Mega ${base} did not load`, timeout: 8000 }
       ).toBe(true)
 
