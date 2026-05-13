@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ApolloClient, HttpLink, InMemoryCache, gql } from '@apollo/client'
-import { parsePokemonGraphQL, parseTypeEfficacy, baseTypeArray, isChampionsPokemon, getPokemonBuild, formatPokemonName, getChampionsSprite, CHAMPIONS_NAMES } from '../../lib/PokemonService'
+import { parsePokemonGraphQL, parseTypeEfficacy, baseTypeArray, isChampionsPokemon, getPokemonBuild, formatPokemonName, getChampionsSprite } from '../../lib/PokemonService'
 import PokemonEntry from '../../components/PokemonTypes/PokemonEntry'
 import PokemonType from '../../components/PokemonTypes/PokemonTypes'
 

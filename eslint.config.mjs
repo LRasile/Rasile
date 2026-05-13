@@ -43,6 +43,7 @@ export default [
       'no-duplicate-case': 'error',
       'no-unreachable': 'warn',
       'no-unused-vars': 'warn',
+      'react/jsx-uses-vars': 'error',
       'react/jsx-no-duplicate-props': 'error',
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
