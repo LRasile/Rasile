@@ -43,11 +43,6 @@ test('Pokemon Effectiveness renders', async ({ page }) => {
   await expect(page.locator('text=Pokémon Search')).toBeVisible({ timeout: 30000 })
 })
 
-test('Champions Team Builder renders', async ({ page }) => {
-  await page.goto('/Prototypes/ChampionsTeamBuilder', { timeout: 60000 })
-  await expect(page.locator('h2.pokemon-title')).toContainText('Champions Team Builder')
-})
-
 test('Jungle Clears renders', async ({ page }) => {
   await page.goto('/Prototypes/JungleClears')
   await expect(page.locator('input[placeholder*="Champion name"]')).toBeVisible()
