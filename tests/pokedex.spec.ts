@@ -12,8 +12,8 @@ const championsToTest = Array.from(CHAMPIONS_NAMES).filter((name) => {
 
 test.describe('Pokémon Effectiveness — search', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/Prototypes/PokemonEffectiveness', { timeout: 60000 })
-    await expect(page.locator('text=Pokémon Search')).toBeVisible({ timeout: 30000 })
+    await page.goto('/Prototypes/Pokedex', { timeout: 60000 })
+    await expect(page.locator('text=Pokédex')).toBeVisible({ timeout: 30000 })
   })
 
   // --- Champions mode ---
@@ -74,6 +74,69 @@ test.describe('Pokémon Effectiveness — search', () => {
     await expect(page.locator('.pokemon-dropdown-box')).toContainText('Palafin')
   })
 
+  // --- Image loading ---
+
+  test('all Champions-exclusive mega Pokémon images load without error', async ({ page }) => {
+    // All 23 Champions-exclusive megas — sprites served from local /images/champions/
+    const newMegaBases = [
+      'clefable', 'victreebel', 'starmie', 'dragonite', 'meganium', 'feraligatr',
+      'skarmory', 'chimecho', 'froslass', 'emboar', 'excadrill', 'chandelure',
+      'golurk', 'chesnaught', 'delphox', 'greninja', 'floette', 'meowstic',
+      'hawlucha', 'crabominable', 'drampa', 'scovillain', 'glimmora',
+    ]
+    const input = page.locator('.tag-input-box input')
+
+    for (const base of newMegaBases) {
+      await input.fill(`mega ${base}`)
+      const item = page.locator('.pokemon-dropdown-item').first()
+      await expect(item).toBeVisible({ timeout: 5000 })
+      await item.click()
+
+      const entry = page.locator('.flex-item').last()
+      const img = entry.locator('img').first()
+
+      // Wait for the image to finish loading (naturalWidth > 0 means it loaded successfully)
+      await expect.poll(
+        // eslint-disable-next-line no-undef
+        () => img.evaluate((el) => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0),
+        { message: `Image for Mega ${base} did not load`, timeout: 8000 }
+      ).toBe(true)
+
+      await page.locator('.tag-input-box button').last().click()
+    }
+  })
+
+  // --- Regional variants ---
+
+  test('regional variants of champions Pokémon are findable in the search dropdown', async ({ page }) => {
+    const regionalForms: [search: string, display: string][] = [
+      ['raichu-alola', 'Raichu Alola'],
+      ['ninetales-alola', 'Ninetales Alola'],
+      ['arcanine-hisui', 'Arcanine Hisui'],
+      ['slowbro-galar', 'Slowbro Galar'],
+      ['slowking-galar', 'Slowking Galar'],
+      ['tauros-paldea-combat', 'Tauros Paldea Combat'],
+      ['typhlosion-hisui', 'Typhlosion Hisui'],
+      ['samurott-hisui', 'Samurott Hisui'],
+      ['zoroark-hisui', 'Zoroark Hisui'],
+      ['stunfisk-galar', 'Stunfisk Galar'],
+      ['goodra-hisui', 'Goodra Hisui'],
+      ['avalugg-hisui', 'Avalugg Hisui'],
+      ['decidueye-hisui', 'Decidueye Hisui'],
+    ]
+    const input = page.locator('.tag-input-box input')
+    const dropdown = page.locator('.pokemon-dropdown-box')
+
+    for (const [search, display] of regionalForms) {
+      await input.fill(search)
+      await expect(dropdown).toContainText(display, { timeout: 5000 }).catch(() => {
+        throw new Error(`Regional form "${search}" (display: "${display}") not found in search dropdown`)
+      })
+      await input.fill('')
+      await dropdown.waitFor({ state: 'hidden', timeout: 2000 }).catch(() => {})
+    }
+  })
+
   // --- Comprehensive champions list ---
 
   test('all champions Pokémon are findable in the search dropdown', async ({ page }) => {
@@ -85,7 +148,7 @@ test.describe('Pokémon Effectiveness — search', () => {
 
       await input.fill(name)
 
-      await expect(dropdown.getByText(displayName, { exact: false })).toBeVisible({ timeout: 5000 }).catch(() => {
+      await expect(dropdown).toContainText(displayName, { timeout: 5000 }).catch(() => {
         throw new Error(`Champion "${name}" (display: "${displayName}") not found in search dropdown`)
       })
 

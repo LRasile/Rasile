@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ApolloClient, HttpLink, InMemoryCache, gql } from '@apollo/client'
-import { parsePokemonGraphQL, parseTypeEfficacy, baseTypeArray, isChampionsPokemon, getPokemonBuild, formatPokemonName, CHAMPIONS_NAMES } from '../../lib/PokemonService'
+import { parsePokemonGraphQL, parseTypeEfficacy, baseTypeArray, isChampionsPokemon, getPokemonBuild, formatPokemonName, getChampionsSprite } from '../../lib/PokemonService'
 import PokemonEntry from '../../components/PokemonTypes/PokemonEntry'
 import PokemonType from '../../components/PokemonTypes/PokemonTypes'
 
@@ -78,7 +78,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy, pokemonBui
     <div className="panel" style={{ margin: '-1rem', marginTop:'-3.5rem' }}>
       <div className="col-12 p-md-2" style={{ width: '100%', boxSizing: 'border-box' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
-          <h2 className="pokemon-title" style={{ margin: 0 }}>Pokémon Search</h2>
+          <h2 className="pokemon-title" style={{ margin: 0 }}>Pokédex</h2>
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
             <button
               onClick={() => setShowTypes((s) => !s)}
@@ -169,7 +169,7 @@ export default function PokemonEffectiveness({ pokedex, typeEfficacy, pokemonBui
                   }}
                 >
                   <img
-                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`}
+                    src={getChampionsSprite(p.name, p.id)}
                     alt=""
                     width={32}
                     height={32}

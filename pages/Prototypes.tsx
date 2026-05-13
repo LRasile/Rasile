@@ -1,31 +1,9 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 
-const ChampionsLogo = () => (
-  <svg width="110" height="122" viewBox="0 0 110 122" xmlns="http://www.w3.org/2000/svg">
-    {/* Crown */}
-    <polygon points="18,58 18,36 33,48 55,20 77,48 92,36 92,58" fill="#FFD700" stroke="#B8860B" strokeWidth="2" strokeLinejoin="round" />
-    {/* Crown gems */}
-    <circle cx="55" cy="23" r="4.5" fill="#FF3333" />
-    <circle cx="20.5" cy="39" r="3.5" fill="#3399FF" />
-    <circle cx="89.5" cy="39" r="3.5" fill="#44CC44" />
-    {/* Pokeball upper half (red) */}
-    <path d="M18,90 A37,37 0 0 1 92,90 Z" fill="#E74C3C" />
-    {/* Pokeball lower half (white) */}
-    <path d="M18,90 A37,37 0 0 0 92,90 Z" fill="#F8F8F8" />
-    {/* Pokeball outline */}
-    <circle cx="55" cy="90" r="37" fill="none" stroke="#333" strokeWidth="2.5" />
-    {/* Dividing line */}
-    <line x1="18" y1="90" x2="92" y2="90" stroke="#333" strokeWidth="2.5" />
-    {/* Center button ring */}
-    <circle cx="55" cy="90" r="11" fill="white" stroke="#333" strokeWidth="2.5" />
-    {/* Center button dot */}
-    <circle cx="55" cy="90" r="5" fill="#444" />
-  </svg>
-)
 
 const prototypes = [
-  { href: '/Prototypes/PokemonEffectiveness', icon: null, label: 'Pokemon Effectiveness', description: 'Look up type match ups and damage multipliers for any Pokémon' },  
+  { href: '/Prototypes/Pokedex', icon: null, label: 'Pokédex', description: 'Look up type match ups and damage multipliers for any Pokémon' },  
   { href: '/Prototypes/LRLoading', icon: '🌈', label: 'Logo Loader', description: 'Animated rainbow gradient loading indicator using the Rasile logo' },
   { href: '/Prototypes/JungleClears', icon: '🌲', label: 'Jungle Clears', description: 'League of Legends jungle route planner pulled live from Google Sheets' },
   { href: '/Prototypes/LoopHeroSolver', icon: '🔁', label: 'Loop Hero', description: 'Tile placement helper and strategy guide for Loop Hero runs' },
