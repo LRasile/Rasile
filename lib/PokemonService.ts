@@ -129,9 +129,19 @@ const CHAMPIONS_SPRITE_MAP: Record<string, string> = {
   'palafin-hero': '964-h.png',
   'raichu-alola': '026-a.png', 'ninetales-alola': '038-a.png', 'arcanine-hisui': '059-h.png',
   'slowbro-galar': '080-g.png', 'tauros-paldea-combat': '128-p.png',
+  'tauros-paldea-blaze': '128-pb.png', 'tauros-paldea-aqua': '128-pa.png',
   'typhlosion-hisui': '157-h.png', 'samurott-hisui': '503-h.png', 'zoroark-hisui': '571-h.png',
   'stunfisk-galar': '618-g.png', 'goodra-hisui': '706-h.png', 'avalugg-hisui': '713-h.png',
   'decidueye-hisui': '724-h.png', 'slowking-galar': '199-g.png',
+  // Alternate forms
+  'aegislash-blade': '681-b.png',
+  'rotom-heat': '479-h.png', 'rotom-wash': '479-w.png', 'rotom-frost': '479-f.png',
+  'rotom-fan': '479-s.png', 'rotom-mow': '479-m.png',
+  'castform-sunny': '351-s.png', 'castform-rainy': '351-r.png', 'castform-snowy': '351-i.png',
+  'morpeko-hangry': '877-h.png',
+  'lycanroc-midnight': '745-m.png', 'lycanroc-dusk': '745-d.png',
+  'basculegion-male': '902-m.png',
+  'floette-eternal': '670-e.png',
 }
 
 export function getChampionsSprite(name: string, id: number): string {
