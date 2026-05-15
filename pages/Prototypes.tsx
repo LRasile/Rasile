@@ -3,7 +3,8 @@ import { useRouter } from 'next/router'
 
 
 const prototypes = [
-  { href: '/Prototypes/Pokedex', icon: null, label: 'Pokédex', description: 'Look up type match ups and damage multipliers for any Pokémon' },  
+  { href: '/Prototypes/Pokedex', icon: null, label: 'Pokédex', description: 'Look up type match ups and damage multipliers for any Pokémon' },
+  { href: '/Prototypes/SearchSelector', icon: '🔍', label: 'Search Selector', description: 'Searchable dropdown component that filters a string array as you type, bindable to forms' },
   { href: '/Prototypes/LRLoading', icon: '🌈', label: 'Logo Loader', description: 'Animated rainbow gradient loading indicator using the Rasile logo' },
   { href: '/Prototypes/JungleClears', icon: '🌲', label: 'Jungle Clears', description: 'League of Legends jungle route planner pulled live from Google Sheets' },
   { href: '/Prototypes/LoopHeroSolver', icon: '🔁', label: 'Loop Hero', description: 'Tile placement helper and strategy guide for Loop Hero runs' },
